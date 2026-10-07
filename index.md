@@ -1,7 +1,7 @@
 --- 
 title: "LEC Biostats"
 author: "Marta Shocket"
-date: "2026-10-06"
+date: "2026-10-07"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
