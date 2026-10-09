@@ -23,7 +23,7 @@ pre code {
   box-shadow: 0 .5rem 1rem rgba(0,0,0,0);
 }
 
-.rmdnote, .rmdcaution, .rmdimportant, .rmdtip, .rmdwarning {
+.rmdnote, .rmdcaution, .rmdimportant, .rmdtip, .rmdwarning, .rmdquestion, .rmddanger {
   border-radius: 1rem;
 }
 
@@ -40,7 +40,22 @@ pre code {
   background: color-mix(in srgb, var(--warning) 10%, transparent);
 }
 .rmdtip {
+  background: color-mix(in srgb, var(--success) 10%, transparent);
+  border-color:var(--success);
+}
+
+.rmdquestion {
+  margin: 1rem calc(-2px - 0.5em);
+  padding: 1rem;
+  border: 2px solid var(--info);
   background: color-mix(in srgb, var(--info) 10%, transparent);
+}
+
+.rmddanger {
+  margin: 1rem calc(-2px - 0.5em);
+  padding: 1rem;
+  border: 2px solid var(--danger);
+  background: color-mix(in srgb, var(--danger) 10%, transparent);
 }
 
 .rmdnote b, .rmdnote strong {
@@ -55,12 +70,24 @@ pre code {
   color: var(--danger);
 }
 
+.rmddanger b, .rmddanger strong {
+  color: var(--danger);
+}
+
 .rmdwarning b, .rmdwarning strong {
   color: #ff8107;
 }
 
 .rmdtip b, .rmdtip strong {
+  color: var(--success);
+}
+
+.rmdquestion b, .rmdquestion strong {
   color: var(--info);
+}
+
+.rmddanger > :last-child, .rmdquestion > :last-child {
+  margin-bottom: 0;
 }
 
 #book-edit {

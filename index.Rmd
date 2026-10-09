@@ -1,5 +1,5 @@
 --- 
-title: "LEC Biostats"
+title: "Statistics Practicals for LECX5141 - Biological Research Design and Delivery"
 author: "Marta Shocket"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -8,49 +8,109 @@ bibliography: [book.bib, packages.bib]
 # url: your book url like https://pkg.yihui.org/bookdown
 # cover-image: path to the social sharing image like images/cover.jpg
 description: |
-  This workbook contains the practical exercises for the module LECX4101 
-  Foundation Skills for LEC.
+  This workbook contains the statistical training exercises for LECX5141 Biological Research Design and Delivery.
 biblio-style: apalike
 csl: chicago-fullnote-bibliography.csl
 ---
 
 # About {-}
 
-> This workbook contains the practical exercises for **SOMETHING**.
+> This workbook contains the statistical analysis practical exercises for LECX5141 Biological Research Design and Delivery.
 
-These exercises will help you learn the skills that you will need to complete both pieces of coursework for the module. 
+These exercises will:
+
+- Teach the data analysis skills that you need to complete the module coursework.
+- Introduce data visualisation and statistical analysis in R.
+- Help you prepare and practice for your dissertation in Year 3.
 
 ## Learning objectives for the practicals {-}
 
-After completing all ten practical exercises, you should be able to:
+After completing the six practical exercises, you should be able to:
 
-1. 
+1. Choose an appropriate statistical test based on a research question and the characteristics of a dataset.
+2. Use R and RStudio to wrangle data, calculate descriptive statistics, conduct statistical tests, and create a variety of figures (e.g. box plots, histograms, bar plots, and scatter plots).
+3. Explain the importance of conducting data analyses in a transparent and reproducible manner.
 
 ## Schedule {-}
 
+|Week|Topic|
+|--|------|
+|1|Introduction to R/RStudio and the tidyverse; descriptive statistics|
+|2|Hypothesis testing; Normality; writing functions|
+|3|Comparing sample means I (parametric)|
+|4|Comparing sample means II (non-parametric)|
+|5|Relationships between variables|
+|6|Comparing sample means III (>2 samples)|
 
-## Questions, cautions, warnings, and tips {-}
+## What are R and RStudio? {-} 
+
+**R** is a free, open-source programming language designed for statistical computing and graphics. It is the most commonly used tool for statistical analysis in ecology and the preferred tool in biology.
+
+**RStudio** is a free, open-source integrated development environment (IDE) that makes coding in R much easier.
+
+A metaphor that you may find useful:
+
+> R is the engine that drives the wheels of the car, but RStudio is what you interact with to control it: the steering wheel, the seat, the gear box, and the pedals. 
+
+## Why use R and RStudio? {-}
+
+- The ability to use R (and having coding skills more generally) are highly sought after skills that will make you much more competitive when you apply to jobs.
+- R and RStudio are both free and open-source. This means you'll be able to keep using them after you leave Lancaster University.
+- R uses scripts of code (i.e. instructions) to perform analyses instead of pointing and clicking with a mouse. This makes it easier to re-run an analysis and share code, making science more transparent and reproducible. 
+- R is a bit harder to learn than Excel and point-and-click statistics programs initially; however, once you learn it, it is much more powerful and capable of doing more complex tasks.
+- A significant portion of modern tools for analysis in ecology, environmental science, psychology, and many other fields are written in R. This library of tools is being constantly updating as researchers create new ones and improve old ones.
+
+That said, these practicals are not really about coding per se. We do not expect you to become master coders during this module. We do expect that you will be able to interpret, modify, and use R code to perform some basic statistical analyses and visualise data.
+
+## The teaching approach {-}
+
+These practical exercises will be a bit like an immersive foreign language program - you will gradually learn how to code after repeated exposure and practice.
+
+The first couple of exercises will generally tell you exactly what you need to do. As you progress through the six weeks, the instructions will leave more and more puzzles for you to solve.
 
 Periodically the practical instructions will be interrupted by a blue question box like the one below. Please take a few minutes to consider the question inside, either on your own or by chatting with people around you.
 
 This will help you get the most of the practical exercises and is the best way to prepare for your coursework.
 
-::: {.rmdtip}
+::: {.rmdquestion}
 ***Question:*** What pattern do you expect to see in this data? What might be causing this pattern?
 :::
 
 Other times you will see an amber or red box with a warning to either pay attention to or avoid something.
 
 ::: {.rmdwarning}
-***Attention!*** Be careful about how you do this thing.
+***Warning!*** Be careful about how you do this thing.
 :::
 
-::: {.rmdcaution}
-***Warning!*** Do NOT do this terrible thing.
+::: {.rmddanger}
+***Danger!*** Do NOT do this terrible thing.
 :::
 
 Finally, sometimes you will see green boxes with helpful tips or other important information.
 
-::: {.rmdimportant}
-***Important!*** Here is a helpful tip. 
+::: {.rmdtip}
+***Tip!*** Here is a helpful tip or some useful information. 
+:::
+
+## Learning to code {-}
+
+In my experience, it generally takes undergraduate students 3-4 practicals in order to feel somewhat comfortable coding in R. 
+
+Do not get discouraged if it feels like it takes you longer than your "normal" to understand what is going on.
+
+Learning how to code is not just learning science content like you are used to, it is learning a whole new way to think. This process necessarily takes time, and we have incorporated this need for time and repetition into the module design.
+
+I have yet to encounter a student who is incapable of learning R - even the art, music, history and literature students that I taught as part of a science literacy class in America. 
+
+## An additional note on coding {-}
+
+Beginner coders are often under the impression that more advanced programmers have all of the commands they need memorized and write everything out perfectly the first time. In fact, nothing could be farther from the truth.
+
+::: {.rmdtip}
+**Tip!** The two most important skills you need to be a successful coder are:
+
+1. **Looking things up** as you code them, either online, in help files, or from previous work. (Most biologists work by adapting example code.)
+2. **Debugging** your code - things rarely work the first time!
+
+These skills are key parts of the coding process, no matter how advanced you become. Embrace them.
 :::
