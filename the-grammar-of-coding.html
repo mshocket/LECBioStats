@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 3 The grammar of coding | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="3.1 Introduction to Coding in R To help us talk about coding, we need to learn some vocabulary. Five essential building blocks of any coding language are: Operators Variables Functions Arguments...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 3 The grammar of coding | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="3.1 Introduction to Coding in R To help us talk about coding, we need to learn some vocabulary. Five essential building blocks of any coding language are: Operators Variables Functions Arguments...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 3 The grammar of coding | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="3.1 Introduction to Coding in R To help us talk about coding, we need to learn some vocabulary. Five essential building blocks of any coding language are: Operators Variables Functions Arguments...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="accessing-r-and-rstudio-through-appsanywhere.html"><span class="header-section-number">1</span> Accessing R and RStudio through AppsAnywhere</a></li>
+<li><a class="" href="the-rstudio-interface.html"><span class="header-section-number">2</span> The RStudio interface</a></li>
+<li><a class="active" href="the-grammar-of-coding.html"><span class="header-section-number">3</span> The grammar of coding</a></li>
+<li><a class="" href="running-code-from-a-script.html"><span class="header-section-number">4</span> Running code from a script</a></li>
+<li><a class="" href="fixing-common-mistakes.html"><span class="header-section-number">5</span> Fixing common mistakes</a></li>
+<li><a class="" href="installing-and-loading-packages.html"><span class="header-section-number">6</span> Installing and loading packages</a></li>
+<li><a class="" href="data-frames.html"><span class="header-section-number">7</span> Data frames</a></li>
+<li><a class="" href="basic-summary-statistics-and-getting-help.html"><span class="header-section-number">8</span> Basic summary statistics and getting help</a></li>
+<li><a class="" href="numerical-data-exploration.html"><span class="header-section-number">9</span> Numerical data exploration</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">10</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">11</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="coming-soon.html"><span class="header-section-number">12</span> Coming soon</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="the-grammar-of-coding" class="section level1" number="3">
+<h1>
+<span class="header-section-number">3</span> The grammar of coding<a class="anchor" aria-label="anchor" href="#the-grammar-of-coding"><i class="fas fa-link"></i></a>
+</h1>
+<div id="introduction-to-coding-in-r" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Introduction to Coding in R<a class="anchor" aria-label="anchor" href="#introduction-to-coding-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>To help us talk about coding, we need to learn some vocabulary. Five essential building blocks of any coding language are:</p>
+<ol style="list-style-type: decimal">
+<li>Operators</li>
+<li>Variables</li>
+<li>Functions</li>
+<li>Arguments</li>
+<li>Comments</li>
+</ol>
+<p>We’ll learn about each of them and practice typing some code into the Console and running it from there.</p>
+</div>
+<div id="operators" class="section level2" number="3.2">
+<h2>
+<span class="header-section-number">3.2</span> Operators<a class="anchor" aria-label="anchor" href="#operators"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Operators</strong> are typically 1 or 2-character commands that correspond to very simple, common tasks.</p>
+<p>For instance, all of the basic mathematical symbols are operators in most programming languages, e.g., <code>+</code> (addition), <code>-</code> (subtraction), <code>*</code> (multiplication), and <code>/</code> (division). In R, exponents can be expressed with either the caret, <code>^</code>, or a double asterisk, <code>**</code>.</p>
+<p>Thus, like Excel, R can function as a basic calculator.</p>
+<p>Type <code>84 + 22</code> directly into the Console (bottom left quadrant, labeled “Console”) and hit Enter.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">84</span> <span class="op">+</span> <span class="fl">22</span></span>
+<span><span class="co">#&gt; [1] 106</span></span></code></pre></div>
+</div>
+<div id="variables-objects" class="section level2" number="3.3">
+<h2>
+<span class="header-section-number">3.3</span> Variables / Objects<a class="anchor" aria-label="anchor" href="#variables-objects"><i class="fas fa-link"></i></a>
+</h2>
+<p>Data can be saved as named <strong>variables</strong>, which allows you to refer to and use them later. In R these are usually called objects since the word “variable” is frequently used in the statistical sense instead. You can think of variables as analogous to nouns.</p>
+<ul>
+<li>In R, we use the arrow operator <code>&lt;-</code> to save objects.</li>
+<li>We can save the output from our command above using the following code: <code>total_counties &lt;- 84 + 22</code>.</li>
+<li>Then whenever we use the object <code>total_counties</code>, R will substitute the value <code>106</code>.</li>
+</ul>
+<p>Create and store an object by typing <code>total_counties &lt;- 84 + 22</code> into the Console and hit Enter. Now type <code>total_counties</code> and hit Enter.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">total_counties</span> <span class="op">&lt;-</span> <span class="fl">84</span> <span class="op">+</span> <span class="fl">22</span></span>
+<span><span class="va">total_counties</span></span>
+<span><span class="co">#&gt; [1] 106</span></span></code></pre></div>
+<div class="rmdtip">
+<p><strong>Tip:</strong> As you type, RStudio will suggest objects that are stored in your environment that start with the same characters.</p>
+<p>You can either:</p>
+<ul>
+<li>click on them</li>
+<li>Use the arrow keys + Enter to select them.</li>
+</ul>
+<p>This will save you time and also prevent typos from causing bugs!</p>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/TotalCountiesAutocomplete.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>Now you should be able to see the <code>total_counties</code> object in your <code>Environment</code> panel.</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/TotalCountiesEnvironment.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+</div>
+<div id="functions" class="section level2" number="3.4">
+<h2>
+<span class="header-section-number">3.4</span> Functions<a class="anchor" aria-label="anchor" href="#functions"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Functions</strong> are the commands that tell the program to do something. You can think of them as the verbs of a programming language. Functions are always followed by a set of brackets.</p>
+<p>For example, the function <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> will provide your current <em>working directory</em> (the location where R will read and save files).</p>
+<p>Type the function <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> into the Console and hit Enter. (Your output will look different than mine, because I’m using a different computer.)</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/LECBioStats/LECBioStats"</span></span></code></pre></div>
+<div class="rmdtip">
+<p><strong>Info:</strong> As you type the command <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code>, RStudio will automatically add the ending bracket when you type the starting bracket. (You will see later that it also does the same thing with quotation marks.)</p>
+<p>This helps avoid introducing bugs from forgetting to close your brackets.</p>
+</div>
+</div>
+<div id="arguments" class="section level2" number="3.5">
+<h2>
+<span class="header-section-number">3.5</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments"><i class="fas fa-link"></i></a>
+</h2>
+<p>Most functions also take inputs called <strong>arguments</strong> that go inside the parentheses. Arguments are generally either:</p>
+<ol style="list-style-type: decimal">
+<li>Data to process</li>
+<li>Settings that tell the function how to process the data</li>
+</ol>
+<p>For example, the function <code>sqrt(x)</code> takes one argument, <code>x</code>, and calculates its square root.</p>
+<p>Type <code>sqrt(4)</code> into the Console and hit Enter.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
+<p>One operator that can be useful for getting arguments into functions in R is the <strong>pipe</strong> operator: <code>|&gt;</code></p>
+<p>The pipe operator passes data to the first argument of the next function. (You’ll see why this is useful later.)</p>
+<p>For now, type <code>9 |&gt; sqrt()</code> into the Console and hit Enter.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">9</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 3</span></span></code></pre></div>
+</div>
+<div id="comments" class="section level2" number="3.6">
+<h2>
+<span class="header-section-number">3.6</span> Comments<a class="anchor" aria-label="anchor" href="#comments"><i class="fas fa-link"></i></a>
+</h2>
+<p><strong>Comments</strong> are another critical part of coding, although not part of the code itself. Comments explain what the code is doing, and are a crucial part of making your code understandable to both other people and to yourself. (Every programmer hates the feeling of going back to old code days/weeks/months/years after you first wrote it and thinking “What the #$&amp;! was I doing here????” Commenting your code properly makes your life much easier.)</p>
+<ul>
+<li>In R, comments are preceded by the hash symbol <code>#</code>.</li>
+<li>The <code>#</code> symbol tells R to ignore whatever else follows on that line in the script (i.e. not interpret it as code).</li>
+</ul>
+<p>Type the statement <code># Hello world!</code> into the Console and hit Enter.</p>
+<p>There will be no output - because you’ve told R to ignore your input.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#hello world!</span></span></code></pre></div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="the-rstudio-interface.html"><span class="header-section-number">2</span> The RStudio interface</a></div>
+<div class="next"><a href="running-code-from-a-script.html"><span class="header-section-number">4</span> Running code from a script</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#the-grammar-of-coding"><span class="header-section-number">3</span> The grammar of coding</a></li>
+<li><a class="nav-link" href="#introduction-to-coding-in-r"><span class="header-section-number">3.1</span> Introduction to Coding in R</a></li>
+<li><a class="nav-link" href="#operators"><span class="header-section-number">3.2</span> Operators</a></li>
+<li><a class="nav-link" href="#variables-objects"><span class="header-section-number">3.3</span> Variables / Objects</a></li>
+<li><a class="nav-link" href="#functions"><span class="header-section-number">3.4</span> Functions</a></li>
+<li><a class="nav-link" href="#arguments"><span class="header-section-number">3.5</span> Arguments</a></li>
+<li><a class="nav-link" href="#comments"><span class="header-section-number">3.6</span> Comments</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-week1.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-week1.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-09.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

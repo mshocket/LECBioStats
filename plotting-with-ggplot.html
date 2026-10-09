@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 10 Plotting with ggplot | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="Now we will create a scatter plot using the iris dataset and ggplot(), which is part of the tidyverse. This plot will help us answer the following question: Research Question: Is there a...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 10 Plotting with ggplot | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Now we will create a scatter plot using the iris dataset and ggplot(), which is part of the tidyverse. This plot will help us answer the following question: Research Question: Is there a...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 10 Plotting with ggplot | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="Now we will create a scatter plot using the iris dataset and ggplot(), which is part of the tidyverse. This plot will help us answer the following question: Research Question: Is there a...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="accessing-r-and-rstudio-through-appsanywhere.html"><span class="header-section-number">1</span> Accessing R and RStudio through AppsAnywhere</a></li>
+<li><a class="" href="the-rstudio-interface.html"><span class="header-section-number">2</span> The RStudio interface</a></li>
+<li><a class="" href="the-grammar-of-coding.html"><span class="header-section-number">3</span> The grammar of coding</a></li>
+<li><a class="" href="running-code-from-a-script.html"><span class="header-section-number">4</span> Running code from a script</a></li>
+<li><a class="" href="fixing-common-mistakes.html"><span class="header-section-number">5</span> Fixing common mistakes</a></li>
+<li><a class="" href="installing-and-loading-packages.html"><span class="header-section-number">6</span> Installing and loading packages</a></li>
+<li><a class="" href="data-frames.html"><span class="header-section-number">7</span> Data frames</a></li>
+<li><a class="" href="basic-summary-statistics-and-getting-help.html"><span class="header-section-number">8</span> Basic summary statistics and getting help</a></li>
+<li><a class="" href="numerical-data-exploration.html"><span class="header-section-number">9</span> Numerical data exploration</a></li>
+<li><a class="active" href="plotting-with-ggplot.html"><span class="header-section-number">10</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">11</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="coming-soon.html"><span class="header-section-number">12</span> Coming soon</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="plotting-with-ggplot" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> Plotting with ggplot<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot"><i class="fas fa-link"></i></a>
+</h1>
+<p>Now we will create a scatter plot using the iris dataset and <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code>, which is part of the <code>tidyverse</code>.</p>
+<p>This plot will help us answer the following question:</p>
+<div class="rmdquestion">
+<p><strong>Research Question:</strong></p>
+<p>Is there a relationship between petal length and petal width?</p>
+</div>
+<div id="a-basic-ggplot-plot" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> A basic <code>ggplot</code> plot<a class="anchor" aria-label="anchor" href="#a-basic-ggplot-plot"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function itself only has two required arguments:</p>
+<ol style="list-style-type: decimal">
+<li>the name of the data frame with your data (in this case, <code>data = irisdata</code>)</li>
+<li>an <em>aesthetic</em> that defines what your x and variables are</li>
+</ol>
+<p>The aesthetic is formatted like: <code>aes(x = x_var_name, y = y_var_name)</code>. so if we want to compare petal length on the x-axis with petal width on the y-axis, we would use: <code>aes(x = Petal.Length, y = Petal.Width)</code>.</p>
+<p>However, the <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function alone is not enough to make a graph.</p>
+<p>We must also add the different parts of the figure as layers, with a <code>+</code> between each layer.</p>
+<p>Layers of data are added with <code>geom_x()</code> functions, where the <code>x</code> changes depending on the type of graph you want to make.</p>
+<div class="rmdtip">
+<p><strong>Tip:</strong> For a basic scatter plot, use <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> to plot the data as x-y points.</p>
+</div>
+<p>Write out the minimum code to make a scatter plot using the iris data, and run it.</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">irisdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Length</span>, y <span class="op">=</span> <span class="va">Petal.Width</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="01-week1_files/figure-html/unnamed-chunk-17-1.png" alt="" width="672"></div>
+</div>
+<div id="adding-color-based-on-a-third-variable" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Adding color based on a third variable<a class="anchor" aria-label="anchor" href="#adding-color-based-on-a-third-variable"><i class="fas fa-link"></i></a>
+</h2>
+<p>Remember that the iris data contain measurements of three species. It would probably be useful to plot each species in a different colour, so we can see where they are on the graph.</p>
+<p>If you want to change the colour of points based on a third variable, you need to add it to the aesthetic argument as shown below. <code>ggplot</code> will automatically add a legend.</p>
+<p>Modify your existing code to match the example below.</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">irisdata</span>, </span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Length</span>, y <span class="op">=</span> <span class="va">Petal.Width</span>, colour <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="01-week1_files/figure-html/unnamed-chunk-18-1.png" alt="" width="672"></div>
+</div>
+<div id="adding-axis-labels-and-changing-the-theme" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Adding axis labels and changing the theme<a class="anchor" aria-label="anchor" href="#adding-axis-labels-and-changing-the-theme"><i class="fas fa-link"></i></a>
+</h2>
+<p>Right now the axis labels are just the column names - helpful but not formatted properly.</p>
+<p>You can modify your axis labels using the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> function.</p>
+<p>You can also change the theme to something a bit more minimalist.</p>
+<div class="rmdtip">
+<p><strong>Tip:</strong> Remember that each layer in a <code>ggplot</code> graph is separated by a <code>+</code></p>
+</div>
+<p>Modify your existing code again to match the example below.</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">irisdata</span>,</span>
+<span>       <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Petal.Length</span>, y <span class="op">=</span> <span class="va">Petal.Width</span>, colour <span class="op">=</span> <span class="va">Species</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Petal Length (cm)"</span>, y <span class="op">=</span> <span class="st">"Petal Width (cm)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="01-week1_files/figure-html/unnamed-chunk-19-1.png" alt="" width="672"></div>
+</div>
+<div id="making-a-boxplot" class="section level2" number="10.4">
+<h2>
+<span class="header-section-number">10.4</span> Making a boxplot<a class="anchor" aria-label="anchor" href="#making-a-boxplot"><i class="fas fa-link"></i></a>
+</h2>
+<p>The scatter plot with different colours for each species made it clear that the different species seem to have different size petals.</p>
+<p>We can make this even more obvious with a box plot.</p>
+<div class="rmdquestion">
+<p><strong>Q:</strong> What variables would you want to put on the x-axis and y-axis to make a box plot showing the difference in size between the three species?</p>
+</div>
+<p>This time, copy and paste your <code>ggplot</code> code to create a new code block beneath the previous one.</p>
+<p>Modify the new block to match the example below.</p>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">irisdata</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Species</span>, y <span class="op">=</span> <span class="va">Petal.Length</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Species"</span>, y <span class="op">=</span> <span class="st">"Petal Length (cm)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="01-week1_files/figure-html/unnamed-chunk-20-1.png" alt="" width="672"></div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="numerical-data-exploration.html"><span class="header-section-number">9</span> Numerical data exploration</a></div>
+<div class="next"><a href="tidyup.html"><span class="header-section-number">11</span> Tidying up</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#plotting-with-ggplot"><span class="header-section-number">10</span> Plotting with ggplot</a></li>
+<li><a class="nav-link" href="#a-basic-ggplot-plot"><span class="header-section-number">10.1</span> A basic ggplot plot</a></li>
+<li><a class="nav-link" href="#adding-color-based-on-a-third-variable"><span class="header-section-number">10.2</span> Adding color based on a third variable</a></li>
+<li><a class="nav-link" href="#adding-axis-labels-and-changing-the-theme"><span class="header-section-number">10.3</span> Adding axis labels and changing the theme</a></li>
+<li><a class="nav-link" href="#making-a-boxplot"><span class="header-section-number">10.4</span> Making a boxplot</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-week1.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-week1.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-09.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

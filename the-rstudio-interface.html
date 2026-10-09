@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Page not found | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<title>Chapter 2 The RStudio interface | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
 <meta name="author" content="Marta Shocket">
-<meta name="description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="description" content="RStudio should now be open. Before we do anything else, click on File &gt; New File &gt; R Script to create a new R script. This should open up a new panel in your window.     Now the RStudio window...">
 <meta name="generator" content="bookdown 0.48 with bs4_book()">
-<meta property="og:title" content="Page not found | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:title" content="Chapter 2 The RStudio interface | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
 <meta property="og:type" content="book">
-<meta property="og:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta property="og:description" content="RStudio should now be open. Before we do anything else, click on File &gt; New File &gt; R Script to create a new R script. This should open up a new panel in your window.     Now the RStudio window...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Page not found | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
-<meta name="twitter:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="twitter:title" content="Chapter 2 The RStudio interface | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="RStudio should now be open. Before we do anything else, click on File &gt; New File &gt; R Script to create a new R script. This should open up a new panel in your window.     Now the RStudio window...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -46,7 +46,7 @@
 <li><a class="" href="index.html">About</a></li>
 <li class="book-part">Week 1</li>
 <li><a class="" href="accessing-r-and-rstudio-through-appsanywhere.html"><span class="header-section-number">1</span> Accessing R and RStudio through AppsAnywhere</a></li>
-<li><a class="" href="the-rstudio-interface.html"><span class="header-section-number">2</span> The RStudio interface</a></li>
+<li><a class="active" href="the-rstudio-interface.html"><span class="header-section-number">2</span> The RStudio interface</a></li>
 <li><a class="" href="the-grammar-of-coding.html"><span class="header-section-number">3</span> The grammar of coding</a></li>
 <li><a class="" href="running-code-from-a-script.html"><span class="header-section-number">4</span> Running code from a script</a></li>
 <li><a class="" href="fixing-common-mistakes.html"><span class="header-section-number">5</span> Fixing common mistakes</a></li>
@@ -65,18 +65,59 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="page-not-found" class="section level1">
-<h1>Page not found<a class="anchor" aria-label="anchor" href="#page-not-found"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="the-rstudio-interface" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> The RStudio interface<a class="anchor" aria-label="anchor" href="#the-rstudio-interface"><i class="fas fa-link"></i></a>
 </h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<p>RStudio should now be open.</p>
+<p>Before we do anything else, click on File &gt; New File &gt; R Script to create a new R script. This should open up a new panel in your window.</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/NewScript.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>Now the RStudio window shoudl be divided into four quadrants:</p>
+<ul>
+<li>
+<em>Top left</em>: Code files - where you can see and edit your saved code files (called “<strong>scripts</strong>”), including this R markdown document. Some types of data can also be viewed here.</li>
+<li>
+<em>Bottom left</em>: <code>Console</code> - where you can input commands and see code that has been run. This is also where text-based output gets printed if you are using a regular R script instead of an R markdown file.</li>
+<li>
+<em>Top right</em>: <code>Environment</code> - where you can see the saved data objects in your current R workspace.</li>
+<li>
+<em>Bottom right</em>: This has several useful tabs: <code>Files</code> - which we’ve already been using; <code>Help</code> - where you can look up documentation about specific commands; and <code>Plots</code> - where images appear if you are using a regular R script instead of an R markdown file. (Ours will appear inside the code file instead.)</li>
+</ul>
+<p>Most of the time when work you in R, you’ll type your code into a script file.</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/RStudioInterface.png" style="width:100.0%" alt="The RStudio interface"><div class="figcaption">The RStudio interface</div>
+</div>
+</div>
+<div class="rmdwarning">
+<p><strong><em>Warning!</em></strong> Although you can run code from both the script pane (top left) and console pane (bottom left), there is a big difference between them!!!</p>
+<ul>
+<li>If you type something into the script pane you can run it multiple times and save it for future use.</li>
+<li>If you type something into the console pane, it will run once and then disappear.</li>
+</ul>
+<p>So make sure that you are typing your code into the right location!</p>
+<p>This will almost always be a script file, not the console.</p>
+</div>
 </div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="accessing-r-and-rstudio-through-appsanywhere.html"><span class="header-section-number">1</span> Accessing R and RStudio through AppsAnywhere</a></div>
+<div class="next"><a href="the-grammar-of-coding.html"><span class="header-section-number">3</span> The grammar of coding</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    </div>
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#the-rstudio-interface"><span class="header-section-number">2</span> The RStudio interface</a></li></ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-week1.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-week1.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
 
 </div>
 </div> <!-- .container -->

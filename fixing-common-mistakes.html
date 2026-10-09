@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Page not found | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<title>Chapter 5 Fixing common mistakes | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
 <meta name="author" content="Marta Shocket">
-<meta name="description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="description" content="5.1 Error messages Being able to interpret error messages to fix your mistakes is an important part of coding. The red text may seem scary, but usually it will contain a good clue to help you with...">
 <meta name="generator" content="bookdown 0.48 with bs4_book()">
-<meta property="og:title" content="Page not found | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:title" content="Chapter 5 Fixing common mistakes | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
 <meta property="og:type" content="book">
-<meta property="og:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta property="og:description" content="5.1 Error messages Being able to interpret error messages to fix your mistakes is an important part of coding. The red text may seem scary, but usually it will contain a good clue to help you with...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Page not found | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
-<meta name="twitter:description" content="The page you requested cannot be found (perhaps it was moved or renamed). You may want to try searching to find the page's new location, or use the table of contents to find the page you are...">
+<meta name="twitter:title" content="Chapter 5 Fixing common mistakes | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="5.1 Error messages Being able to interpret error messages to fix your mistakes is an important part of coding. The red text may seem scary, but usually it will contain a good clue to help you with...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -49,7 +49,7 @@
 <li><a class="" href="the-rstudio-interface.html"><span class="header-section-number">2</span> The RStudio interface</a></li>
 <li><a class="" href="the-grammar-of-coding.html"><span class="header-section-number">3</span> The grammar of coding</a></li>
 <li><a class="" href="running-code-from-a-script.html"><span class="header-section-number">4</span> Running code from a script</a></li>
-<li><a class="" href="fixing-common-mistakes.html"><span class="header-section-number">5</span> Fixing common mistakes</a></li>
+<li><a class="active" href="fixing-common-mistakes.html"><span class="header-section-number">5</span> Fixing common mistakes</a></li>
 <li><a class="" href="installing-and-loading-packages.html"><span class="header-section-number">6</span> Installing and loading packages</a></li>
 <li><a class="" href="data-frames.html"><span class="header-section-number">7</span> Data frames</a></li>
 <li><a class="" href="basic-summary-statistics-and-getting-help.html"><span class="header-section-number">8</span> Basic summary statistics and getting help</a></li>
@@ -65,18 +65,59 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="page-not-found" class="section level1">
-<h1>Page not found<a class="anchor" aria-label="anchor" href="#page-not-found"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="fixing-common-mistakes" class="section level1" number="5">
+<h1>
+<span class="header-section-number">5</span> Fixing common mistakes<a class="anchor" aria-label="anchor" href="#fixing-common-mistakes"><i class="fas fa-link"></i></a>
 </h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="error-messages" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Error messages<a class="anchor" aria-label="anchor" href="#error-messages"><i class="fas fa-link"></i></a>
+</h2>
+<p>Being able to interpret error messages to fix your mistakes is an important part of coding.</p>
+<p>The red text may seem scary, but usually it will contain a good clue to help you with debugging your code.</p>
+<p>Type the following bits of code into the Console and see if you can figure out what the problem is for each of the very common mistakes below based on the error message.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Lancaster</span> <span class="op">+</span> <span class="fl">5</span></span></code></pre></div>
+<pre><code>"Lancaster" + 5 </code></pre>
+<div class="rmdtip">
+<p><strong>Tip:</strong> If you want to make something character-type data, put it in quotation marks. Otherwise R will assume that it is referring to a saved variable.</p>
+</div>
+</div>
+<div id="why-am-i-seeing-plus-signs" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Why am I seeing plus signs?<a class="anchor" aria-label="anchor" href="#why-am-i-seeing-plus-signs"><i class="fas fa-link"></i></a>
+</h2>
+<p>If you give R instructions (in the form of code), R will wait until it thinks the instructions are complete before it allows you to do anything else.</p>
+<p>Sometimes errors in your code (often an unmatched bracket) will mean that you think you have written a complete set of instructions, but R is still waiting for more (e.g. a closing bracket).</p>
+<p>When this happens, you will see <code>+</code> in the Console instead of <code>&gt;</code>. This indicates that R thinks that there’s still more code to come.</p>
+<div class="rmdtip">
+<p><strong>Tip:</strong> If R gets stuck in unfinished code and the Console has <code>+</code> at the start of the line, hit <code>Esc</code> to exit the current task.</p>
+</div>
+<p>Practice getting stuck with R waiting for more code and then using <code>Esc</code> to get out of it by running the incomplete function below.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="fixing-common-mistakes.html#cb11-1" tabindex="-1"></a><span class="fu">sqrt</span>(</span></code></pre></div>
+</div>
 </div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="empty"></div>
+<div class="prev"><a href="running-code-from-a-script.html"><span class="header-section-number">4</span> Running code from a script</a></div>
+<div class="next"><a href="installing-and-loading-packages.html"><span class="header-section-number">6</span> Installing and loading packages</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
-    </div>
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#fixing-common-mistakes"><span class="header-section-number">5</span> Fixing common mistakes</a></li>
+<li><a class="nav-link" href="#error-messages"><span class="header-section-number">5.1</span> Error messages</a></li>
+<li><a class="nav-link" href="#why-am-i-seeing-plus-signs"><span class="header-section-number">5.2</span> Why am I seeing plus signs?</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-week1.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-week1.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
 
 </div>
 </div> <!-- .container -->
