@@ -6,14 +6,10 @@ This week we will be using AppsAnywhere to access RStudio (which automatically i
 
 Use the Windows menu to open "AppsAnywhere".
 
-Within AppsAnywhere, search for "R Studio" and launch the option with R 4.4.1.
+Within AppsAnywhere, search for "R Studio" and launch the option with R 4.5.1.
 
 ::: {.rmdwarning}
 ***Warning!*** Although in most places RStudio is written as one word, in AppsAnywhere you must search for it as two words.
-:::
-
-::: {.rmdwarning}
-***Warning!*** You must select the option with R version 4.4.1 - the option with version 4.5.1 does not currently work.
 :::
 
 <div style="text-align: center;">
@@ -43,6 +39,8 @@ Before we do anything else, click on File > New File > R Script to create a new 
 ![&nbsp;](images/NewScript.png)
 
 </div>
+
+Save the file to the Documents folder on your `H:/` drive, with a name something like `LEC5141_Practical1.R`.
 
 Now the RStudio window shoudl be divided into four quadrants:
 
@@ -243,6 +241,12 @@ Type the following code into your R script file. Run the code using all three me
 
 (Note: I've turned off the results in the code chunk below, so all you can see is the code itself.)
 
+::: {.rmdtip}
+**Info:** Copying and pasting code from the instructions can be faster, but typing the code out yourself will make it easier to learn and remember what you are doing.
+
+I recommend typing code out whenever we are learning something in these practicals, but then copying and pasting when you are doing the analysis for your project data.
+:::
+
 
 ``` r
 # Random practice code
@@ -297,7 +301,7 @@ Being able to interpret error messages to fix your mistakes is an important part
 
 The red text may seem scary, but usually it will contain a good clue to help you with debugging your code. 
 
-Type the following bits of code into the Console and see if you can figure out what the problem is for each of the very common mistakes below based on the error message.
+Type the following bits of code **into the Console** and see if you can figure out what the problem is for each of the very common mistakes below based on the error message.
 
 ```r
 sqrt()
@@ -771,6 +775,22 @@ ggplot(data = irisdata, aes(x = Species, y = Petal.Length)) +
 <img src="01-week1_files/figure-html/unnamed-chunk-20-1.png" alt="" width="672" />
 
 
+::: {.rmdquestion}
+**Exercise 1:**
+
+Make two new graphs - one scatter plot and one boxplot - using different variables from the iris data set.
+
+**Hint:** You will need to change the arguments telling R which data to use.
+:::
+
+::: {.rmdquestion}
+**Exercise 2:**
+
+Try to add colour by species to one or both of your boxplots.
+
+Why might you want to do this in a figure you are making?
+:::
+
 # Tidying up {#tidyup}
 
 Before you move onto the next bit, let's tidy up and save the R script. 
@@ -780,7 +800,7 @@ First, you'll want to add a comment header to the very top of your document  des
 ```r
 ##### Your Name
 ##### LECX5141 - Week 1 Practical
-##### 08 Oct 2026
+##### 09 Oct 2026
 ```
 
 Generally you will also want to:
@@ -811,21 +831,29 @@ a + b
 a^2
 b*a
 b**a
+1:5
+y <- c(1, 2, 3, 4, 5)
+y + y
+y * 2
 z <- b/a
 z
-1:5
-z <- c(1, 2, 3, 4, 5)
+z <- "Lancaster"
 z
-z + z
+
+library(tidyverse)
+library(psych)
 
 # Load data
 irisdata <- iris
 
-# View data
+# Examine data
 head(irisdata)
 tail(irisdata)
 View(irisdata)
 irisdata
+
+# Add a new column with the ratio of petal length to width
+irisdata$Petal.aspectratio <- irisdata$Petal.Length / irisdata$Petal.Width
 
 ### Basic calculations on iris petal length
 # Mean
@@ -839,4 +867,37 @@ length(irisdata$Petal.Length)
 
 # Standard error
 sd(irisdata$Petal.Length) / sqrt(length(irisdata$Petal.Length))
+
+# How to quickly pull up help for a function
+?sd
+
+### Data exploration / quick summaries
+
+# Function from Base R
+summary(irisdata)
+
+# Function from the psych package
+describe(irisdata)
+
+### Plotting with ggplot
+
+# Scatter plot of petal length and petal width
+ggplot(data = irisdata,
+       aes(x = Petal.Length, y = Petal.Width, colour = Species)) +
+  geom_point() +
+  labs(x = "Petal Length (cm)", y = "Petal Width (cm)") +
+  theme_bw()
+
+# Box plot of petal length by species
+ggplot(data = irisdata, aes(x = Species, y = Petal.Length)) +
+  geom_boxplot() +
+  labs(x = "Species", y = "Petal Length (cm)") +
+  theme_bw()
+  
+# Box plot of sepal length by species
+ggplot(data = irisdata, aes(x = Species, y = Sepal.Length)) +
+  geom_boxplot() +
+  labs(x = "Species", y = "Petal Length (cm)") +
+  theme_bw()
+
 ```

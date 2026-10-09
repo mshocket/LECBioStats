@@ -35,8 +35,8 @@ After completing the six practical exercises, you should be able to:
 
 |Week|Topic|
 |--|------|
-|1|Introduction to R/RStudio and the tidyverse; descriptive statistics|
-|2|Hypothesis testing; Normality; writing functions|
+|1|Introduction to R/RStudio, plotting with ggplot, & descriptive statistics|
+|2|Hypothesis testing, Normality, & data wrangling|
 |3|Comparing sample means I (parametric)|
 |4|Comparing sample means II (non-parametric)|
 |5|Relationships between variables|
