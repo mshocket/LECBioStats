@@ -60,7 +60,7 @@ A metaphor that you may find useful:
 - R is a bit harder to learn than Excel and point-and-click statistics programs initially; however, once you learn it, it is much more powerful and capable of doing more complex tasks.
 - A significant portion of modern tools for analysis in ecology, environmental science, psychology, and many other fields are written in R. This library of tools is being constantly updating as researchers create new ones and improve old ones.
 
-That said, these practicals are not really about coding per se. We do not expect you to become master coders during this module. We do expect that you will be able to interpret, modify, and use R code to perform some basic statistical analyses and visualise data.
+That said, these practicals are not really about coding *per se*. We do not expect you to become master coders during this module. We do expect that you will be able to interpret, modify, and use R code to perform some basic statistical analyses and visualise data.
 
 ## The teaching approach {-}
 
