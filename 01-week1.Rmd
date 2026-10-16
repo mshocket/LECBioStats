@@ -1,6 +1,8 @@
 # (PART) Week 1 {-}
 
-# Accessing R and RStudio through AppsAnywhere
+# Introduction
+
+## Accessing R and RStudio through AppsAnywhere
 
 This week we will be using AppsAnywhere to access RStudio (which automatically includes R). Follow the steps below.
 
@@ -28,7 +30,7 @@ Choose your R installation - select the default 64-bit version of R. You should 
 
 RStudio should launch automatically when you click "OK".
 
-# The RStudio interface
+## The RStudio interface
 
 RStudio should now be open.
 
@@ -47,7 +49,7 @@ Now the RStudio window shoudl be divided into four quadrants:
 - *Top left*: Code files - where you can see and edit your saved code files (called "**scripts**"), including this R markdown document. Some types of data can also be viewed here.
 - *Bottom left*: `Console` - where you can input commands and see code that has been run. This is also where text-based output gets printed if you are using a regular R script instead of an R markdown file.
 - *Top right*: `Environment` - where you can see the saved data objects in your current R workspace.
-- *Bottom right*: This has several useful tabs: `Files` - which we've already been using; `Help` - where you can look up documentation about specific commands; and `Plots` - where images appear if you are using a regular R script instead of an R markdown file. (Ours will appear inside the code file instead.)
+- *Bottom right*: This has several useful tabs: `Files` - where you can see different data and code files; `Help` - where you can look up documentation about specific commands; and `Plots` - where images appear if you are using a regular R script instead of an R markdown file. (Ours will appear inside the code file instead.)
 
 Most of the time when work you in R, you'll type your code into a script file. 
 
@@ -68,9 +70,7 @@ This will almost always be a script file, not the console.
 :::
 
 
-# The grammar of coding
-
-## Introduction to Coding in R
+## The building blocks of coding
 
 To help us talk about coding, we need to learn some vocabulary. Five essential building blocks of any coding language are:
 
@@ -82,7 +82,7 @@ To help us talk about coding, we need to learn some vocabulary. Five essential b
 
 We'll learn about each of them and practice typing some code into the Console and running it from there.
 
-## Operators
+### Operators
 
 **Operators** are typically 1 or 2-character commands that correspond to very simple, common tasks.
 
@@ -96,7 +96,7 @@ Type `84 + 22` directly into the Console (bottom left quadrant, labeled "Console
 84 + 22
 ```
 
-## Variables / Objects
+### Variables / Objects
 
 Data can be saved as named **variables**, which allows you to refer to and use them later. In R these are usually called objects since the word "variable" is frequently used in the statistical sense instead. You can think of variables as analogous to nouns.
 
@@ -136,7 +136,7 @@ Now you should be able to see the `total_counties` object in your `Environment` 
 
 </div>
 
-## Functions
+### Functions
 
 **Functions** are the commands that tell the program to do something. You can think of them as the verbs of a programming language. Functions are always followed by a set of brackets.
 
@@ -154,7 +154,7 @@ getwd()
 This helps avoid introducing bugs from forgetting to close your brackets.
 :::
 
-## Arguments
+### Arguments
 
 Most functions also take inputs called **arguments** that go inside the parentheses. Arguments are generally either:
 
@@ -179,7 +179,7 @@ For now, type `9 |> sqrt()` into the Console and hit Enter.
 9 |> sqrt()
 ```
 
-## Comments
+### Comments
 
 **Comments** are another critical part of coding, although not part of the code itself. Comments explain what the code is doing, and are a crucial part of making your code understandable to both other people and to yourself. (Every programmer hates the feeling of going back to old code days/weeks/months/years after you first wrote it and thinking "What the #$&! was I doing here????" Commenting your code properly makes your life much easier.)
 
@@ -195,7 +195,7 @@ There will be no output - because you've told R to ignore your input.
 ```
 
 
-# Running code from a script
+## Running code from a script
 
 Now that you've run some basic code via the `Console`, we're going to learn how to do it from a script file.
 
@@ -212,7 +212,7 @@ Almost all of the time that you are running code, you will do it from a script.
 These are some of the core reasons for using a coding-based statistics tool - it makes your analyses **transparent and reproducible**. 
 :::
 
-## Two methods for running code
+### Two methods for running code
 
 There are two methods to run bits of code from a script.
 
@@ -260,7 +260,9 @@ z
 Two important bits of R syntax (syntax = rules for how a language works):
 
 - The colon operator tells R to list out every integer number between A and B, when written as `A:B`.
-- The small letter `c` (short for the term "concatenate") is used to group data together into a larger object called a **vector**.
+- The small letter `c` (short for the term "concatenate") is used to group data together. 
+
+In both cases above, the output is an object called a **vector**.
 
 You can think of a vector like a list of data (although the word list actually specifically refers to a specific type of data object in R that we aren't using).
 
@@ -281,9 +283,9 @@ Note that you can perform calculations on a vector. However, all parts of the ca
 :::
 
 
-# Fixing common mistakes
+## Fixing common mistakes
 
-## Error messages
+### Error messages
 
 Being able to interpret error messages to fix your mistakes is an important part of coding.
 
@@ -307,7 +309,7 @@ Lancaster + 5
 **Tip:** If you want to make something character-type data, put it in quotation marks. Otherwise R will assume that it is referring to a saved variable.
 :::
 
-## Why am I seeing plus signs?
+### Why am I seeing plus signs?
 
 If you give R instructions (in the form of code), R will wait until it thinks the instructions are complete before it allows you to do anything else.
 
@@ -325,7 +327,31 @@ Practice getting stuck with R waiting for more code and then using `Esc` to get 
 sqrt(
 ```
 
-# Installing and loading packages
+### Help and documentation
+
+Sometimes a function is not working and you can't immediately see why. Luckily R stores documentation for (nearly) all its functions directly for you to refer to!
+
+Type the following code into your R **console** and run it. 
+
+```r
+?sqrt
+```
+
+This should bring up a help page that outlines the function, what it does, and how to use it.
+
+It also lists what arguments a function expects and what to put in them.
+
+You can also search for functions in the Help tab's search bar.
+
+Search for `mean` and skim the documentation quickly.
+
+::: {.rmdtip}
+**Tip:** Within this website, you'll see that some function names are automatically converted to links e.g. `mean()`. You can click on these and it will take you to a web version of the internal help page for that function!
+:::
+
+
+
+## Installing and loading packages
 
 Before we can continue, we will need to install and load some packages.
 
@@ -342,7 +368,7 @@ For tidyverse packages, you can load the specific packages that you want individ
 **Warning:** You only need to install a package once on a given computer. However, you need to load it every new R session.
 :::
 
-## Directions to install packages
+### Directions to install packages
 
 1. Click on the Packages tab in the bottom right quadrant, and then click on the Install button at the top left of the panel. **OR** Click on 'Tools' in the top menu, and then click on the first option 'Install Packages...' (Both options will bring up the same window.)
 
@@ -354,7 +380,7 @@ For tidyverse packages, you can load the specific packages that you want individ
 
 4. Now do the same thing (steps 2 & 3) with the `tidyverse` package.
 
-## Loading packages
+### Loading packages
 
 Now that you've had practice running code running code from a script, run the following code to load the two packages you installed earlier.
 
@@ -368,11 +394,13 @@ library(psych)
 ```
 
 
-# Data frames
+# Working with data
+
+## Data frames
 
 In order to work with data in R you do need...well...data.
 
-For this practical, we are going to work with two built-in datasets, starting with one called `iris`.
+For this practical, we are going to work with a built-in dataset called `iris`.
 
 ::: {.rmdtip}
 **Info:** The `iris` dataset was originally collected by the botanist [Edgar Anderson](https://en.wikipedia.org/wiki/Edgar_Anderson) and made famous by [Ronald Fisher](https://en.wikipedia.org/wiki/Ronald_Fisher).
@@ -452,7 +480,7 @@ Modify your code as shown below to create a new column.
 irisdata$Petal.aspectratio <- irisdata$Petal.Length / irisdata$Petal.Width
 ```
 
-# Basic summary statistics and getting help
+# Basic summary statistics
 
 Now we'll perform some simple calculations using the iris data.
 
@@ -487,29 +515,7 @@ sd(irisdata$Petal.Length) / sqrt(length(irisdata$Petal.Length))
 **Q:** Is this what you expected? How would you expect to find these same statistics about petal width instead?
 :::
 
-## Help and documentation
-
-Sometimes a function is not working and you can't immediately see why. Luckily R stores documentation for (nearly) all its functions directly for you to refer to!
-
-Type the following code into your R **console** and run it. 
-
-```r
-?sd
-```
-
-This should bring up a help page that outlines the function, what it does, and how to use it.
-
-It also lists what arguments a function expects and what to put in them.
-
-You can also search for functions in the Help tab's search bar.
-
-Search for `mean` and skim the documentation quickly.
-
-::: {.rmdtip}
-**Tip:** Within this website, you'll see that some function names are automatically converted to links e.g. `mean()`. You can click on these and it will take you to a web version of the internal help page for that function!
-:::
-
-# Numerical data exploration
+## Packages for Data exploration
 
 ```{r include=FALSE}
 # Re-init environment
@@ -715,7 +721,7 @@ Why might you want to do this in a figure you are making?
 
 # Tidying up {#tidyup}
 
-Before you move onto the next bit, let's tidy up and save the R script. 
+For your last task today, tidy up and save your R script. 
 
 First, you'll want to add a comment header to the very top of your document  describing what the script is, who wrote it, and when they they wrote it. Mine usually look something like this:
 
