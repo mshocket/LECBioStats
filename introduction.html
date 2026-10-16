@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 1 Introduction | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="1.1 Accessing R and RStudio through AppsAnywhere This week we will be using AppsAnywhere to access RStudio (which automatically includes R). Follow the steps below. Use the Windows menu to open...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 1 Introduction | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="1.1 Accessing R and RStudio through AppsAnywhere This week we will be using AppsAnywhere to access RStudio (which automatically includes R). Follow the steps below. Use the Windows menu to open...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 1 Introduction | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="1.1 Accessing R and RStudio through AppsAnywhere This week we will be using AppsAnywhere to access RStudio (which automatically includes R). Follow the steps below. Use the Windows menu to open...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="active" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="introduction" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction"><i class="fas fa-link"></i></a>
+</h1>
+<div id="accessing-r-and-rstudio-through-appsanywhere" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> Accessing R and RStudio through AppsAnywhere<a class="anchor" aria-label="anchor" href="#accessing-r-and-rstudio-through-appsanywhere"><i class="fas fa-link"></i></a>
+</h2>
+<p>This week we will be using AppsAnywhere to access RStudio (which automatically includes R). Follow the steps below.</p>
+<p>Use the Windows menu to open “AppsAnywhere”.</p>
+<p>Within AppsAnywhere, search for “R Studio” and launch the option with R 4.5.1.</p>
+<div class="rmdwarning">
+<p><strong><em>Warning!</em></strong> Although in most places RStudio is written as one word, in AppsAnywhere you must search for it as two words.</p>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/AppsAnywhereRStudio.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>Choose your R installation - select the default 64-bit version of R. You should only have to do this step the first time that you use a given computer.</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/RInstallation.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>RStudio should launch automatically when you click “OK”.</p>
+</div>
+<div id="the-rstudio-interface" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> The RStudio interface<a class="anchor" aria-label="anchor" href="#the-rstudio-interface"><i class="fas fa-link"></i></a>
+</h2>
+<p>RStudio should now be open.</p>
+<p>Before we do anything else, click on File &gt; New File &gt; R Script to create a new R script. This should open up a new panel in your window.</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/NewScript.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>Save the file to the Documents folder on your <code>H:/</code> drive, with a name something like <code>LEC5141_Practical1.R</code>.</p>
+<p>Now the RStudio window shoudl be divided into four quadrants:</p>
+<ul>
+<li>
+<em>Top left</em>: Code files - where you can see and edit your saved code files (called “<strong>scripts</strong>”), including this R markdown document. Some types of data can also be viewed here.</li>
+<li>
+<em>Bottom left</em>: <code>Console</code> - where you can input commands and see code that has been run. This is also where text-based output gets printed if you are using a regular R script instead of an R markdown file.</li>
+<li>
+<em>Top right</em>: <code>Environment</code> - where you can see the saved data objects in your current R workspace.</li>
+<li>
+<em>Bottom right</em>: This has several useful tabs: <code>Files</code> - where you can see different data and code files; <code>Help</code> - where you can look up documentation about specific commands; and <code>Plots</code> - where images appear if you are using a regular R script instead of an R markdown file. (Ours will appear inside the code file instead.)</li>
+</ul>
+<p>Most of the time when work you in R, you’ll type your code into a script file.</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/RStudioInterface.png" style="width:100.0%" alt="The RStudio interface"><div class="figcaption">The RStudio interface</div>
+</div>
+</div>
+<div class="rmdwarning">
+<p><strong><em>Warning!</em></strong> Although you can run code from both the script pane (top left) and console pane (bottom left), there is a big difference between them!!!</p>
+<ul>
+<li>If you type something into the script pane you can run it multiple times and save it for future use.</li>
+<li>If you type something into the console pane, it will run once and then disappear.</li>
+</ul>
+<p>So make sure that you are typing your code into the right location!</p>
+<p>This will almost always be a script file, not the console.</p>
+</div>
+</div>
+<div id="the-building-blocks-of-coding" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> The building blocks of coding<a class="anchor" aria-label="anchor" href="#the-building-blocks-of-coding"><i class="fas fa-link"></i></a>
+</h2>
+<p>To help us talk about coding, we need to learn some vocabulary. Five essential building blocks of any coding language are:</p>
+<ol style="list-style-type: decimal">
+<li>Operators</li>
+<li>Variables</li>
+<li>Functions</li>
+<li>Arguments</li>
+<li>Comments</li>
+</ol>
+<p>We’ll learn about each of them and practice typing some code into the Console and running it from there.</p>
+<div id="operators" class="section level3" number="1.3.1">
+<h3>
+<span class="header-section-number">1.3.1</span> Operators<a class="anchor" aria-label="anchor" href="#operators"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Operators</strong> are typically 1 or 2-character commands that correspond to very simple, common tasks.</p>
+<p>For instance, all of the basic mathematical symbols are operators in most programming languages, e.g., <code>+</code> (addition), <code>-</code> (subtraction), <code>*</code> (multiplication), and <code>/</code> (division). In R, exponents can be expressed with either the caret, <code>^</code>, or a double asterisk, <code>**</code>.</p>
+<p>Thus, like Excel, R can function as a basic calculator.</p>
+<p>Type <code>84 + 22</code> directly into the Console (bottom left quadrant, labeled “Console”) and hit Enter.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">84</span> <span class="op">+</span> <span class="fl">22</span></span>
+<span><span class="co">#&gt; [1] 106</span></span></code></pre></div>
+</div>
+<div id="variables-objects" class="section level3" number="1.3.2">
+<h3>
+<span class="header-section-number">1.3.2</span> Variables / Objects<a class="anchor" aria-label="anchor" href="#variables-objects"><i class="fas fa-link"></i></a>
+</h3>
+<p>Data can be saved as named <strong>variables</strong>, which allows you to refer to and use them later. In R these are usually called objects since the word “variable” is frequently used in the statistical sense instead. You can think of variables as analogous to nouns.</p>
+<ul>
+<li>In R, we use the arrow operator <code>&lt;-</code> to save objects.</li>
+<li>We can save the output from our command above using the following code: <code>total_counties &lt;- 84 + 22</code>.</li>
+<li>Then whenever we use the object <code>total_counties</code>, R will substitute the value <code>106</code>.</li>
+</ul>
+<p>Create and store an object by typing <code>total_counties &lt;- 84 + 22</code> into the Console and hit Enter. Now type <code>total_counties</code> and hit Enter.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">total_counties</span> <span class="op">&lt;-</span> <span class="fl">84</span> <span class="op">+</span> <span class="fl">22</span></span>
+<span><span class="va">total_counties</span></span>
+<span><span class="co">#&gt; [1] 106</span></span></code></pre></div>
+<div class="rmdtip">
+<p><strong>Tip:</strong> As you type, RStudio will suggest objects that are stored in your environment that start with the same characters.</p>
+<p>You can either:</p>
+<ul>
+<li>click on them</li>
+<li>Use the arrow keys + Enter to select them.</li>
+</ul>
+<p>This will save you time and also prevent typos from causing bugs!</p>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/TotalCountiesAutocomplete.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>Now you should be able to see the <code>total_counties</code> object in your <code>Environment</code> panel.</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/TotalCountiesEnvironment.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+</div>
+<div id="functions" class="section level3" number="1.3.3">
+<h3>
+<span class="header-section-number">1.3.3</span> Functions<a class="anchor" aria-label="anchor" href="#functions"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Functions</strong> are the commands that tell the program to do something. You can think of them as the verbs of a programming language. Functions are always followed by a set of brackets.</p>
+<p>For example, the function <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> will provide your current <em>working directory</em> (the location where R will read and save files).</p>
+<p>Type the function <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> into the Console and hit Enter. (Your output will look different than mine, because I’m using a different computer.)</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "/home/runner/work/LECBioStats/LECBioStats"</span></span></code></pre></div>
+<div class="rmdtip">
+<p><strong>Info:</strong> As you type the command <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code>, RStudio will automatically add the ending bracket when you type the starting bracket. (You will see later that it also does the same thing with quotation marks.)</p>
+<p>This helps avoid introducing bugs from forgetting to close your brackets.</p>
+</div>
+</div>
+<div id="arguments" class="section level3" number="1.3.4">
+<h3>
+<span class="header-section-number">1.3.4</span> Arguments<a class="anchor" aria-label="anchor" href="#arguments"><i class="fas fa-link"></i></a>
+</h3>
+<p>Most functions also take inputs called <strong>arguments</strong> that go inside the parentheses. Arguments are generally either:</p>
+<ol style="list-style-type: decimal">
+<li>Data to process</li>
+<li>Settings that tell the function how to process the data</li>
+</ol>
+<p>For example, the function <code>sqrt(x)</code> takes one argument, <code>x</code>, and calculates its square root.</p>
+<p>Type <code>sqrt(4)</code> into the Console and hit Enter.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 2</span></span></code></pre></div>
+<p>One operator that can be useful for getting arguments into functions in R is the <strong>pipe</strong> operator: <code>|&gt;</code></p>
+<p>The pipe operator passes data to the first argument of the next function. (You’ll see why this is useful later.)</p>
+<p>For now, type <code>9 |&gt; sqrt()</code> into the Console and hit Enter.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fl">9</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 3</span></span></code></pre></div>
+</div>
+<div id="comments" class="section level3" number="1.3.5">
+<h3>
+<span class="header-section-number">1.3.5</span> Comments<a class="anchor" aria-label="anchor" href="#comments"><i class="fas fa-link"></i></a>
+</h3>
+<p><strong>Comments</strong> are another critical part of coding, although not part of the code itself. Comments explain what the code is doing, and are a crucial part of making your code understandable to both other people and to yourself. (Every programmer hates the feeling of going back to old code days/weeks/months/years after you first wrote it and thinking “What the #$&amp;! was I doing here????” Commenting your code properly makes your life much easier.)</p>
+<ul>
+<li>In R, comments are preceded by the hash symbol <code>#</code>.</li>
+<li>The <code>#</code> symbol tells R to ignore whatever else follows on that line in the script (i.e. not interpret it as code).</li>
+</ul>
+<p>Type the statement <code># Hello world!</code> into the Console and hit Enter.</p>
+<p>There will be no output - because you’ve told R to ignore your input.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#hello world!</span></span></code></pre></div>
+</div>
+</div>
+<div id="running-code-from-a-script" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> Running code from a script<a class="anchor" aria-label="anchor" href="#running-code-from-a-script"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now that you’ve run some basic code via the <code>Console</code>, we’re going to learn how to do it from a script file.</p>
+<p>Almost all of the time that you are running code, you will do it from a script.</p>
+<div class="rmdtip">
+<p><strong>Info:</strong> Running code from a <em>script file</em>, instead of from the Console, has several benefits:</p>
+<ul>
+<li>Everything you’ve done is clearly documented.</li>
+<li>You can re-run any part of your code if needed.</li>
+<li>You can save your code to refer to or repeat again later.</li>
+<li>Your analysis can be easily shared with and repeated by someone else.</li>
+</ul>
+<p>These are some of the core reasons for using a coding-based statistics tool - it makes your analyses <strong>transparent and reproducible</strong>.</p>
+</div>
+<div id="two-methods-for-running-code" class="section level3" number="1.4.1">
+<h3>
+<span class="header-section-number">1.4.1</span> Two methods for running code<a class="anchor" aria-label="anchor" href="#two-methods-for-running-code"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are two methods to run bits of code from a script.</p>
+<ol style="list-style-type: decimal">
+<li>Press <code>Ctrl + Enter</code>
+</li>
+<li>Click the <code>Run</code> button with the green arrow near the top right of the script panel</li>
+</ol>
+<p>For both methods, you can either move your cursor to a specific line of code to run just that line, or highlight a larger portion of code to run the whole selection.</p>
+<p>You can also run an entire script using the <code>source</code> button with the blue arrow to the right of the <code>Run</code> button.</p>
+<p>Type the following code into your R script file. Run the code using all three methods.</p>
+<ul>
+<li>First practice running each line separately, and watch what happens in the console after each command.</li>
+<li>Then try running all the lines at once, using highlighting and using the <code>source</code> button.</li>
+</ul>
+<p>(Note: I’ve turned off the results in the code chunk below, so all you can see is the code itself.)</p>
+<div class="rmdtip">
+<p><strong>Info:</strong> Copying and pasting code from the instructions can be faster, but typing the code out yourself will make it easier to learn and remember what you are doing.</p>
+<p>I recommend typing code out whenever we are learning something in these practicals, but then copying and pasting when you are doing the analysis for your project data.</p>
+</div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Random practice code</span></span>
+<span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fl">3</span></span>
+<span><span class="va">b</span> <span class="op">&lt;-</span> <span class="fl">5</span></span>
+<span><span class="va">a</span> <span class="op">+</span> <span class="va">b</span></span>
+<span><span class="va">a</span><span class="op">^</span><span class="fl">2</span></span>
+<span><span class="va">b</span> <span class="op">*</span> <span class="va">a</span></span>
+<span><span class="va">b</span><span class="op">**</span><span class="va">a</span></span>
+<span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">y</span> <span class="op">+</span> <span class="va">y</span></span>
+<span><span class="va">y</span> <span class="op">*</span> <span class="fl">2</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="va">b</span><span class="op">/</span><span class="va">a</span></span>
+<span><span class="va">z</span></span>
+<span><span class="va">z</span> <span class="op">&lt;-</span> <span class="st">"Lancaster"</span></span>
+<span><span class="va">z</span></span></code></pre></div>
+<div class="rmdtip">
+<p><strong><em>Tips!</em></strong></p>
+<p>Two important bits of R syntax (syntax = rules for how a language works):</p>
+<ul>
+<li>The colon operator tells R to list out every integer number between A and B, when written as <code>A:B</code>.</li>
+<li>The small letter <code>c</code> (short for the term “concatenate”) is used to group data together.</li>
+</ul>
+<p>In both cases above, the output is an object called a <strong>vector</strong>.</p>
+<p>You can think of a vector like a list of data (although the word list actually specifically refers to a specific type of data object in R that we aren’t using).</p>
+<p>We’ll use both of these operations in later practical work.</p>
+</div>
+<div class="rmdtip">
+<p><strong><em>Tip!</em></strong></p>
+<p>Note that you can perform calculations on a vector. However, all parts of the calculation must either be the same length, or be multiples of each other so that the smaller vector can be repeated evenly. (A single number can always be repeated any number of times.)</p>
+<ul>
+<li>In the first example (<code>y + y</code>), the vectors <code>y</code> and <code>y</code> are both the same length (5).</li>
+<li>In the second example (<code>y * 2</code>), the number 2 is repeated 5 times to match the length of the vector <code>y</code>.</li>
+</ul>
+</div>
+<div class="rmdquestion">
+<p><strong>Q:</strong> What happens to the variable <code>z</code> when you run the second-to-last line of code? Why might that be a problem?</p>
+</div>
+</div>
+</div>
+<div id="fixing-common-mistakes" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> Fixing common mistakes<a class="anchor" aria-label="anchor" href="#fixing-common-mistakes"><i class="fas fa-link"></i></a>
+</h2>
+<div id="error-messages" class="section level3" number="1.5.1">
+<h3>
+<span class="header-section-number">1.5.1</span> Error messages<a class="anchor" aria-label="anchor" href="#error-messages"><i class="fas fa-link"></i></a>
+</h3>
+<p>Being able to interpret error messages to fix your mistakes is an important part of coding.</p>
+<p>The red text may seem scary, but usually it will contain a good clue to help you with debugging your code.</p>
+<p>Type the following bits of code <strong>into the Console</strong> and see if you can figure out what the problem is for each of the very common mistakes below based on the error message.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Lancaster</span> <span class="op">+</span> <span class="fl">5</span></span></code></pre></div>
+<pre><code>"Lancaster" + 5 </code></pre>
+<div class="rmdtip">
+<p><strong>Tip:</strong> If you want to make something character-type data, put it in quotation marks. Otherwise R will assume that it is referring to a saved variable.</p>
+</div>
+</div>
+<div id="why-am-i-seeing-plus-signs" class="section level3" number="1.5.2">
+<h3>
+<span class="header-section-number">1.5.2</span> Why am I seeing plus signs?<a class="anchor" aria-label="anchor" href="#why-am-i-seeing-plus-signs"><i class="fas fa-link"></i></a>
+</h3>
+<p>If you give R instructions (in the form of code), R will wait until it thinks the instructions are complete before it allows you to do anything else.</p>
+<p>Sometimes errors in your code (often an unmatched bracket) will mean that you think you have written a complete set of instructions, but R is still waiting for more (e.g. a closing bracket).</p>
+<p>When this happens, you will see <code>+</code> in the Console instead of <code>&gt;</code>. This indicates that R thinks that there’s still more code to come.</p>
+<div class="rmdtip">
+<p><strong>Tip:</strong> If R gets stuck in unfinished code and the Console has <code>+</code> at the start of the line, hit <code>Esc</code> to exit the current task.</p>
+</div>
+<p>Practice getting stuck with R waiting for more code and then using <code>Esc</code> to get out of it by running the incomplete function below.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="introduction.html#cb11-1" tabindex="-1"></a><span class="fu">sqrt</span>(</span></code></pre></div>
+</div>
+<div id="help-and-documentation" class="section level3" number="1.5.3">
+<h3>
+<span class="header-section-number">1.5.3</span> Help and documentation<a class="anchor" aria-label="anchor" href="#help-and-documentation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Sometimes a function is not working and you can’t immediately see why. Luckily R stores documentation for (nearly) all its functions directly for you to refer to!</p>
+<p>Type the following code into your R <strong>console</strong> and run it.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="op">?</span><span class="va">sqrt</span></span></code></pre></div>
+<p>This should bring up a help page that outlines the function, what it does, and how to use it.</p>
+<p>It also lists what arguments a function expects and what to put in them.</p>
+<p>You can also search for functions in the Help tab’s search bar.</p>
+<p>Search for <code>mean</code> and skim the documentation quickly.</p>
+<div class="rmdtip">
+<p><strong>Tip:</strong> Within this website, you’ll see that some function names are automatically converted to links e.g. <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>. You can click on these and it will take you to a web version of the internal help page for that function!</p>
+</div>
+</div>
+</div>
+<div id="installing-and-loading-packages" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> Installing and loading packages<a class="anchor" aria-label="anchor" href="#installing-and-loading-packages"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before we can continue, we will need to install and load some packages.</p>
+<p>A package is a set of extra functions that are not part of the basic R installation but can be added on later. You can think of them like apps that enhance R.</p>
+<p>Today we will be using two packages:</p>
+<ul>
+<li>
+<code>psych</code> - a package for exploring data and generating a specific set of descriptive statistics</li>
+<li>
+<code>tidyverse</code> - a collection of related packages for ‘wrangling’ (i.e., manipulating) data and plotting figures. Within the tidyverse, the main packages we will be using are <code>dplyr</code> (data manipulation) and <code>ggplot2</code> (plotting).</li>
+</ul>
+<p>For tidyverse packages, you can load the specific packages that you want individually, or all together as the <code>tidyverse</code> package. We’ll do the latter since it will require fewer lines of code.</p>
+<div class="rmdwarning">
+<p><strong>Warning:</strong> You only need to install a package once on a given computer. However, you need to load it every new R session.</p>
+</div>
+<div id="directions-to-install-packages" class="section level3" number="1.6.1">
+<h3>
+<span class="header-section-number">1.6.1</span> Directions to install packages<a class="anchor" aria-label="anchor" href="#directions-to-install-packages"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li><p>Click on the Packages tab in the bottom right quadrant, and then click on the Install button at the top left of the panel. <strong>OR</strong> Click on ‘Tools’ in the top menu, and then click on the first option ‘Install Packages…’ (Both options will bring up the same window.)</p></li>
+<li><p>Type the name of the first package that we want (<code>psych</code>) into the ‘Packages’ blank. A menu with autocomplete suggestions will populate as you type, and you can either click or press the arrow keys and hit ‘Enter’ to select the one you want.</p></li>
+<li><p>Hit ‘Install’. In general, this takes anywhere from a few seconds to a few minutes, depending on the sizes of the package(s) you select.</p></li>
+</ol>
+<blockquote>
+<p>As the package installs, you will see a lot of text printing in the Console. There will often be some warning messages about certain functions being masked. Don’t worry about all of that, you can just ignore them. <br> If you get a pop-up window asking something about binary code, just click ‘Okay’.</p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Now do the same thing (steps 2 &amp; 3) with the <code>tidyverse</code> package.</li>
+</ol>
+</div>
+<div id="loading-packages" class="section level3" number="1.6.2">
+<h3>
+<span class="header-section-number">1.6.2</span> Loading packages<a class="anchor" aria-label="anchor" href="#loading-packages"><i class="fas fa-link"></i></a>
+</h3>
+<p>Now that you’ve had practice running code running code from a script, run the following code to load the two packages you installed earlier.</p>
+<p>Generally, you load packages using the <code><a href="https://rdrr.io/r/base/library.html">library()</a></code> function.</p>
+<p>Type and run the code below. There will be some output in the Console that you can ignore.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://personality-project.org/r/psych/">psych</a></span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">About</a></div>
+<div class="next"><a href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="nav-link" href="#accessing-r-and-rstudio-through-appsanywhere"><span class="header-section-number">1.1</span> Accessing R and RStudio through AppsAnywhere</a></li>
+<li><a class="nav-link" href="#the-rstudio-interface"><span class="header-section-number">1.2</span> The RStudio interface</a></li>
+<li>
+<a class="nav-link" href="#the-building-blocks-of-coding"><span class="header-section-number">1.3</span> The building blocks of coding</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#operators"><span class="header-section-number">1.3.1</span> Operators</a></li>
+<li><a class="nav-link" href="#variables-objects"><span class="header-section-number">1.3.2</span> Variables / Objects</a></li>
+<li><a class="nav-link" href="#functions"><span class="header-section-number">1.3.3</span> Functions</a></li>
+<li><a class="nav-link" href="#arguments"><span class="header-section-number">1.3.4</span> Arguments</a></li>
+<li><a class="nav-link" href="#comments"><span class="header-section-number">1.3.5</span> Comments</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#running-code-from-a-script"><span class="header-section-number">1.4</span> Running code from a script</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#two-methods-for-running-code"><span class="header-section-number">1.4.1</span> Two methods for running code</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#fixing-common-mistakes"><span class="header-section-number">1.5</span> Fixing common mistakes</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#error-messages"><span class="header-section-number">1.5.1</span> Error messages</a></li>
+<li><a class="nav-link" href="#why-am-i-seeing-plus-signs"><span class="header-section-number">1.5.2</span> Why am I seeing plus signs?</a></li>
+<li><a class="nav-link" href="#help-and-documentation"><span class="header-section-number">1.5.3</span> Help and documentation</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#installing-and-loading-packages"><span class="header-section-number">1.6</span> Installing and loading packages</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#directions-to-install-packages"><span class="header-section-number">1.6.1</span> Directions to install packages</a></li>
+<li><a class="nav-link" href="#loading-packages"><span class="header-section-number">1.6.2</span> Loading packages</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-week1.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-week1.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-16.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

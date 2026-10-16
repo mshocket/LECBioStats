@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 10 Plotting with ggplot | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<title>Chapter 4 Plotting with ggplot | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
 <meta name="author" content="Marta Shocket">
 <meta name="description" content="Now we will create a scatter plot using the iris dataset and ggplot(), which is part of the tidyverse. This plot will help us answer the following question: Research Question: Is there a...">
 <meta name="generator" content="bookdown 0.48 with bs4_book()">
-<meta property="og:title" content="Chapter 10 Plotting with ggplot | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:title" content="Chapter 4 Plotting with ggplot | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Now we will create a scatter plot using the iris dataset and ggplot(), which is part of the tidyverse. This plot will help us answer the following question: Research Question: Is there a...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 10 Plotting with ggplot | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:title" content="Chapter 4 Plotting with ggplot | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
 <meta name="twitter:description" content="Now we will create a scatter plot using the iris dataset and ggplot(), which is part of the tidyverse. This plot will help us answer the following question: Research Question: Is there a...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -45,19 +45,17 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">About</a></li>
 <li class="book-part">Week 1</li>
-<li><a class="" href="accessing-r-and-rstudio-through-appsanywhere.html"><span class="header-section-number">1</span> Accessing R and RStudio through AppsAnywhere</a></li>
-<li><a class="" href="the-rstudio-interface.html"><span class="header-section-number">2</span> The RStudio interface</a></li>
-<li><a class="" href="the-grammar-of-coding.html"><span class="header-section-number">3</span> The grammar of coding</a></li>
-<li><a class="" href="running-code-from-a-script.html"><span class="header-section-number">4</span> Running code from a script</a></li>
-<li><a class="" href="fixing-common-mistakes.html"><span class="header-section-number">5</span> Fixing common mistakes</a></li>
-<li><a class="" href="installing-and-loading-packages.html"><span class="header-section-number">6</span> Installing and loading packages</a></li>
-<li><a class="" href="data-frames.html"><span class="header-section-number">7</span> Data frames</a></li>
-<li><a class="" href="basic-summary-statistics-and-getting-help.html"><span class="header-section-number">8</span> Basic summary statistics and getting help</a></li>
-<li><a class="" href="numerical-data-exploration.html"><span class="header-section-number">9</span> Numerical data exploration</a></li>
-<li><a class="active" href="plotting-with-ggplot.html"><span class="header-section-number">10</span> Plotting with ggplot</a></li>
-<li><a class="" href="tidyup.html"><span class="header-section-number">11</span> Tidying up</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="active" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
 <li class="book-part">Week 2</li>
-<li><a class="" href="coming-soon.html"><span class="header-section-number">12</span> Coming soon</a></li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
 </ul>
 
         <div class="book-extra">
@@ -65,9 +63,9 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="plotting-with-ggplot" class="section level1" number="10">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="plotting-with-ggplot" class="section level1" number="4">
 <h1>
-<span class="header-section-number">10</span> Plotting with ggplot<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4</span> Plotting with ggplot<a class="anchor" aria-label="anchor" href="#plotting-with-ggplot"><i class="fas fa-link"></i></a>
 </h1>
 <p>Now we will create a scatter plot using the iris dataset and <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code>, which is part of the <code>tidyverse</code>.</p>
 <p>This plot will help us answer the following question:</p>
@@ -75,9 +73,9 @@
 <p><strong>Research Question:</strong></p>
 <p>Is there a relationship between petal length and petal width?</p>
 </div>
-<div id="a-basic-ggplot-plot" class="section level2" number="10.1">
+<div id="a-basic-ggplot-plot" class="section level2" number="4.1">
 <h2>
-<span class="header-section-number">10.1</span> A basic <code>ggplot</code> plot<a class="anchor" aria-label="anchor" href="#a-basic-ggplot-plot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1</span> A basic <code>ggplot</code> plot<a class="anchor" aria-label="anchor" href="#a-basic-ggplot-plot"><i class="fas fa-link"></i></a>
 </h2>
 <p>The <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> function itself only has two required arguments:</p>
 <ol style="list-style-type: decimal">
@@ -97,9 +95,9 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="01-week1_files/figure-html/unnamed-chunk-17-1.png" alt="" width="672"></div>
 </div>
-<div id="adding-color-based-on-a-third-variable" class="section level2" number="10.2">
+<div id="adding-color-based-on-a-third-variable" class="section level2" number="4.2">
 <h2>
-<span class="header-section-number">10.2</span> Adding color based on a third variable<a class="anchor" aria-label="anchor" href="#adding-color-based-on-a-third-variable"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2</span> Adding color based on a third variable<a class="anchor" aria-label="anchor" href="#adding-color-based-on-a-third-variable"><i class="fas fa-link"></i></a>
 </h2>
 <p>Remember that the iris data contain measurements of three species. It would probably be useful to plot each species in a different colour, so we can see where they are on the graph.</p>
 <p>If you want to change the colour of points based on a third variable, you need to add it to the aesthetic argument as shown below. <code>ggplot</code> will automatically add a legend.</p>
@@ -110,9 +108,9 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="01-week1_files/figure-html/unnamed-chunk-18-1.png" alt="" width="672"></div>
 </div>
-<div id="adding-axis-labels-and-changing-the-theme" class="section level2" number="10.3">
+<div id="adding-axis-labels-and-changing-the-theme" class="section level2" number="4.3">
 <h2>
-<span class="header-section-number">10.3</span> Adding axis labels and changing the theme<a class="anchor" aria-label="anchor" href="#adding-axis-labels-and-changing-the-theme"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3</span> Adding axis labels and changing the theme<a class="anchor" aria-label="anchor" href="#adding-axis-labels-and-changing-the-theme"><i class="fas fa-link"></i></a>
 </h2>
 <p>Right now the axis labels are just the column names - helpful but not formatted properly.</p>
 <p>You can modify your axis labels using the <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs()</a></code> function.</p>
@@ -129,9 +127,9 @@
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <div class="inline-figure"><img src="01-week1_files/figure-html/unnamed-chunk-19-1.png" alt="" width="672"></div>
 </div>
-<div id="making-a-boxplot" class="section level2" number="10.4">
+<div id="making-a-boxplot" class="section level2" number="4.4">
 <h2>
-<span class="header-section-number">10.4</span> Making a boxplot<a class="anchor" aria-label="anchor" href="#making-a-boxplot"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.4</span> Making a boxplot<a class="anchor" aria-label="anchor" href="#making-a-boxplot"><i class="fas fa-link"></i></a>
 </h2>
 <p>The scatter plot with different colours for each species made it clear that the different species seem to have different size petals.</p>
 <p>We can make this even more obvious with a box plot.</p>
@@ -159,16 +157,16 @@
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="numerical-data-exploration.html"><span class="header-section-number">9</span> Numerical data exploration</a></div>
-<div class="next"><a href="tidyup.html"><span class="header-section-number">11</span> Tidying up</a></div>
+<div class="prev"><a href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></div>
+<div class="next"><a href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#plotting-with-ggplot"><span class="header-section-number">10</span> Plotting with ggplot</a></li>
-<li><a class="nav-link" href="#a-basic-ggplot-plot"><span class="header-section-number">10.1</span> A basic ggplot plot</a></li>
-<li><a class="nav-link" href="#adding-color-based-on-a-third-variable"><span class="header-section-number">10.2</span> Adding color based on a third variable</a></li>
-<li><a class="nav-link" href="#adding-axis-labels-and-changing-the-theme"><span class="header-section-number">10.3</span> Adding axis labels and changing the theme</a></li>
-<li><a class="nav-link" href="#making-a-boxplot"><span class="header-section-number">10.4</span> Making a boxplot</a></li>
+<li><a class="nav-link" href="#plotting-with-ggplot"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="nav-link" href="#a-basic-ggplot-plot"><span class="header-section-number">4.1</span> A basic ggplot plot</a></li>
+<li><a class="nav-link" href="#adding-color-based-on-a-third-variable"><span class="header-section-number">4.2</span> Adding color based on a third variable</a></li>
+<li><a class="nav-link" href="#adding-axis-labels-and-changing-the-theme"><span class="header-section-number">4.3</span> Adding axis labels and changing the theme</a></li>
+<li><a class="nav-link" href="#making-a-boxplot"><span class="header-section-number">4.4</span> Making a boxplot</a></li>
 </ul>
 
       <div class="book-extra">
@@ -186,7 +184,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-09.</p>
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

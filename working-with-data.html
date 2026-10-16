@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 7 Data frames | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<title>Chapter 2 Working with data | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
 <meta name="author" content="Marta Shocket">
-<meta name="description" content="In order to work with data in R you do need…well…data. For this practical, we are going to work with two built-in datasets, starting with one called iris. Info: The iris dataset was originally...">
+<meta name="description" content="2.1 Data frames In order to work with data in R you do need…well…data. For this practical, we are going to work with a built-in dataset called iris. Info: The iris dataset was originally collected...">
 <meta name="generator" content="bookdown 0.48 with bs4_book()">
-<meta property="og:title" content="Chapter 7 Data frames | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:title" content="Chapter 2 Working with data | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
 <meta property="og:type" content="book">
-<meta property="og:description" content="In order to work with data in R you do need…well…data. For this practical, we are going to work with two built-in datasets, starting with one called iris. Info: The iris dataset was originally...">
+<meta property="og:description" content="2.1 Data frames In order to work with data in R you do need…well…data. For this practical, we are going to work with a built-in dataset called iris. Info: The iris dataset was originally collected...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 7 Data frames | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
-<meta name="twitter:description" content="In order to work with data in R you do need…well…data. For this practical, we are going to work with two built-in datasets, starting with one called iris. Info: The iris dataset was originally...">
+<meta name="twitter:title" content="Chapter 2 Working with data | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="2.1 Data frames In order to work with data in R you do need…well…data. For this practical, we are going to work with a built-in dataset called iris. Info: The iris dataset was originally collected...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -45,19 +45,17 @@
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">About</a></li>
 <li class="book-part">Week 1</li>
-<li><a class="" href="accessing-r-and-rstudio-through-appsanywhere.html"><span class="header-section-number">1</span> Accessing R and RStudio through AppsAnywhere</a></li>
-<li><a class="" href="the-rstudio-interface.html"><span class="header-section-number">2</span> The RStudio interface</a></li>
-<li><a class="" href="the-grammar-of-coding.html"><span class="header-section-number">3</span> The grammar of coding</a></li>
-<li><a class="" href="running-code-from-a-script.html"><span class="header-section-number">4</span> Running code from a script</a></li>
-<li><a class="" href="fixing-common-mistakes.html"><span class="header-section-number">5</span> Fixing common mistakes</a></li>
-<li><a class="" href="installing-and-loading-packages.html"><span class="header-section-number">6</span> Installing and loading packages</a></li>
-<li><a class="active" href="data-frames.html"><span class="header-section-number">7</span> Data frames</a></li>
-<li><a class="" href="basic-summary-statistics-and-getting-help.html"><span class="header-section-number">8</span> Basic summary statistics and getting help</a></li>
-<li><a class="" href="numerical-data-exploration.html"><span class="header-section-number">9</span> Numerical data exploration</a></li>
-<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">10</span> Plotting with ggplot</a></li>
-<li><a class="" href="tidyup.html"><span class="header-section-number">11</span> Tidying up</a></li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="active" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
 <li class="book-part">Week 2</li>
-<li><a class="" href="coming-soon.html"><span class="header-section-number">12</span> Coming soon</a></li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
 </ul>
 
         <div class="book-extra">
@@ -65,23 +63,28 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="data-frames" class="section level1" number="7">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="working-with-data" class="section level1" number="2">
 <h1>
-<span class="header-section-number">7</span> Data frames<a class="anchor" aria-label="anchor" href="#data-frames"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2</span> Working with data<a class="anchor" aria-label="anchor" href="#working-with-data"><i class="fas fa-link"></i></a>
 </h1>
+<div id="data-frames" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Data frames<a class="anchor" aria-label="anchor" href="#data-frames"><i class="fas fa-link"></i></a>
+</h2>
 <p>In order to work with data in R you do need…well…data.</p>
-<p>For this practical, we are going to work with two built-in datasets, starting with one called <code>iris</code>.</p>
+<p>For this practical, we are going to work with a built-in dataset called <code>iris</code>.</p>
 <div class="rmdtip">
 <p><strong>Info:</strong> The <code>iris</code> dataset was originally collected by the botanist <a href="https://en.wikipedia.org/wiki/Edgar_Anderson">Edgar Anderson</a> and made famous by <a href="https://en.wikipedia.org/wiki/Ronald_Fisher">Ronald Fisher</a>.</p>
 <p>It consists of data on the morphological variation between three different species of iris, specifically <em>Iris setosa</em>, <em>Iris virginica</em>, and <em>Iris versicolor</em>. It is a classic dataset in the fields of statistics and machine-learning.</p>
 </div>
 <p>To load the dataset, add a few blanks lines, and then write the following code and run it (<em>Note: this particular approach only works for the built-in datasets</em>).</p>
 <p>This code takes a hidden object (the built-in dataset called <code>iris</code>) and saves it as a normal object that we can see called <code>irisdata</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">irisdata</span> <span class="op">&lt;-</span> <span class="va">iris</span></span></code></pre></div>
-<div id="examining-data-frames" class="section level2" number="7.1">
+</div>
+<div id="examining-data-frames" class="section level2" number="2.2">
 <h2>
-<span class="header-section-number">7.1</span> Examining data frames<a class="anchor" aria-label="anchor" href="#examining-data-frames"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.2</span> Examining data frames<a class="anchor" aria-label="anchor" href="#examining-data-frames"><i class="fas fa-link"></i></a>
 </h2>
 <p>R loads data as a specific type of object called a <strong>data frame</strong> that has observations (rows) of variables (columns). Each column has a name and the rows are numbered sequentially.</p>
 <div class="rmdquestion">
@@ -90,7 +93,7 @@
 <p>Click on the blue circle just to the left of the data frame in the <code>Environment</code> tab. It should drop down a preview of all the variables and their first few values.</p>
 <p>Click on the name <code>irisdata</code>. It should open a table in your scripts panel. Scroll down to examine the full table.</p>
 <p>You can also examine data frames in R using the <code><a href="https://rdrr.io/r/utils/head.html">head()</a></code>, <code><a href="https://rdrr.io/r/utils/head.html">tail()</a></code> and <code><a href="https://rdrr.io/r/utils/View.html">View()</a></code> functions.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">irisdata</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">irisdata</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">irisdata</span><span class="op">)</span></span></code></pre></div>
@@ -98,26 +101,26 @@
 <p><strong>Q:</strong> What do each of these functions do?</p>
 </div>
 </div>
-<div id="referring-to-columns-in-a-data-frame" class="section level2" number="7.2">
+<div id="referring-to-columns-in-a-data-frame" class="section level2" number="2.3">
 <h2>
-<span class="header-section-number">7.2</span> Referring to columns in a data frame<a class="anchor" aria-label="anchor" href="#referring-to-columns-in-a-data-frame"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.3</span> Referring to columns in a data frame<a class="anchor" aria-label="anchor" href="#referring-to-columns-in-a-data-frame"><i class="fas fa-link"></i></a>
 </h2>
 <p>To refer to a specific variable (column) in a data frame, you can use the <code>$</code> symbol.</p>
 <p>Type the following code into your R script and run it. Practice using the autocomplete feature to select the data frame and the variable name.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">irisdata</span><span class="op">$</span><span class="va">Petal.Length</span></span></code></pre></div>
 <div class="rmdquestion">
 <p><strong>Q:</strong> What happens? Why might this be useful as you are coding?</p>
 </div>
 </div>
-<div id="calculations-using-a-column-in-a-data-frame" class="section level2" number="7.3">
+<div id="calculations-using-a-column-in-a-data-frame" class="section level2" number="2.4">
 <h2>
-<span class="header-section-number">7.3</span> Calculations using a column in a data frame<a class="anchor" aria-label="anchor" href="#calculations-using-a-column-in-a-data-frame"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.4</span> Calculations using a column in a data frame<a class="anchor" aria-label="anchor" href="#calculations-using-a-column-in-a-data-frame"><i class="fas fa-link"></i></a>
 </h2>
 <p>Just like with vectors, you can easily and quickly perform calculations on entire data frame columns in R.</p>
 <p>For example, if you want to measure the ratio of petal length to petal width for all of the flowers, you could do the following:</p>
 <p>Type and run the following code.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">irisdata</span><span class="op">$</span><span class="va">Petal.Length</span> <span class="op">/</span> <span class="va">irisdata</span><span class="op">$</span><span class="va">Petal.Width</span></span>
 <span><span class="co">#&gt;   [1]  7.000000  7.000000  6.500000  7.500000  7.000000</span></span>
 <span><span class="co">#&gt;   [6]  4.250000  4.666667  7.500000  7.000000 15.000000</span></span>
@@ -155,20 +158,21 @@
 <div class="rmdtip">
 <p><strong>Tip:</strong> Look at your the environment tab before and after you run the code - watch to see the number of columns in your data frame increase.</p>
 </div>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">irisdata</span><span class="op">$</span><span class="va">Petal.aspectratio</span> <span class="op">&lt;-</span> <span class="va">irisdata</span><span class="op">$</span><span class="va">Petal.Length</span> <span class="op">/</span> <span class="va">irisdata</span><span class="op">$</span><span class="va">Petal.Width</span></span></code></pre></div>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="installing-and-loading-packages.html"><span class="header-section-number">6</span> Installing and loading packages</a></div>
-<div class="next"><a href="basic-summary-statistics-and-getting-help.html"><span class="header-section-number">8</span> Basic summary statistics and getting help</a></div>
+<div class="prev"><a href="introduction.html"><span class="header-section-number">1</span> Introduction</a></div>
+<div class="next"><a href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#data-frames"><span class="header-section-number">7</span> Data frames</a></li>
-<li><a class="nav-link" href="#examining-data-frames"><span class="header-section-number">7.1</span> Examining data frames</a></li>
-<li><a class="nav-link" href="#referring-to-columns-in-a-data-frame"><span class="header-section-number">7.2</span> Referring to columns in a data frame</a></li>
-<li><a class="nav-link" href="#calculations-using-a-column-in-a-data-frame"><span class="header-section-number">7.3</span> Calculations using a column in a data frame</a></li>
+<li><a class="nav-link" href="#working-with-data"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="nav-link" href="#data-frames"><span class="header-section-number">2.1</span> Data frames</a></li>
+<li><a class="nav-link" href="#examining-data-frames"><span class="header-section-number">2.2</span> Examining data frames</a></li>
+<li><a class="nav-link" href="#referring-to-columns-in-a-data-frame"><span class="header-section-number">2.3</span> Referring to columns in a data frame</a></li>
+<li><a class="nav-link" href="#calculations-using-a-column-in-a-data-frame"><span class="header-section-number">2.4</span> Calculations using a column in a data frame</a></li>
 </ul>
 
       <div class="book-extra">
@@ -186,7 +190,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-09.</p>
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-16.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

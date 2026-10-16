@@ -1,7 +1,7 @@
 --- 
 title: "Statistics Practicals for LECX5141 - Biological Research Design and Delivery"
 author: "Marta Shocket"
-date: "2026-10-09"
+date: "2026-10-16"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
