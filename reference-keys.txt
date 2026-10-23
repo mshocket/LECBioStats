@@ -87,3 +87,4 @@ creating-your-own-r-cheatsheet
 general-data-analysis
 ggplot-functions
 other-plotting-functions
+statistical-tests

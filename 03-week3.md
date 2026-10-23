@@ -823,31 +823,52 @@ You can copy and paste this list into your markdown file, and then add your own 
 
 ### General / data analysis
 
+- `describe()`
 - `filter()`
+- `function()`
 - `group_by()`
 - `head()`
 - `library()`
+- `length()`
+- `mean()`
 - `median()`
+- `na.omit()`
+- `paste()`
 - `print()`
 - `rbind()`
 - `read.csv()`
+- `sd()`
+- `sqrt()`
 - `str()`
+- `summary()`
 - `summarise()`
 - `tail()`
+- `unique()`
 - `View()`
 
 ### ggplot functions
 
 - `aes()`
+- `facet_wrap()`
 - `ggplot()`
 - `geom_boxplot()`
 - `geom_col()`
+- `geom_histogram()`
 - `geom_line()`
 - `labs()`
 - `theme()`
 - `theme_bw()`
+- `vars()`
 
 ## Other plotting functions
 
+- `boxplot()`
 - `hist()`
+- `par()`
+- `qqline()`
+- `qqnorm()`
 
+## Statistical tests
+
+- `shapiro.test()`
+- `ks.test()`
