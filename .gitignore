@@ -6,6 +6,6 @@
 .quarto
 _book/
 _bookdown_files/
-LECFoundationsBookdown.rds
+LECBioStats.rds
 examples/
 .positai
