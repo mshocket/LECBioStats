@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 14 Writing functions | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="Writing your own functions is really helpful if you need to repeat a complex set of tasks multiple times. For example, to check if a variable is Normally distributed, you need to perform all of...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 14 Writing functions | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Writing your own functions is really helpful if you need to repeat a complex set of tasks multiple times. For example, to check if a variable is Normally distributed, you need to perform all of...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 14 Writing functions | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="Writing your own functions is really helpful if you need to repeat a complex set of tasks multiple times. For example, to check if a variable is Normally distributed, you need to perform all of...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="active" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="writing-functions" class="section level1" number="14">
+<h1>
+<span class="header-section-number">14</span> Writing functions<a class="anchor" aria-label="anchor" href="#writing-functions"><i class="fas fa-link"></i></a>
+</h1>
+<p>Writing your own functions is really helpful if you need to repeat a complex set of tasks multiple times.</p>
+<p>For example, to check if a variable is Normally distributed, you need to perform all of these analyses:</p>
+<ol style="list-style-type: decimal">
+<li>calculate skew</li>
+<li>compare mean and median</li>
+<li>make a histogram</li>
+<li>make a boxplot</li>
+<li>make a qqplot with a qqline</li>
+<li>perform a formal test of Normality</li>
+</ol>
+<p>And we do this long list of tasks for multiple variables in every practical!</p>
+<p>Wouldn’t it be really convenient if we could do all the tasks listed above with just one command?</p>
+<p>You can if you write your own function to do it!</p>
+<div id="defining-a-new-function" class="section level2" number="14.1">
+<h2>
+<span class="header-section-number">14.1</span> Defining a new function<a class="anchor" aria-label="anchor" href="#defining-a-new-function"><i class="fas fa-link"></i></a>
+</h2>
+<p>To define a function in R you:</p>
+<ul>
+<li>Name the function</li>
+<li>Tell R it is a function, using a function called function()</li>
+<li>Put the names of any arguments that the function will need inside the brackets of function()</li>
+<li>Use curly brackets to contain all the commands that the function will do</li>
+</ul>
+<p>Write the following code into your R script.</p>
+<p>Here, our new function - <code>examine_norm()</code> - takes one argument, which we are calling <code>var_x</code>.</p>
+<p>Right now the function is empty and doesn’t do anything. (We’ll fill it in shortly.)</p>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Define a function to analyse Normality of a variable</span></span>
+<span><span class="va">examine_norm</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">var_x</span><span class="op">)</span><span class="op">{</span><span class="op">}</span></span></code></pre></div>
+</div>
+<div id="adding-commands" class="section level2" number="14.2">
+<h2>
+<span class="header-section-number">14.2</span> Adding commands<a class="anchor" aria-label="anchor" href="#adding-commands"><i class="fas fa-link"></i></a>
+</h2>
+<p>We want our function to do all the analyses necessary to determine if a variable is Normally-distributed.</p>
+<p>Let’s start by adding the commands to make our three diagnostic plots, as shown below.</p>
+<ul>
+<li>Put your cursor in between the curly brackets and hit enter a few times to make some space.</li>
+<li>Retype or copy and paste your old code for making our 3-panel figure with a histogram, a boxplot, and a qq-plot inside the curly brackets.</li>
+<li>Change the arguments in the plotting code to match the argument name we used in the first line (<code>var_x</code>).</li>
+</ul>
+<p>Now whatever data we give our function as the argument, R will use wherever the function code says <code>var_x</code>.</p>
+<div class="rmdtip">
+<p><strong>Tip:</strong> The argument <code>var_x</code> will exist as a temporary object while the function is running, and then get removed afterwards. This means we will not be able to use or refer to <code>var_x</code> outside the function itself.</p>
+</div>
+<p>Your code should now look like this:</p>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Define a function to analyse Normality of a variable</span></span>
+<span><span class="va">examine_norm</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">var_x</span><span class="op">)</span><span class="op">{</span></span>
+<span>    </span>
+<span>    <span class="co"># Make 3-panel diagnostic plots</span></span>
+<span>  <span class="co"># &lt;YOUR CODE GOES HERE&gt;</span></span>
+<span></span>
+<span><span class="op">}</span></span></code></pre></div>
+</div>
+<div id="loading-and-running-the-function" class="section level2" number="14.3">
+<h2>
+<span class="header-section-number">14.3</span> Loading and running the function<a class="anchor" aria-label="anchor" href="#loading-and-running-the-function"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before we can use our function, we need to load it into our Environment.</p>
+<p>Put your cursor in the top line of the function definition (or highlight the whole section) and run it.</p>
+<p>You should see the function pop up in your Environment pane.</p>
+<div class="rmdquestion">
+<p><strong><em>Q:</em></strong> What information does R provide about your function in the Environment pane?</p>
+</div>
+<p>Now we can actually use our function!</p>
+<p>Write the following code below the function definition in your R script, and run it.</p>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Examine Normality of the column</span></span>
+<span><span class="fu">examine_norm</span><span class="op">(</span><span class="va">mydata</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span></code></pre></div>
+<p>You should see our classic figure with the three diagnostic plots pop up in your Plots pane.</p>
+<div class="rmdtip">
+<p><strong>Tip:</strong> “Running” a function is sometimes referred to as “executing” the function.</p>
+</div>
+</div>
+<div id="finishing-our-function" class="section level2" number="14.4">
+<h2>
+<span class="header-section-number">14.4</span> Finishing our function<a class="anchor" aria-label="anchor" href="#finishing-our-function"><i class="fas fa-link"></i></a>
+</h2>
+<p>Our function is already really useful, but we can make it even more useful.</p>
+<p>Let’s add the code for the formal Normality tests (Shapiro-Wilk test and Kolmogorov–Smirnov test) to our function. Modify the function definition as shown below so it:</p>
+<ul>
+<li>performs a Shapiro-Wilk test and prints the output</li>
+<li>performs a Kolmogorov–Smirnov test and prints the output</li>
+</ul>
+<div class="rmdtip">
+<p><strong>Tip:</strong> You can nest functions inside of each other! R will perform the outer function - <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> - on the results of the inner function - <code><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test()</a></code> or <code><a href="https://rdrr.io/r/stats/ks.test.html">ks.test()</a></code>.</p>
+</div>
+<p>Your code should now look someething like this (I’ve done a little for you because I’m nice).</p>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">examine_norm</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">var_x</span><span class="op">)</span><span class="op">{</span></span>
+<span>    </span>
+<span>    <span class="co"># Make 3-panel diagnostic plots</span></span>
+<span>    <span class="co"># &lt;YOUR CODE GOES HERE&gt;</span></span>
+<span>    </span>
+<span>    <span class="co"># Shapiro-Wilk test</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">var_x</span><span class="op">)</span><span class="op">)</span> <span class="co"># Here's some nested function calls!</span></span>
+<span></span>
+<span>  <span class="co"># Kolmogorov–Smirnov test - calculate and store the data's mean and sd first</span></span>
+<span>  <span class="co"># &lt;YOUR CODE GOES HERE&gt;</span></span>
+<span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Now that we’ve changed the definition our function, we will need to load it again before R can use the new version of it.</p>
+<p>Re-load the function, and re-run the line that runs the function.</p>
+<p>You should see the output of the Shapiro-Wilk test print in the Console. (It will also make a new figure, but it won’t be obvious since it’s the same one as before.)</p>
+<p>Let’s add another set of commands to our function to calculate and print the relevant descriptive statistics: the mean, median and skew.</p>
+<p>Here will also take advantage of a function called <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code>, which pastes text output together.</p>
+<p>The new code below will:</p>
+<ul>
+<li>Calculates the mean median, and skew.</li>
+<li>Prints each these calculations along with text saying what it is</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Define a function to analyse Normality of a variable</span></span>
+<span><span class="va">examine_norm</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">var_x</span><span class="op">)</span><span class="op">{</span></span>
+<span>    </span>
+<span>    <span class="co"># Calculate descriptive statistics</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Mean ="</span>, <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">var_x</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="co"># &lt;YOUR CODE GOES HERE&gt;</span></span>
+<span>    <span class="co"># Make 3-panel diagnostic plots</span></span>
+<span>    </span>
+<span>    <span class="co"># Shapiro-wilk test</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test</a></span><span class="op">(</span><span class="va">var_x</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>  <span class="co"># Kolmogorov–Smirnov test - calculate and store the data's mean and sd first</span></span>
+<span>  <span class="co"># &lt;YOUR CODE GOES HERE&gt;</span></span>
+<span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Add this to your own code and add lines to calculate and print the median and skew values of <code>var_x</code>.</p>
+<p>For median this should not be hard, however if you try and use some sort of function called <code><a href="https://rdrr.io/pkg/psych/man/skew.html">skew()</a></code>, you may notice something. <strong>It doesn’t exist in base R!</strong></p>
+<div id="making-our-own-skew-function" class="section level3" number="14.4.1">
+<h3>
+<span class="header-section-number">14.4.1</span> Making our own skew function<a class="anchor" aria-label="anchor" href="#making-our-own-skew-function"><i class="fas fa-link"></i></a>
+</h3>
+<p>The calculation for skew is a little complicated. The equation is below (but don’t worry too much about it).</p>
+<p><span class="math display">\[\mathrm{skew} = \frac{\frac{\sum (x - \bar{x})^3}{n}}{\left(\frac{\sum (x - \bar{x})^2}{n}\right)^{1.5}}\]</span></p>
+<p>For your convenience, below I have provided a copy-pastable function to calculate skew.</p>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Function to calculate the skew of a vector</span></span>
+<span><span class="va">skew</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span>  <span class="va">m3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="fl">3</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span></span>
+<span>  <span class="va">m2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span> <span class="op">/</span> <span class="va">n</span></span>
+<span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">m3</span> <span class="op">/</span> <span class="op">(</span><span class="va">m2</span><span class="op">^</span><span class="fl">1.5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code></pre></div>
+<p>Copy this function into your script and run it so we can then use the function <code><a href="https://rdrr.io/pkg/psych/man/skew.html">skew()</a></code> later.</p>
+<p>Now add a call to <code><a href="https://rdrr.io/pkg/psych/man/skew.html">skew()</a></code> into your script underneath the line where you print the <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code> of the data.</p>
+<div class="rmdtip">
+<p><strong>Tip:</strong> As you can see, you can use one function that you defined within another one that you also defined! This is incredibly useful as you can eventually build up a set of functions and use them to write other functions to save even more time.</p>
+<p>Make sure that you load all the functions that you’re going to use, however. If a function used within another is missing, you’ll get an error.</p>
+</div>
+<p><em>Note: there actually IS a skew function within the <code>psych</code> package, however you sometimes don’t have access to a package, or don’t want to load the whole thing just for one function.</em></p>
+</div>
+</div>
+<div id="resetting-the-plot-window" class="section level2" number="14.5">
+<h2>
+<span class="header-section-number">14.5</span> Resetting the plot window<a class="anchor" aria-label="anchor" href="#resetting-the-plot-window"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s make one final addition to our function that is not required, but will make it easier to work with.</p>
+<ul>
+<li>Right now your function should be changing the plotting settings to plot 3 figures in a single row, in the line <code>par(mfrow = c(1,3))</code> (if you’ve got the right stuff in there).</li>
+<li>That is great for our diagnostic plots, but what if we want to make a normal plot at some point later one?</li>
+<li>We can fix this by adding code to re-set the original plotting settings after we’ve done our analysis.</li>
+</ul>
+<p>Add the following line of code to your function. You can decide where to put it, as long as it is after the plotting. It could be either before or after the for Normality tests - it doesn’t matter.</p>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<p>Now we can fully analyse any variable for normality using a single line of code!</p>
+<p>You just have to remember to load your <code>examine_norm()</code> function at the beginning of your R session, when you loading your data and packages.</p>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></div>
+<div class="next"><a href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#writing-functions"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="nav-link" href="#defining-a-new-function"><span class="header-section-number">14.1</span> Defining a new function</a></li>
+<li><a class="nav-link" href="#adding-commands"><span class="header-section-number">14.2</span> Adding commands</a></li>
+<li><a class="nav-link" href="#loading-and-running-the-function"><span class="header-section-number">14.3</span> Loading and running the function</a></li>
+<li>
+<a class="nav-link" href="#finishing-our-function"><span class="header-section-number">14.4</span> Finishing our function</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#making-our-own-skew-function"><span class="header-section-number">14.4.1</span> Making our own skew function</a></li></ul>
+</li>
+<li><a class="nav-link" href="#resetting-the-plot-window"><span class="header-section-number">14.5</span> Resetting the plot window</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/03-week3.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/03-week3.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-23.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

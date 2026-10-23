@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 13 Formal tests to assess Normality | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="The Shapiro-Wilks and Kolmogorov-Smirnov (K-S) tests are more quantitative methods of evaluating whether or not your data are Normally-distributed. Essentially, these tests look for the difference...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 13 Formal tests to assess Normality | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="The Shapiro-Wilks and Kolmogorov-Smirnov (K-S) tests are more quantitative methods of evaluating whether or not your data are Normally-distributed. Essentially, these tests look for the difference...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 13 Formal tests to assess Normality | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="The Shapiro-Wilks and Kolmogorov-Smirnov (K-S) tests are more quantitative methods of evaluating whether or not your data are Normally-distributed. Essentially, these tests look for the difference...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="active" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="formal-tests-to-assess-normality" class="section level1" number="13">
+<h1>
+<span class="header-section-number">13</span> Formal tests to assess Normality<a class="anchor" aria-label="anchor" href="#formal-tests-to-assess-normality"><i class="fas fa-link"></i></a>
+</h1>
+<p>The Shapiro-Wilks and Kolmogorov-Smirnov (K-S) tests are more quantitative methods of evaluating whether or not your data are Normally-distributed.</p>
+<p>Essentially, these tests look for the difference between your data points and a Normal distribution with the same mean and standard deviation, and tell you whether or not this difference is statistically significant.</p>
+<div id="which-test-to-use" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">13.1</span> Which test to use<a class="anchor" aria-label="anchor" href="#which-test-to-use"><i class="fas fa-link"></i></a>
+</h2>
+<p>The Shapiro-Wilks test is more sensitive/powerful than the K-S test.</p>
+<p>Therefore, it is generally recommended to use Shapiro-Wilks when you have smaller sample size (n &lt; 50). It has been shown to work well with samples as small as n = 20.</p>
+<p>For larger sample sizes (n &gt; 50), the K-S is less likely to</p>
+</div>
+<div id="defining-hypotheses" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">13.2</span> Defining hypotheses<a class="anchor" aria-label="anchor" href="#defining-hypotheses"><i class="fas fa-link"></i></a>
+</h2>
+<p>First we should define our hypotheses. They are:</p>
+<ul>
+<li>
+<span class="math inline">\(\mathrm{H}_0\)</span>: The distribution of the [e.g. tree circumference] data is not significantly different to a Normal distribution. (It is a normal distribution)</li>
+<li>
+<span class="math inline">\(\mathrm{H}_\mathrm{A}\)</span>: The distribution of the [e.g. tree circumference] data is significantly different to a Normal distribution. (It is not a normal distribution)</li>
+</ul>
+<p>When you run these tests in R, you will get output that looks something like this:</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/SW_test.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/KS-test.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>The critical points in these outputs are:</p>
+<ul>
+<li>the test statistics (W for Shapiro-Wilk and D for Kolmogorov-Smirnov)</li>
+<li>the p-value</li>
+</ul>
+<div class="rmdtip">
+<p>You can ignore the warning message about ties for the K-S test.</p>
+<p>If you have repeated values (i.e. “ties”) in your data due to rounding, it will make the test slightly less likely to reject the null hypothesis, but that’s generally okay.</p>
+<p>However, this might affect your decision for how much to round your data.</p>
+</div>
+<p>The test statistics here are a measure of the difference between the distribution for the data and the distribution for a specified distribution (Normal in this case).</p>
+<p>The p-value is the probability of being wrong if we reject the null hypothesis. If P &lt; 0.05 we normally reject the null hypothesis.</p>
+<p>For example, here the p-values of 0.10 (S-W test) and 0.53 (K-S test) for the grassland depth data mean a 10% and 52% probability of being wrong if we decide to reject the null hypothesis (<span class="math inline">\(\mathrm{H}_0\)</span>: the distribution is not significantly different to a Normal distribution).</p>
+<p>Since we are quite likely to be wrong, so we not should reject <span class="math inline">\(\mathrm{H}_0\)</span>, i.e. the distribution is not significantly different to a Normal distribution. The larger the p-value the more likely it is that the distribution is Normal.</p>
+</div>
+<div id="shapiro-wilk-test" class="section level2" number="13.3">
+<h2>
+<span class="header-section-number">13.3</span> Shapiro-Wilk test<a class="anchor" aria-label="anchor" href="#shapiro-wilk-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>The function in R for the Shapiro-Wilk test is <code><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test()</a></code>.</p>
+<p>Run the test below on the tree diameter data.</p>
+<pre><code>shapiro.test(mydf$mycol)</code></pre>
+<div class="rmdquestion">
+<p><strong><em>Q:</em></strong> Are the tree diameter data Normally distributed?</p>
+</div>
+<p>Based on the Shapiro-Wilk tests:</p>
+<ul>
+<li>We can accept the null hypothesis for dry density for both habitat types (and for the random data).</li>
+<li>We can reject the hypothesis for the carbon data for both habitat types.</li>
+</ul>
+<p>The histograms also supports these decisions. When we accept the null hypothesis, it doesn’t mean that we are 100% confident that our data are exactly Normal, simply that we couldn’t detect a difference from a Normal distribution.</p>
+<div class="rmdwarning">
+<p>*<strong>Be careful!:</strong></p>
+<ul>
+<li>With very large sample sizes (when strict Normality is less important), the test is more likely to cause you to reject <span class="math inline">\(\mathrm{H}_0\)</span>.</li>
+<li>With small sample sizes (when it’s very important to know if your data are non-Normal), you are more likely to accept <span class="math inline">\(\mathrm{H}_0\)</span>.</li>
+</ul>
+<p>Therefore, we should ALWAYS pay strict attention to the histograms and descriptive statistics in addition to these tests when making a decision about Normality.</p>
+</div>
+</div>
+<div id="kolmogorov-smirnov-test" class="section level2" number="13.4">
+<h2>
+<span class="header-section-number">13.4</span> Kolmogorov-Smirnov test<a class="anchor" aria-label="anchor" href="#kolmogorov-smirnov-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now let’s do the Kolmogorov-Smirnov test and see if we get the same answers for rejecting or accepting our null hypotheses.</p>
+<p>The function for Kolmogorov-Smirnov test is <code><a href="https://rdrr.io/r/stats/ks.test.html">ks.test()</a></code>. It can actually test for other distributions besides the Normal distribution. It takes 4 arguments in a specific order:</p>
+<ol style="list-style-type: decimal">
+<li>the data</li>
+<li>the distribution to test for - for Normal, use the argument <code>"pnorm"</code> - with the quotation marks</li>
+<li>the mean of the data</li>
+<li>the sd of the data</li>
+</ol>
+<p>Our code for the K-S test will take three lines:</p>
+<ul>
+<li>In the first two lines, we’ll store the mean and SD of our data to make them easier to refer to in the test.</li>
+<li>In the third line we’ll run the test.</li>
+</ul>
+<p>Write the code below into your R script.</p>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># K-S test </span></span>
+<span><span class="co">#    - need to calculate and store the data's mean and sd before running test</span></span>
+<span><span class="va">mean_mc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span>
+<span><span class="va">sd_mc</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/ks.test.html">ks.test</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span>, <span class="st">"pnorm"</span>, mean <span class="op">=</span> <span class="va">mean_mc</span>, sd <span class="op">=</span> <span class="va">sd_mc</span><span class="op">)</span></span></code></pre></div>
+<p>Run the K-S test for the tree diameter data.</p>
+<div class="rmdquestion">
+<p><strong><em>Q:</em></strong> How do the answers from the K-S test compare to the answers from the W-S test? Do you reject or fail to reject the null hypothesis for all the same variable?</p>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></div>
+<div class="next"><a href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#formal-tests-to-assess-normality"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="nav-link" href="#which-test-to-use"><span class="header-section-number">13.1</span> Which test to use</a></li>
+<li><a class="nav-link" href="#defining-hypotheses"><span class="header-section-number">13.2</span> Defining hypotheses</a></li>
+<li><a class="nav-link" href="#shapiro-wilk-test"><span class="header-section-number">13.3</span> Shapiro-Wilk test</a></li>
+<li><a class="nav-link" href="#kolmogorov-smirnov-test"><span class="header-section-number">13.4</span> Kolmogorov-Smirnov test</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/03-week3.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/03-week3.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-23.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

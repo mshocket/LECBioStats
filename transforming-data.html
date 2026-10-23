@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 15 Transforming data | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="There are two kinds of statistical tests. Parametric tests, which assume that your data are Normally-distributed Non-parametric tests, which do not assume the distribution of your data. Parametric...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 15 Transforming data | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="There are two kinds of statistical tests. Parametric tests, which assume that your data are Normally-distributed Non-parametric tests, which do not assume the distribution of your data. Parametric...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 15 Transforming data | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="There are two kinds of statistical tests. Parametric tests, which assume that your data are Normally-distributed Non-parametric tests, which do not assume the distribution of your data. Parametric...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="active" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="transforming-data" class="section level1" number="15">
+<h1>
+<span class="header-section-number">15</span> Transforming data<a class="anchor" aria-label="anchor" href="#transforming-data"><i class="fas fa-link"></i></a>
+</h1>
+<p>There are two kinds of statistical tests.</p>
+<ul>
+<li>
+<strong>Parametric tests</strong>, which assume that your data are Normally-distributed</li>
+<li>
+<strong>Non-parametric tests</strong>, which do not assume the distribution of your data.</li>
+</ul>
+<p>Parametric tests are more powerful and sensitive, i.e. more able to get significant p-values and reject null hypotheses for the same input data.</p>
+<p>While some small deviations from Normality can be ignored, when your data are very skewed you will need to take countermeasures.</p>
+<p>One option (and the one that we will be using here) is to apply a <strong>transform</strong>, which will change the distribution of your data set. This is much less complicated than it sounds. It simply means that we are going to put each of our data points into an equation, and find the new value. We can then test our new distribution for Normality (and do our statistical tests on the transformed data set).</p>
+<p>Non-parametric tests are frequently used when we have a very small data set, are working with non-continuous data, or we have a non-Normal data set. However, these tests are not as sensitive or powerful as parametric tests, so if we have a large data set (n &gt; 30), it is better to try and transform the data.</p>
+<p>We transform data when the mean value is not representative of the “typical” member of the population (because, for example, the data are skewed). The extreme values have a strong influence on the mean, but we don’t want to discard them. They are still valid and important data points. Instead, we transform the data to make the distribution more Normal, which reduces the outsized influence of the extreme values.</p>
+<p>When we transform data, we:</p>
+<ul>
+<li>Don’t change the rank order of the data (the biggest value is still the biggest and the smallest still the smallest).</li>
+<li>Don’t remove any data points (the extreme data points are still there).</li>
+<li>The influence of the extremes is reduced. They still contribute to the mean of the transformed data set, but no longer dominate our results.</li>
+</ul>
+<div id="transformations-in-r" class="section level2" number="15.1">
+<h2>
+<span class="header-section-number">15.1</span> Transformations in R<a class="anchor" aria-label="anchor" href="#transformations-in-r"><i class="fas fa-link"></i></a>
+</h2>
+<p>We are now going to practice transforming data, using the tree data as an example.</p>
+<p>We are going to investigate three transforms that are useful for positive skew, positive kurtosis, and unequal variances, namely:</p>
+<ul>
+<li>log10 (<span class="math inline">\(\log_{10}x\)</span>)</li>
+<li>square root (<span class="math inline">\(\sqrt x\)</span>)</li>
+<li>negative inverse (<span class="math inline">\(\frac{-1}{x}\)</span>).</li>
+</ul>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<ul>
+<li>What are the three transformations you are performing?</li>
+<li>What are they doing to your data?</li>
+<li>Why are you performing them?</li>
+</ul>
+</div>
+<p>Transforming variables in R is very easy, because of how R does maths. R can do mathematical operations on almost any type of data.</p>
+<p>For instance, <code>a &lt;- 2*b</code> will work on any numerical object <code>b</code>, regardless of what structure it is - <code>b</code> could be:</p>
+<ul>
+<li>a single number</li>
+<li>a list of numbers (i.e a vector)</li>
+<li>a data frame or matrix with many columns and rows</li>
+</ul>
+<p>R will perform the mathematical operation on every single element in the input (<code>b</code>), and the output (<code>a</code>) will simply be the same structure as the input (<code>b</code>).</p>
+<p>To transform a variable:</p>
+<ul>
+<li>take the column of your original variable</li>
+<li>perform the mathematical operation to transform the data</li>
+<li>store the transformed data as a new column in the same data frame</li>
+</ul>
+<div class="rmdimportant">
+<p><strong><em>DO:</em></strong> Re-read the three bullet points above again. Make sure you understand them.</p>
+</div>
+<div class="rmdquestion">
+<p><strong><em>Q:</em></strong> Could you explain to a classmate why we are doing what we are doing and how it works? If not, go back to the top of this section and refresh yourself.</p>
+</div>
+<p>However, we don’t want to transform our variables at the bottom of our script where we are currently working - we want to do it at the top, so we can more easily include it in the rest of our analysis.</p>
+<p>Scroll up to the top of your script, <strong>right after you load the data</strong>.</p>
+<div class="rmdtip">
+<p>Generally speaking, you will run your script from top to bottom.</p>
+<p>If you decide to something (e.g. transform you data) before you do other analyses (e.g. make plots or run tests), you will want to do that earlier in the script.</p>
+<p>Therefore, as you write a script, you may want to be moving around so the order of commands make sense based on the analysis, not necessarily the order that you wrote them in.</p>
+</div>
+<p>Type the following code into your script and run it. (Remember you can use R’s autocomplete feature so you don’t have to write out long variable names).</p>
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Create new columns in the original data frame with transformed values</span></span>
+<span></span>
+<span><span class="co"># Transformations are: </span></span>
+<span><span class="co"># 1) log10</span></span>
+<span><span class="co"># 2) squareroot, and</span></span>
+<span><span class="co"># 3) negative inverse (-1/x)</span></span>
+<span></span>
+<span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol_log10</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span>
+<span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol_sqrt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span>
+<span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol_neginv</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span></span></code></pre></div>
+<div class="rmdwarning">
+<p>Do remember that this code won’t just work copy-pasted. You’ll need to change <code>mydf</code> and <code>mycol</code> to appropriate values!</p>
+</div>
+<p>Now scroll down to the section of your script where you run diagnostics for Normality diagnostic plots.</p>
+<p>Re-run your <code>examine_norm()</code> function on these new columns.</p>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<ul>
+<li>Have any of the transformations made the tree data less skewed?</li>
+<li>Do any of the transformed variables look more Normal than the original variable?</li>
+<li>Do any of the transformations change the results from your S-W or K-S tests on the original variable?</li>
+</ul>
+</div>
+<p>These transforms work best on positively skewed data. However, there are other transforms that you can use (see for example Townend “Practical Statistics for Environmental Scientists”), but this is a reasonable selection to start with. (In fact, log-Normal data are very common, meaning that the log transform is often the only one you will need).</p>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></div>
+<div class="next"><a href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#transforming-data"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="nav-link" href="#transformations-in-r"><span class="header-section-number">15.1</span> Transformations in R</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/03-week3.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/03-week3.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-23.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
