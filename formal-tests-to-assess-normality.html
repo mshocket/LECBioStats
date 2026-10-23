@@ -81,9 +81,9 @@
 <h2>
 <span class="header-section-number">13.1</span> Which test to use<a class="anchor" aria-label="anchor" href="#which-test-to-use"><i class="fas fa-link"></i></a>
 </h2>
-<p>The Shapiro-Wilks test is more sensitive/powerful than the K-S test.</p>
+<p>The Shapiro-Wilks test is more sensitive and powerful than the K-S test.</p>
 <p>Therefore, it is generally recommended to use Shapiro-Wilks when you have smaller sample size (n &lt; 50). It has been shown to work well with samples as small as n = 20.</p>
-<p>For larger sample sizes (n &gt; 50), the K-S is less likely to</p>
+<p>For larger sample sizes (n &gt; 50), the K-S test is less likely to find a false positive, i.e. find a significant difference from Normality, despite the date being Normally distributed.</p>
 </div>
 <div id="defining-hypotheses" class="section level2" number="13.2">
 <h2>
@@ -134,12 +134,11 @@
 </div>
 <p>Based on the Shapiro-Wilk tests:</p>
 <ul>
-<li>We can accept the null hypothesis for dry density for both habitat types (and for the random data).</li>
-<li>We can reject the hypothesis for the carbon data for both habitat types.</li>
+<li>We can reject the null hypothesis for tree diameter being Normally distributed.</li>
 </ul>
-<p>The histograms also supports these decisions. When we accept the null hypothesis, it doesn’t mean that we are 100% confident that our data are exactly Normal, simply that we couldn’t detect a difference from a Normal distribution.</p>
+<p>The histogram and boxplot also supports this decision. When we accept the null hypothesis, it doesn’t mean that we are 100% confident that our data are exactly Normal, simply that we couldn’t detect a difference from a Normal distribution.</p>
 <div class="rmdwarning">
-<p>*<strong>Be careful!:</strong></p>
+<p><strong>Be careful!:</strong></p>
 <ul>
 <li>With very large sample sizes (when strict Normality is less important), the test is more likely to cause you to reject <span class="math inline">\(\mathrm{H}_0\)</span>.</li>
 <li>With small sample sizes (when it’s very important to know if your data are non-Normal), you are more likely to accept <span class="math inline">\(\mathrm{H}_0\)</span>.</li>
@@ -151,7 +150,7 @@
 <h2>
 <span class="header-section-number">13.4</span> Kolmogorov-Smirnov test<a class="anchor" aria-label="anchor" href="#kolmogorov-smirnov-test"><i class="fas fa-link"></i></a>
 </h2>
-<p>Now let’s do the Kolmogorov-Smirnov test and see if we get the same answers for rejecting or accepting our null hypotheses.</p>
+<p>Now let’s do the Kolmogorov-Smirnov test and see if we get the same answer for rejecting or accepting our null hypotheses.</p>
 <p>The function for Kolmogorov-Smirnov test is <code><a href="https://rdrr.io/r/stats/ks.test.html">ks.test()</a></code>. It can actually test for other distributions besides the Normal distribution. It takes 4 arguments in a specific order:</p>
 <ol style="list-style-type: decimal">
 <li>the data</li>
@@ -173,7 +172,7 @@
 <span><span class="fu"><a href="https://rdrr.io/r/stats/ks.test.html">ks.test</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span>, <span class="st">"pnorm"</span>, mean <span class="op">=</span> <span class="va">mean_mc</span>, sd <span class="op">=</span> <span class="va">sd_mc</span><span class="op">)</span></span></code></pre></div>
 <p>Run the K-S test for the tree diameter data.</p>
 <div class="rmdquestion">
-<p><strong><em>Q:</em></strong> How do the answers from the K-S test compare to the answers from the W-S test? Do you reject or fail to reject the null hypothesis for all the same variable?</p>
+<p><strong><em>Q:</em></strong> How do the answers from the K-S test compare to the answers from the W-S test?</p>
 </div>
 </div>
 </div>

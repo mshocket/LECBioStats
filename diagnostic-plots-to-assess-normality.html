@@ -82,7 +82,7 @@
 <p>Last week you used <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> from the tidyverse to make a histogram to assess the Normality of the penguin data.</p>
 <p>You can look at a histogram and see if your data generally look like one symmetrical hump, or asymmetrically skewed to one side, or some other pattern (e.g. two humps - like our total area calculations).</p>
 <p>This week we’re going to use a more simple function from base R - <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> - to make a histogram of the tree diameter data.</p>
-<p>The figures that <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> makes aren’t as attractive as <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> figures but are fine your own preliminary data exploration.</p>
+<p>The figures that <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> makes aren’t as attractive as <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> figures, but they are fine for preliminary data exploration that you don’t plan to put in a report.</p>
 <p>Use the <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> function on the tree diameter data.</p>
 <pre><code>hist(mydf$mycol)</code></pre>
 </div>
@@ -94,7 +94,7 @@
 <p>You made some using <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> and the iris data in week 1, but we didn’t talk about what boxplots show in detail.</p>
 <p>Boxplots show:</p>
 <ul>
-<li>A box encompassing the interquartile range (IQR), the values between the 1st and 3rd quartiles, i.e. the 25th and 75th percentiles, q25 and q75 respectively.</li>
+<li>A box encompassing the interquartile range (IQR), the values between the 1st and 3rd quartiles, i.e. the 25th and 75th percentiles of the data, q25 and q75 respectively.</li>
 <li>A line across the centre of the box at the median</li>
 <li>“Whiskers” on each end representing the 5th and 95th percentiles.</li>
 <li>Outliers (extreme values) plotted as individual points. Specifically, outliers are identified as any points outside the whiskers with values:
@@ -105,7 +105,7 @@
 </ul>
 </li>
 </ul>
-<p>Just like with the histogram, this week we’re going to use a more simple function from base R - <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> - that is simpler but not as attractive.</p>
+<p>Just like with the histogram, this week we’re going to use a more simple function from base R that is simpler but not as attractive.</p>
 <p>Use the <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code> function on the tree diameter data.</p>
 <pre><code>boxplot(mydf$mycol)</code></pre>
 </div>
@@ -116,7 +116,7 @@
 <p>There is one other plot that is particularly useful for assessing Normality: a Normal quantile-quantile or Q-Q plot.</p>
 <p>The Normal Q-Q plots are generated as follows:</p>
 <ul>
-<li>The data set is divided into quantiles - sections of data with equal densities of the data points, ranked from lowest to highest.</li>
+<li>The data set is divided into quantiles - like quartiles but a more generic way of sectioning the data into bins equal densities of the data points, ranked from lowest to highest.</li>
 <li>The observed quantiles in your data are plotted (on the y-axis) against the predicted quantile for a Normally-distributed data set (on the x-axis).</li>
 <li>A line is drawn through the first and third quantiles (the 25% and 75% values of the data.)</li>
 </ul>
@@ -147,15 +147,16 @@
 <p>It would be really nice if we could combine all our plots into one larger plot, so we could see all of them at the same time.</p>
 <p>In base R, the easiest way to do this is with the following command:</p>
 <pre><code>par(mfrow = c(1,2))</code></pre>
-<p>The vector given to the <code>mfrow</code> argument tells R the number of rows and columns that you want in your final figure, respectively.</p>
+<p>The vector given to the <code>mfrow</code> argument tells R the number of rows and columns that you want in your final figure, respectively. So the code above will make 1 row with 2 columns.</p>
 <p>Use the following template to make a figure with all three diagnostic plots.</p>
-<pre><code># Make diagnostic plots for Normality
-#      - a histogram a boxplot, and Q-Q plot with a line
-par(mfrow = c(1,3)) # 3 panels in 1 row
-hist(mydf$mycol)
-boxplot(mydf$mycol)
-qqnorm(mydf$mycol)
-qqline(mydf$mycol)</code></pre>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Make diagnostic plots for Normality</span></span>
+<span><span class="co">#      - a histogram a boxplot, and Q-Q plot with a line</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="co"># 3 panels in 1 row</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   <div class="chapter-nav">

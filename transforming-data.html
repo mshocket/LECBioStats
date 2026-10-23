@@ -112,20 +112,7 @@
 <li>Why are you performing them?</li>
 </ul>
 </div>
-<p>Transforming variables in R is very easy, because of how R does maths. R can do mathematical operations on almost any type of data.</p>
-<p>For instance, <code>a &lt;- 2*b</code> will work on any numerical object <code>b</code>, regardless of what structure it is - <code>b</code> could be:</p>
-<ul>
-<li>a single number</li>
-<li>a list of numbers (i.e a vector)</li>
-<li>a data frame or matrix with many columns and rows</li>
-</ul>
-<p>R will perform the mathematical operation on every single element in the input (<code>b</code>), and the output (<code>a</code>) will simply be the same structure as the input (<code>b</code>).</p>
-<p>To transform a variable:</p>
-<ul>
-<li>take the column of your original variable</li>
-<li>perform the mathematical operation to transform the data</li>
-<li>store the transformed data as a new column in the same data frame</li>
-</ul>
+<p>Transforming variables in R is very easy - you can use the same general method you used to convert the tree size units from circumference to diameter (e.g. use an old column to make a new column).</p>
 <div class="rmdimportant">
 <p><strong><em>DO:</em></strong> Re-read the three bullet points above again. Make sure you understand them.</p>
 </div>
@@ -135,6 +122,7 @@
 <p>However, we don’t want to transform our variables at the bottom of our script where we are currently working - we want to do it at the top, so we can more easily include it in the rest of our analysis.</p>
 <p>Scroll up to the top of your script, <strong>right after you load the data</strong>.</p>
 <div class="rmdtip">
+<p><strong>Tip!</strong></p>
 <p>Generally speaking, you will run your script from top to bottom.</p>
 <p>If you decide to something (e.g. transform you data) before you do other analyses (e.g. make plots or run tests), you will want to do that earlier in the script.</p>
 <p>Therefore, as you write a script, you may want to be moving around so the order of commands make sense based on the analysis, not necessarily the order that you wrote them in.</p>
@@ -152,10 +140,10 @@
 <span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol_sqrt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span>
 <span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol_neginv</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="fl">1</span><span class="op">/</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span></span></code></pre></div>
 <div class="rmdwarning">
-<p>Do remember that this code won’t just work copy-pasted. You’ll need to change <code>mydf</code> and <code>mycol</code> to appropriate values!</p>
+<p><strong>Warning!</strong> Remember that this code won’t just work copy-pasted. You’ll need to change <code>mydf</code> and <code>mycol</code> to appropriate values!</p>
 </div>
 <p>Now scroll down to the section of your script where you run diagnostics for Normality diagnostic plots.</p>
-<p>Re-run your <code>examine_norm()</code> function on these new columns.</p>
+<p>Write some new code to use your <code>examine_norm()</code> function on these new columns with the transformed data.</p>
 <div class="rmdquestion">
 <p><strong><em>Questions:</em></strong></p>
 <ul>

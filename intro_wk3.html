@@ -6,14 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 11 Introduction | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
 <meta name="author" content="Marta Shocket">
-<meta name="description" content="11.1 Prepare a new script Starting today, the first thing you’ll do at the beginning of each R practical is: Open a new R script. Save it under a sensible name (e.g. for today, something like...">
+<meta name="description" content="In today’s practical, you will learn how to formally and rigorously evaluate the Normality of a dataset.  11.1 Prepare a new script Starting today, the first thing you’ll do at the beginning of...">
 <meta name="generator" content="bookdown 0.48 with bs4_book()">
 <meta property="og:title" content="Chapter 11 Introduction | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
 <meta property="og:type" content="book">
-<meta property="og:description" content="11.1 Prepare a new script Starting today, the first thing you’ll do at the beginning of each R practical is: Open a new R script. Save it under a sensible name (e.g. for today, something like...">
+<meta property="og:description" content="In today’s practical, you will learn how to formally and rigorously evaluate the Normality of a dataset.  11.1 Prepare a new script Starting today, the first thing you’ll do at the beginning of...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 11 Introduction | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
-<meta name="twitter:description" content="11.1 Prepare a new script Starting today, the first thing you’ll do at the beginning of each R practical is: Open a new R script. Save it under a sensible name (e.g. for today, something like...">
+<meta name="twitter:description" content="In today’s practical, you will learn how to formally and rigorously evaluate the Normality of a dataset.  11.1 Prepare a new script Starting today, the first thing you’ll do at the beginning of...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -75,6 +75,7 @@
 <h1>
 <span class="header-section-number">11</span> Introduction<a class="anchor" aria-label="anchor" href="#intro_wk3"><i class="fas fa-link"></i></a>
 </h1>
+<p>In today’s practical, you will learn how to formally and rigorously evaluate the Normality of a dataset.</p>
 <div id="prepare-a-new-script" class="section level2" number="11.1">
 <h2>
 <span class="header-section-number">11.1</span> Prepare a new script<a class="anchor" aria-label="anchor" href="#prepare-a-new-script"><i class="fas fa-link"></i></a>
@@ -87,7 +88,7 @@
 <li>Add in the code to load our three main packages/libraries</li>
 <li>Run the code the load the libraries</li>
 </ol>
-<p>For points 3 and 4, the easiest thing is to open your script from last week, copy and paste the relevant content, and then change the information that needs to be updated (e.g. the date and the practical number/theme in the header).</p>
+<p>For points 3 and 4, the easiest thing is to open your script from last week, copy and paste the relevant content, and then change the information that needs to be updated (e.g. the date and the practical number/topic in the header).</p>
 <div class="rmdcaution">
 <p><strong><em>Caution!</em></strong></p>
 <p>As you work, make sure that you are adding in:</p>
@@ -101,7 +102,7 @@
 <strong>Bad:</strong> <code>data&lt;-read.csv("file.csv")</code>)</li>
 </ul>
 </li>
-<li>Extra line spaces between separate sections of related code.</li>
+<li>Extra line spaces between sections of related code.</li>
 </ul>
 <p>This will make your code much easier to read and debug.</p>
 <p>Starting today, <strong>we will not help you with your code until it is properly spaced</strong>.</p>
@@ -116,25 +117,25 @@
 <h2>
 <span class="header-section-number">11.2</span> Today’s data<a class="anchor" aria-label="anchor" href="#todays-data"><i class="fas fa-link"></i></a>
 </h2>
-<p>Today’s dataset is tree circumference data from the forested strip of Lancaster Uniersity land between campus and the M6 motorway.</p>
-<p>It was collected by the new cohort of first year ecology and zoology students for a field practical in the LECX4141 Ecology module. (You are seeing it before they are.)</p>
+<p>Today’s dataset is <strong>tree circumference data</strong> from the forested strip of Lancaster University land between campus and the M6 motorway.</p>
+<p>It was collected in week 1 of this year by the new cohort of first year ecology and zoology students for a field practical in the LECX4141 Ecology module. (You are seeing the data before they are.)</p>
 <div id="download-and-upload-the-data" class="section level3" number="11.2.1">
 <h3>
 <span class="header-section-number">11.2.1</span> Download and upload the data<a class="anchor" aria-label="anchor" href="#download-and-upload-the-data"><i class="fas fa-link"></i></a>
 </h3>
-<p>Download today’s dataset (<code>"tree_circumference_data.csv"</code>) from the Statistical analysis components section on the Moodle page.</p>
+<p>Download today’s dataset (<code>"tree_circumference_data.csv"</code>) from the <em>Statistical analysis components</em> section on the Moodle page.</p>
 <p>Upload the file to the R server and move it into your data folder.</p>
 </div>
 <div id="read-in-the-data" class="section level3" number="11.2.2">
 <h3>
 <span class="header-section-number">11.2.2</span> Read in the data<a class="anchor" aria-label="anchor" href="#read-in-the-data"><i class="fas fa-link"></i></a>
 </h3>
-<p>Find the code to load data from a .csv file in your script from last week.</p>
+<p>Find the code to read in data from a .csv file in your script from last week.</p>
 <p>Copy and paste it into this week’s script.</p>
 <p>You will need to change two things before you run the code:</p>
 <ol style="list-style-type: decimal">
 <li>The name of the data frame you are using to store the data (I suggest something like <code>data_tree</code>).</li>
-<li>The name of the csv file in the file path.</li>
+<li>The name of the .csv file in the file path.</li>
 </ol>
 <p>Once you run the code, you should see the data frame in your Environment tab.</p>
 </div>
@@ -150,12 +151,14 @@
 <li>If there is a character column, how many different values are there in it?</li>
 </ul>
 <div class="rmdtip">
+<p><strong>Tip!</strong></p>
 <p>You can use the <code><a href="https://rdrr.io/r/utils/str.html">str()</a></code> function to examine the data frame instead of clicking on it in the Environment tab.</p>
 <p>You can use the <code><a href="https://rdrr.io/r/base/unique.html">unique()</a></code> function to return all unique values of a variable.</p>
 <p><strong>NOTE:</strong> In the example code below, you will need to substitute <code>mydf</code> with whatever you named your data frame and <code>mycol</code> with whatever the column is called.</p>
 </div>
-<pre><code>str(mydf)
-unique(mydf$mycol)</code></pre>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div id="research-questions" class="section level3" number="11.2.4">
 <h3>
@@ -165,8 +168,8 @@ unique(mydf$mycol)</code></pre>
 <div class="rmdquestion">
 <p><strong>Research questions:</strong></p>
 <ol style="list-style-type: decimal">
-<li><p>Is tree size Normally distributed?</p></li>
-<li><p>If not, can we transform the tree size data the make them Normally distributed?</p></li>
+<li><p>Is tree size Normally distributed? For the whole population? For specific species?</p></li>
+<li><p>If not, can we transform the tree size data to make them Normally distributed?</p></li>
 </ol>
 </div>
 <p>Determining if data are Normally distributed is a key first step for choosing an appropriate statistical test.</p>
@@ -182,8 +185,15 @@ unique(mydf$mycol)</code></pre>
 <p>You can create a new column with data from a calculation using existing columns.</p>
 <ul>
 <li>You simply need to use the <code>&lt;-</code> operator to create the new column, like you would with any new variable (e.g. <code>a &lt;- 3</code>).</li>
-<li>Any maths calculation that R can do on a single number, it can also do on a vector or data frame column (in fact, a data frame column <em>is</em> just a plain old vector in a funny hat).</li>
+<li>Any maths calculation that R can do on a single number, it can also do on a vector or data frame column. (In fact, a data frame column <em>is</em> just a plain old vector in a funny hat.)</li>
 </ul>
+<p>For instance, <code>a &lt;- 2*b</code> will work on any numerical object <code>b</code>, regardless of what structure it is - <code>b</code> could be:</p>
+<ul>
+<li>a single number</li>
+<li>a list of numbers (i.e a vector)</li>
+<li>a data frame or matrix with many columns and rows</li>
+</ul>
+<p>R will perform the mathematical operation on every single element in the input (<code>b</code>), and the output (<code>a</code>) will simply be the same structure as the input (<code>b</code>).</p>
 <div class="rmdtip">
 <p><strong><em>Tip!</em></strong> Remember that you can refer to columns in a data frame using the <code>$</code>, and use the autocomplete menu to select from existing columns.</p>
 </div>
@@ -194,7 +204,7 @@ unique(mydf$mycol)</code></pre>
 <p><strong>NOTE:</strong> you will need to substitute <code>mydf</code> and the column names with the names of your data frame and column names.</p>
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Convert tree circumference to diameter</span></span>
-<span><span class="va">mydf</span><span class="op">$</span><span class="va">new_column_hours</span> <span class="op">&lt;-</span> <span class="va">mydf</span><span class="op">$</span><span class="va">old_column_secs</span> <span class="op">/</span> <span class="va">pi</span></span></code></pre></div>
+<span><span class="va">mydf</span><span class="op">$</span><span class="va">new_column</span> <span class="op">&lt;-</span> <span class="va">mydf</span><span class="op">$</span><span class="va">old_column</span> <span class="op">/</span> <span class="va">pi</span></span></code></pre></div>
 </div>
 </div>
   <div class="chapter-nav">
