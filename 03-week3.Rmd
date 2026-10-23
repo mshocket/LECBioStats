@@ -2,6 +2,8 @@
 
 # Introduction {#intro_wk3}
 
+In today's practical,  you will learn how to formally and rigorously evaluate the Normality of a dataset.
+
 ## Prepare a new script
 
 Starting today, the first thing you'll do at the beginning of each R practical is:
@@ -12,7 +14,7 @@ Starting today, the first thing you'll do at the beginning of each R practical i
 4. Add in the code to load our three main packages/libraries
 5. Run the code the load the libraries
 
-For points 3 and 4, the easiest thing is to open your script from last week, copy and paste the relevant content, and then change the information that needs to be updated (e.g. the date and the practical number/theme in the header).
+For points 3 and 4, the easiest thing is to open your script from last week, copy and paste the relevant content, and then change the information that needs to be updated (e.g. the date and the practical number/topic in the header).
 
 ::: {.rmdcaution}
 ***Caution!***
@@ -22,7 +24,7 @@ As you work, make sure that you are adding in:
 - Spaces between your variables, operators, functions, and arguments
     - **Good:** `data <- read.csv("file.csv")`
     - **Bad:** `data<-read.csv("file.csv")`)
-- Extra line spaces between separate sections of related code.
+- Extra line spaces between sections of related code.
 
 This will make your code much easier to read and debug.
 
@@ -39,26 +41,26 @@ Try to get in the habit of using underscores or hyphens instead - like we do in 
 
 ## Today's data
 
-Today's dataset is tree circumference data from the forested strip of Lancaster Uniersity land between campus and the M6 motorway.
+Today's dataset is **tree circumference data** from the forested strip of Lancaster University land between campus and the M6 motorway.
 
-It was collected by the new cohort of first year ecology and zoology students for a field practical in the LECX4141 Ecology module. (You are seeing it before they are.)
+It was collected in week 1 of this year by the new cohort of first year ecology and zoology students for a field practical in the LECX4141 Ecology module. (You are seeing the data before they are.)
 
 ### Download and upload the data
 
-Download today's dataset (`"tree_circumference_data.csv"`) from the Statistical analysis components section on the Moodle page.
+Download today's dataset (`"tree_circumference_data.csv"`) from the _Statistical analysis components_ section on the Moodle page.
 
 Upload the file to the R server and move it into your data folder. 
 
 ### Read in the data
 
-Find the code to load data from a .csv file in your script from last week.
+Find the code to read in data from a .csv file in your script from last week.
 
 Copy and paste it into this week's script.
 
 You will need to change two things before you run the code:
 
 1. The name of the data frame you are using to store the data (I suggest something like `data_tree`).
-2. The name of the csv file in the file path.
+2. The name of the .csv file in the file path.
 
 Once you run the code, you should see the data frame in your Environment tab.
 
@@ -72,6 +74,8 @@ Take a couple minutes to examine it and determine:
 - If there is a character column, how many different values are there in it?
 
 ::: {.rmdtip}
+**Tip!**
+
 You can use the `str()` function to examine the data frame instead of clicking on it in the Environment tab.
 
 You can use the `unique()` function to return all unique values of a variable.
@@ -80,7 +84,7 @@ You can use the `unique()` function to return all unique values of a variable.
 :::
 
 
-```
+```r
 str(mydf)
 unique(mydf$mycol)
 ```
@@ -92,9 +96,9 @@ Today you are going to try to answer the following questions about the tree circ
 ::: {.rmdquestion}
 **Research questions:**
 
-1. Is tree size Normally distributed?
+1. Is tree size Normally distributed? For the whole population? For specific species? 
 
-2. If not, can we transform the tree size data the make them Normally distributed?
+2. If not, can we transform the tree size data to make them Normally distributed?
 :::
 
 Determining if data are Normally distributed is a key first step for choosing an appropriate statistical test. 
@@ -110,7 +114,16 @@ The standard method for measuring tree size is DBH - diameter at breast height. 
 You can create a new column with data from a calculation using existing columns.
 
 - You simply need to use the `<-` operator to create the new column, like you would with any new variable (e.g. `a <- 3`).
-- Any maths calculation that R can do on a single number, it can also do on a vector or data frame column (in fact, a data frame column _is_ just a plain old vector in a funny hat).
+- Any maths calculation that R can do on a single number, it can also do on a vector or data frame column. (In fact, a data frame column _is_ just a plain old vector in a funny hat.)
+
+
+For instance, `a <- 2*b` will work on any numerical object `b`, regardless of what structure it is - `b` could be:
+
+- a single number
+- a list of numbers (i.e a vector)
+- a data frame or matrix with many columns and rows
+
+R will perform the mathematical operation on every single element in the input (`b`), and the output (`a`) will simply be the same structure as the input (`b`).
 
 ::: {.rmdtip}
 ***Tip!*** Remember that you can refer to columns in a data frame using the `$`, and use the autocomplete menu to select from existing columns.
@@ -128,7 +141,7 @@ Use the code below as a template.
 
 ```r
 # Convert tree circumference to diameter
-mydf$new_column_hours <- mydf$old_column_secs / pi
+mydf$new_column <- mydf$old_column / pi
 ```
 
 # Diagnostic plots to assess Normality
@@ -152,7 +165,7 @@ You can look at a histogram and see if your data generally look like one symmetr
 
 This week we're going to use a more simple function from base R - `hist()` - to make a histogram of the tree diameter data.
 
-The figures that `hist()` makes aren't as attractive as `ggplot()` figures but are fine your own preliminary data exploration.
+The figures that `hist()` makes aren't as attractive as `ggplot()` figures, but they are fine for preliminary data exploration that you don't plan to put in a report.
 
 Use the `hist()` function on the tree diameter data.
 
@@ -168,14 +181,14 @@ You made some using `ggplot()` and the iris data in week 1, but we didn't talk a
 
 Boxplots show:
 
-- A box encompassing the interquartile range (IQR), the values between the 1st and 3rd quartiles, i.e. the 25th and 75th percentiles, q25 and q75 respectively.
+- A box encompassing the interquartile range (IQR), the values between the 1st and 3rd quartiles, i.e. the 25th and 75th percentiles of the data, q25 and q75 respectively.
 - A line across the centre of the box at the median
 - "Whiskers" on each end representing the 5th and 95th percentiles.
 - Outliers (extreme values) plotted as individual points. Specifically, outliers are identified as any points outside the whiskers with values:
   - $<q25−1.5\times\mathrm{IQR}$ or
   - $>q75+1.5\times\mathrm{IQR}$
 
-Just like with the histogram, this week we're going to use a more simple function from base R - `boxplot()` - that is simpler but not as attractive.
+Just like with the histogram, this week we're going to use a more simple function from base R that is simpler but not as attractive.
 
 Use the `boxplot()` function on the tree diameter data.
 
@@ -189,7 +202,7 @@ There is one other plot that is particularly useful for assessing Normality: a N
 
 The Normal Q-Q plots are generated as follows:
 
-- The data set is divided into quantiles - sections of data with equal densities of the data points, ranked from lowest to highest.
+- The data set is divided into quantiles - like quartiles but a more generic way of sectioning the data into bins equal densities of the data points, ranked from lowest to highest.
 - The observed quantiles in your data are plotted (on the y-axis) against the predicted quantile for a Normally-distributed data set (on the x-axis).
 - A line is drawn through the first and third quantiles (the 25% and 75% values of the data.)
 
@@ -231,14 +244,14 @@ In base R, the easiest way to do this is with the following command:
 par(mfrow = c(1,2))
 ```
 
-The vector given to the `mfrow` argument tells R the number of rows and columns that you want in your final figure, respectively. 
+The vector given to the `mfrow` argument tells R the number of rows and columns that you want in your final figure, respectively. So the code above will make 1 row with 2 columns.
 
 Use the following template to make a figure with all three diagnostic plots.
 
-```
+```r
 # Make diagnostic plots for Normality
 #      - a histogram a boxplot, and Q-Q plot with a line
-par(mfrow = c(1,3)) # 3 panels in 1 row
+par(mfrow = c(1,x)) # 3 panels in 1 row
 hist(mydf$mycol)
 boxplot(mydf$mycol)
 qqnorm(mydf$mycol)
@@ -254,11 +267,11 @@ Essentially, these tests look for the difference between your data points and a 
 
 ## Which test to use
 
-The Shapiro-Wilks test is more sensitive/powerful than the K-S test.
+The Shapiro-Wilks test is more sensitive and powerful than the K-S test.
 
 Therefore, it is generally recommended to use Shapiro-Wilks when you have smaller sample size (n < 50). It has been shown to work well with samples as small as n = 20.
 
-For larger sample sizes (n > 50), the K-S is less likely to 
+For larger sample sizes (n > 50), the K-S test is less likely to find a false positive, i.e. find a significant difference from Normality, despite the date being Normally distributed.
 
 ## Defining hypotheses
 
@@ -319,13 +332,12 @@ shapiro.test(mydf$mycol)
 
 Based on the Shapiro-Wilk tests:
 
-- We can accept the null hypothesis for dry density for both habitat types (and for the random data).
-- We can reject the hypothesis for the carbon data for both habitat types.
+- We can reject the null hypothesis for tree diameter being Normally distributed.
 
-The histograms also supports these decisions. When we accept the null hypothesis, it doesn't mean that we are 100% confident that our data are exactly Normal, simply that we couldn’t detect a difference from a Normal distribution.
+The histogram and boxplot also supports this decision. When we accept the null hypothesis, it doesn't mean that we are 100% confident that our data are exactly Normal, simply that we couldn’t detect a difference from a Normal distribution.
 
 :::{.rmdwarning}
-***Be careful!:**
+**Be careful!:**
 
 - With very large sample sizes (when strict Normality is less important), the test is more likely to cause you to reject $\mathrm{H}_0$.
 - With small sample sizes (when it’s very important to know if your data are non-Normal), you are more likely to accept $\mathrm{H}_0$.
@@ -335,7 +347,7 @@ Therefore, we should ALWAYS pay strict attention to the histograms and descripti
 
 ## Kolmogorov-Smirnov test
 
-Now let's do the Kolmogorov-Smirnov test and see if we get the same answers for rejecting or accepting our null hypotheses.
+Now let's do the Kolmogorov-Smirnov test and see if we get the same answer for rejecting or accepting our null hypotheses.
 
 The function for Kolmogorov-Smirnov test is `ks.test()`. It can actually test for other distributions besides the Normal distribution. It takes 4 arguments in a specific order:
 
@@ -362,7 +374,7 @@ ks.test(mydf$mycol, "pnorm", mean = mean_mc, sd = sd_mc)
 Run the K-S test for the tree diameter data.
 
 :::{.rmdquestion}
-***Q:*** How do the answers from the K-S test compare to the answers from the W-S test? Do you reject or fail to reject the null hypothesis for all the same variable?
+***Q:*** How do the answers from the K-S test compare to the answers from the W-S test?
 :::
 
 
@@ -379,7 +391,7 @@ For example, to check if a variable is Normally distributed, you need to perform
 5. make a qqplot with a qqline
 6. perform a formal test of Normality
 
-And we do this long list of tasks for multiple variables in every practical!
+From now, we will have to do this long list of tasks for multiple variables in every practical!
 
 Wouldn't it be really convenient if we could do all the tasks listed above with just one command?
 
@@ -390,8 +402,8 @@ You can if you write your own function to do it!
 To define a function in R you:
 
 - Name the function
-- Tell R it is a function, using a function called function()
-- Put the names of any arguments that the function will need inside the brackets of function()
+- Tell R it is a function, using a function called `function()`
+- Put the names of any arguments that the function will need inside the brackets of `function()`
 - Use curly brackets to contain all the commands that the function will do
 
 Write the following code into your R script.
@@ -575,6 +587,7 @@ Now we can fully analyse any variable for normality using a single line of code!
 
 You just have to remember to load your `examine_norm()` function at the beginning of your R session, when you loading your data and packages.
 
+
 # Transforming data
 
 There are two kinds of statistical tests.
@@ -616,21 +629,7 @@ We are going to investigate three transforms that are useful for positive skew, 
 - Why are you performing them?
 :::
 
-Transforming variables in R is very easy, because of how R does maths. R can do mathematical operations on almost any type of data.
-
-For instance, `a <- 2*b` will work on any numerical object `b`, regardless of what structure it is - `b` could be:
-
-- a single number
-- a list of numbers (i.e a vector)
-- a data frame or matrix with many columns and rows
-
-R will perform the mathematical operation on every single element in the input (`b`), and the output (`a`) will simply be the same structure as the input (`b`).
-
-To transform a variable:
-
-- take the column of your original variable
-- perform the mathematical operation to transform the data
-- store the transformed data as a new column in the same data frame
+Transforming variables in R is very easy - you can use the same general method you used to convert the tree size units from circumference to diameter (e.g. use an old column to make a new column).
 
 :::{.rmdimportant}
 ***DO:*** Re-read the three bullet points above again. Make sure you understand them.
@@ -645,6 +644,8 @@ However, we don't want to transform our variables at the bottom of our script wh
 Scroll up to the top of your script, **right after you load the data**.
 
 :::{.rmdtip}
+**Tip!**
+
 Generally speaking, you will run your script from top to bottom.
 
 If you decide to something (e.g. transform you data) before you do other analyses (e.g. make plots or run tests), you will want to do that earlier in the script.
@@ -668,12 +669,12 @@ mydf$mycol_neginv <- -1/mydf$mycol
 ```
 
 :::{.rmdwarning}
-Do remember that this code won't just work copy-pasted. You'll need to change `mydf` and `mycol` to appropriate values!
+**Warning!** Remember that this code won't just work copy-pasted. You'll need to change `mydf` and `mycol` to appropriate values!
 :::
 
 Now scroll down to the section of your script where you run diagnostics for Normality diagnostic plots.
 
-Re-run your `examine_norm()` function on these new columns.
+Write some new code to use your `examine_norm()` function on these new columns with the transformed data.
 
 :::{.rmdquestion}
 ***Questions:***
