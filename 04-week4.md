@@ -81,7 +81,7 @@ For Questions 1 and 2 we will focus on body mass of the most abundant penguin sp
 Do the Adélie penguins from the Palmer Island Archipelago have a body mass that is significantly different to the body mass of captive Adélie penguins in zoos (mean = 4.2 kg)?
 :::
 
-(The mean weight of various species of captive penguins can be found on page 23 of [this penguin husbandry manual](https://www.zoocentral.dk/uploads/4/9/7/5/49755431/penguin_-_aza_-_2005.pdf) - I _strongly_ encourage you to check out the illustrations when you have time.)
+(The mean weight of various species of captive penguins can be found on page 23 of [this penguin husbandry manual](https://www.zoocentral.dk/uploads/4/9/7/5/49755431/penguin_-_aza_-_2005.pdf) - I _strongly_ encourage you to check out the illustrations on pages 16-18 when you have time.)
 
 Because we only have one sample that we want to compare to a fixed value, we need to do a one-sample t-test.
 
@@ -590,15 +590,15 @@ Table: (\#tab:unnamed-chunk-3)A hypothetical field study on mammal observations 
 
 |site   | foxes| badgers| mice|
 |:------|-----:|-------:|----:|
-|Site 1 |     1|       1|   39|
-|Site 2 |     2|       1|   39|
-|Site 3 |     8|       3|    4|
-|Site 4 |     1|       2|   34|
-|Site 5 |     8|       3|    9|
-|Site 6 |     2|       2|   35|
-|Site 7 |     7|       1|   26|
-|Site 8 |     2|       2|   28|
-|Site 9 |     1|       2|   34|
+|Site 1 |     6|       1|   29|
+|Site 2 |     4|       2|   22|
+|Site 3 |     2|       1|   37|
+|Site 4 |     1|       1|   48|
+|Site 5 |     4|       0|   39|
+|Site 6 |     0|       2|   39|
+|Site 7 |     6|       2|   15|
+|Site 8 |     2|       0|   54|
+|Site 9 |     9|       3|    1|
 
 
 
@@ -614,33 +614,33 @@ Table: (\#tab:unnamed-chunk-4)A hypothetical field study on mammal observations 
 
 |site   |animal  | count|
 |:------|:-------|-----:|
-|Site 1 |foxes   |     1|
+|Site 1 |foxes   |     6|
 |Site 1 |badgers |     1|
-|Site 1 |mice    |    39|
-|Site 2 |foxes   |     2|
-|Site 2 |badgers |     1|
-|Site 2 |mice    |    39|
-|Site 3 |foxes   |     8|
-|Site 3 |badgers |     3|
-|Site 3 |mice    |     4|
+|Site 1 |mice    |    29|
+|Site 2 |foxes   |     4|
+|Site 2 |badgers |     2|
+|Site 2 |mice    |    22|
+|Site 3 |foxes   |     2|
+|Site 3 |badgers |     1|
+|Site 3 |mice    |    37|
 |Site 4 |foxes   |     1|
-|Site 4 |badgers |     2|
-|Site 4 |mice    |    34|
-|Site 5 |foxes   |     8|
-|Site 5 |badgers |     3|
-|Site 5 |mice    |     9|
-|Site 6 |foxes   |     2|
+|Site 4 |badgers |     1|
+|Site 4 |mice    |    48|
+|Site 5 |foxes   |     4|
+|Site 5 |badgers |     0|
+|Site 5 |mice    |    39|
+|Site 6 |foxes   |     0|
 |Site 6 |badgers |     2|
-|Site 6 |mice    |    35|
-|Site 7 |foxes   |     7|
-|Site 7 |badgers |     1|
-|Site 7 |mice    |    26|
+|Site 6 |mice    |    39|
+|Site 7 |foxes   |     6|
+|Site 7 |badgers |     2|
+|Site 7 |mice    |    15|
 |Site 8 |foxes   |     2|
-|Site 8 |badgers |     2|
-|Site 8 |mice    |    28|
-|Site 9 |foxes   |     1|
-|Site 9 |badgers |     2|
-|Site 9 |mice    |    34|
+|Site 8 |badgers |     0|
+|Site 8 |mice    |    54|
+|Site 9 |foxes   |     9|
+|Site 9 |badgers |     3|
+|Site 9 |mice    |     1|
 
 
 
