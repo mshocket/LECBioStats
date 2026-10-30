@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 20 Question 2 - two sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="Research Question: Is there is a significant difference between the body mass of male and female Adélie penguins from the Palmer Island Archipelago? Because we are comparing two samples (males and...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 20 Question 2 - two sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Research Question: Is there is a significant difference between the body mass of male and female Adélie penguins from the Palmer Island Archipelago? Because we are comparing two samples (males and...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 20 Question 2 - two sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="Research Question: Is there is a significant difference between the body mass of male and female Adélie penguins from the Palmer Island Archipelago? Because we are comparing two samples (males and...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="intro_wk4.html"><span class="header-section-number">18</span> Introduction</a></li>
+<li><a class="" href="wk4_Q1.html"><span class="header-section-number">19</span> Question 1 - one sample t-test</a></li>
+<li><a class="active" href="wk4_Q2.html"><span class="header-section-number">20</span> Question 2 - two sample t-test</a></li>
+<li><a class="" href="wk4_Q3.html"><span class="header-section-number">21</span> Question 3 - paired t-test</a></li>
+<li><a class="" href="tidyup_wk4.html"><span class="header-section-number">22</span> Making graphs and tidying up</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="wk4_Q2" class="section level1" number="20">
+<h1>
+<span class="header-section-number">20</span> Question 2 - two sample t-test<a class="anchor" aria-label="anchor" href="#wk4_Q2"><i class="fas fa-link"></i></a>
+</h1>
+<div class="rmdquestion">
+<p><strong><em>Research Question:</em></strong></p>
+<p>Is there is a significant difference between the body mass of male and female Adélie penguins from the Palmer Island Archipelago?</p>
+</div>
+<p>Because we are comparing two samples (males and females), we need to do a two sample t-test.</p>
+<p>However, make sure you can use The Flow Chart™ to come to the same conclusion based on the research question and data.</p>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<p>Looking at the research question and the data:</p>
+<ul>
+<li>What do you think the <strong>outcome</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, discrete, continuous)?</li>
+<li>What do you think the <strong>predictor</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, continuous)?</li>
+</ul>
+<p>Looking at The Flow Chart™:</p>
+<ul>
+<li>How far could you navigate through The Flow Chart™ based on your answers above?</li>
+<li>Can you get all the way to a test? Why or why not?</li>
+</ul>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/flowchart.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<div id="prepare-the-data-1" class="section level2" number="20.1">
+<h2>
+<span class="header-section-number">20.1</span> Prepare the data<a class="anchor" aria-label="anchor" href="#prepare-the-data-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Right now the male and female data are combined into one data frame.</p>
+<p>The t-test function in R needs the two samples provided as separate vectors (remember that a data frame column is just a fancy vector).</p>
+<p>This means you’ll need to filter or subset the data into two new dataframes.</p>
+<p>If you are only finding an exact match for one value and not piping together multiple functions (like <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code>), you can use the base R function <code><a href="https://rdrr.io/r/base/subset.html">subset()</a></code> to subset your data instead of the tidyverse function <code><a href="https://dplyr.tidyverse.org/reference/filter.html">filter()</a></code>.</p>
+<p>Use the code below - you will need to duplicate it for females as well.</p>
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">peng_data_adelie_male</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">peng_data_adelie</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"male"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="check-assumptions-1" class="section level2" number="20.2">
+<h2>
+<span class="header-section-number">20.2</span> Check assumptions<a class="anchor" aria-label="anchor" href="#check-assumptions-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>You’ve already tested the combined-sex body mass data for Normality, but it is a good idea to test the single-sex data as well.</p>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<ol style="list-style-type: decimal">
+<li>Are the data for Adélie penguin body mass Normally distributed for both sexes?</li>
+<li>How big are your samples?</li>
+<li>Putting all of this information together, can we proceed with a t-test?</li>
+</ol>
+</div>
+</div>
+<div id="hypotheses-1" class="section level2" number="20.3">
+<h2>
+<span class="header-section-number">20.3</span> Hypotheses<a class="anchor" aria-label="anchor" href="#hypotheses-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Next, we write down our null and alternative hypotheses.</p>
+<p><span class="math inline">\(\mathrm{H}_0\)</span>: The body mass of male Adélie penguins is <strong>not</strong> significantly different to the body mass of female Adélie penguins.</p>
+<p><span class="math inline">\(\mathrm{H}_\mathrm{A}\)</span>: The body mass of male Adélie penguins is significantly different to the body mass of female Adélie penguins.</p>
+</div>
+<div id="two-sample-t-test" class="section level2" number="20.4">
+<h2>
+<span class="header-section-number">20.4</span> Two-sample t-test<a class="anchor" aria-label="anchor" href="#two-sample-t-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>To compare two samples of data, you will need to perform a two sample t-test.</p>
+<p>R will automatically perform a two sample t-test if you give the function <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> two samples of data as the only arguments.</p>
+<p>Write the code below, substituting in your data frames and columns.</p>
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># two sample t-test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">mydf1</span><span class="op">$</span><span class="va">col</span>, <span class="va">mydf2</span><span class="op">$</span><span class="va">col</span><span class="op">)</span></span></code></pre></div>
+<p>The results should look something like this (although not exactly, because this test was run on different data!):</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/twosamplettest.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>Once again, the output lets us know which t-test it has run at the top, in this case a Welch two sample t-test.</p>
+<p>There are two types of two sample t-tests:</p>
+<ul>
+<li>
+<strong>Student’s t-test</strong>, which assumes equal variances of the two samples</li>
+<li>
+<strong>Welch’s t-test</strong>, which does not assume equal variances of the two samples, and accounts for this with fractional degrees of freedom (notice it is not a whole number in the output!)</li>
+</ul>
+<p>R runs Welch’s t-test as at the default, as it is considered the better test because:</p>
+<ul>
+<li>If the variances are equal, Welch’s t-test will provide the same results as Student’s t-test.</li>
+<li>If the variances are not equal, then you should be using Welch!</li>
+</ul>
+<p>For this reason, it is generally recommended to simply always use Welch’s t-test.</p>
+<p>If you want Student’s t-test you can add the optional argument: var.equal = TRUE. <strong>However, this requires that you do an F-test for equal variance first!</strong></p>
+<p>Similar to the one sample test, the test output also provides:</p>
+<ul>
+<li>the name of our data samples</li>
+<li>the test statistic (t)</li>
+<li>the degrees of freedom (df)</li>
+<li>the p-value</li>
+<li>the alternative hypothesis</li>
+<li>the 95% CI of the difference between the two sample means</li>
+<li>the mean values of both samples</li>
+</ul>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong></p>
+<p>Based on your two sample t-test results:</p>
+<ul>
+<li>Is P &lt; 0.05?</li>
+<li>Should you reject or accept the null hypothesis?</li>
+</ul>
+</div>
+<p>Write down a formal sentence describing the outcome of the test as a comment in your script.</p>
+<p>You sentence should include:</p>
+<ul>
+<li>the overall result of the research question (i.e. are the means the same or different?)</li>
+<li>the estimated means and SEs for both samples</li>
+<li>the test statistic, t</li>
+<li>the degrees of freedom</li>
+<li>the p-value</li>
+</ul>
+<p>As before, the last three quantities are usually provided in parentheses at the end of the sentence.</p>
+<p>Refer to <a href="wk4_Q1.html#wk4_Q1">the previous chapter</a> to remind yourself how to calculate the SE, and to see an example sentence, if needed.</p>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="wk4_Q1.html"><span class="header-section-number">19</span> Question 1 - one sample t-test</a></div>
+<div class="next"><a href="wk4_Q3.html"><span class="header-section-number">21</span> Question 3 - paired t-test</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#wk4_Q2"><span class="header-section-number">20</span> Question 2 - two sample t-test</a></li>
+<li><a class="nav-link" href="#prepare-the-data-1"><span class="header-section-number">20.1</span> Prepare the data</a></li>
+<li><a class="nav-link" href="#check-assumptions-1"><span class="header-section-number">20.2</span> Check assumptions</a></li>
+<li><a class="nav-link" href="#hypotheses-1"><span class="header-section-number">20.3</span> Hypotheses</a></li>
+<li><a class="nav-link" href="#two-sample-t-test"><span class="header-section-number">20.4</span> Two-sample t-test</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/04-week4.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/04-week4.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-30.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

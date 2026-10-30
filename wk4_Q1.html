@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 19 Question 1 - one sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="For Questions 1 and 2 we will focus on body mass of the most abundant penguin species in the dataset: the Adélie penguin.     Research Question: Do the Adélie penguins from the Palmer Island...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 19 Question 1 - one sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="For Questions 1 and 2 we will focus on body mass of the most abundant penguin species in the dataset: the Adélie penguin.     Research Question: Do the Adélie penguins from the Palmer Island...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 19 Question 1 - one sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="For Questions 1 and 2 we will focus on body mass of the most abundant penguin species in the dataset: the Adélie penguin.     Research Question: Do the Adélie penguins from the Palmer Island...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="intro_wk4.html"><span class="header-section-number">18</span> Introduction</a></li>
+<li><a class="active" href="wk4_Q1.html"><span class="header-section-number">19</span> Question 1 - one sample t-test</a></li>
+<li><a class="" href="wk4_Q2.html"><span class="header-section-number">20</span> Question 2 - two sample t-test</a></li>
+<li><a class="" href="wk4_Q3.html"><span class="header-section-number">21</span> Question 3 - paired t-test</a></li>
+<li><a class="" href="tidyup_wk4.html"><span class="header-section-number">22</span> Making graphs and tidying up</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="wk4_Q1" class="section level1" number="19">
+<h1>
+<span class="header-section-number">19</span> Question 1 - one sample t-test<a class="anchor" aria-label="anchor" href="#wk4_Q1"><i class="fas fa-link"></i></a>
+</h1>
+<p>For Questions 1 and 2 we will focus on body mass of the most abundant penguin species in the dataset: the Adélie penguin.</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/Adelie_penguin_smol.jpg" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<div class="rmdquestion">
+<p><strong><em>Research Question:</em></strong></p>
+<p>Do the Adélie penguins from the Palmer Island Archipelago have a body mass that is significantly different to the body mass of captive Adélie penguins in zoos (mean = 4.2 kg)?</p>
+</div>
+<p>(The mean weight of various species of captive penguins can be found on page 23 of <a href="https://www.zoocentral.dk/uploads/4/9/7/5/49755431/penguin_-_aza_-_2005.pdf">this penguin husbandry manual</a> - I <em>strongly</em> encourage you to check out the illustrations when you have time.)</p>
+<p>Because we only have one sample that we want to compare to a fixed value, we need to do a one-sample t-test.</p>
+<p>The following questions are designed to move you through the statistical test map, aka The Flow Chart™, introduced in the lecture this week.</p>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<p>Looking at the research question and the data:</p>
+<ul>
+<li>What do you think the <strong>outcome</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, discrete, continuous)?</li>
+<li>What do you think the <strong>predictor</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, continuous)?</li>
+</ul>
+<p>Looking at The Flow Chart™:</p>
+<ul>
+<li>How far could you navigate through The Flow Chart™ based on your answers above?</li>
+<li>Can you get all the way to a test? Why or why not?</li>
+</ul>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/flowchart.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<div id="prepare-the-data" class="section level2" number="19.1">
+<h2>
+<span class="header-section-number">19.1</span> Prepare the data<a class="anchor" aria-label="anchor" href="#prepare-the-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>In week 2 you learned how to remove NAs with the <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> function.</p>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pengdata_clean</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">pengdata</span><span class="op">)</span></span></code></pre></div>
+<p>In week 3 you learned how to filter data by the value in a column when you filtered by tree species.</p>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Filter list by specific tree species</span></span>
+<span><span class="va">filtered_data_tree</span> <span class="op">&lt;-</span> <span class="va">data_tree</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">mytrees</span><span class="op">)</span></span></code></pre></div>
+<p>You can combine both of these functions into a single tidyverse pipeline with another pipe. (That’s why the <code><a href="https://rdrr.io/r/stats/na.fail.html">na.omit()</a></code> doesn’t need an argument inside the brackets - the argument is coming from the previous function via the pipe).</p>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">filtered_data_tree</span> <span class="op">&lt;-</span> <span class="va">data_tree</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">species</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">mytrees</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>Adapt the code above to filter for Adélie penguins only and remove NAs.</p>
+<p>It may help to run the code below to easily see how the different species are spelled/formatted, since you have to match the word exactly.</p>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">peng_data</span><span class="op">$</span><span class="va">species</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "Adelie"    "Gentoo"    "Chinstrap"</span></span></code></pre></div>
+<div class="rmdtip">
+<p><strong><em>Tips!</em></strong></p>
+<ol style="list-style-type: decimal">
+<li><p>If you are just trying to match one value, you should use the <code>==</code> operator. (The operator <code>%in%</code> is for matching one of many values within a vector.)</p></li>
+<li><p>If you are matching character data, you must put the value in quotation marks.</p></li>
+</ol>
+</div>
+</div>
+<div id="check-assumptions" class="section level2" number="19.2">
+<h2>
+<span class="header-section-number">19.2</span> Check assumptions<a class="anchor" aria-label="anchor" href="#check-assumptions"><i class="fas fa-link"></i></a>
+</h2>
+<p>First we need to decide if our data meet the criteria Normality. This will determine whether we can go ahead with a basic t-test, or if we need to use an alternative approach, like transforming our data or using a different (non-parametric) test.</p>
+<p>Last week, we gave you a set of methods - and helped you write a function containing all the necessary code - to check a dataset for Normality.</p>
+<p>You used it to assess the Lancaster University campus tree size data for Normality.</p>
+<p>Find that function in your script from last week (along with the function to calculate skew).</p>
+<p>Copy and paste it into this week’s script.</p>
+<p>Load the function and use it to analyse the penguin data for Normality.</p>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<ol style="list-style-type: decimal">
+<li>Are the data for Adélie penguin body mass Normally distributed?</li>
+<li>How big is your sample?</li>
+<li>Putting all of this information together, can we proceed with a t-test?</li>
+</ol>
+</div>
+<p>The data are a very good match for a Normal distribution.</p>
+<p>We have a pretty large data set here (check the number of rows in the filtered data), so in theory we could be a little more lenient about strict conformity to the Normal distribution than we can with a small sample. However, this leniency isn’t needed.</p>
+<p>This means we can go ahead and proceed with the t-test.</p>
+</div>
+<div id="hypotheses" class="section level2" number="19.3">
+<h2>
+<span class="header-section-number">19.3</span> Hypotheses<a class="anchor" aria-label="anchor" href="#hypotheses"><i class="fas fa-link"></i></a>
+</h2>
+<p>Next, we write down our null and alternative hypotheses.</p>
+<p><span class="math inline">\(\mathrm{H}_0\)</span>: The mean body mass of wild Adélie penguins in the Palmer Island Archipelago is <strong>not</strong> significantly different to the mean body mass of captive Adélie penguins in zoos.</p>
+<p><span class="math inline">\(\mathrm{H}_\mathrm{A}\)</span>: The mean body mass of wild Adélie penguins in the Palmer Island Archipelago is significantly different to the mean body mass of captive Adélie penguins in zoos.</p>
+<div class="rmdtip">
+<p><strong><em>Tip!</em></strong></p>
+<p>It is important that you are able to identify the null and alternative hypotheses when setting up a statistical test.</p>
+<p>However, when you are writing up your results in a report, you do not need to explicitly state both of the hypotheses. (As you read more scientific papers, you’ll notice they almost never do that.)</p>
+<p>Instead, simply state what your research question or your actual hypothesis if you have one - whether your hypothesis is the null or the alternative from the statistical test perspective doesn’t matter.</p>
+</div>
+</div>
+<div id="one-sample-t-test" class="section level2" number="19.4">
+<h2>
+<span class="header-section-number">19.4</span> One-sample t-test<a class="anchor" aria-label="anchor" href="#one-sample-t-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>To compare one sample of data to a specified mean value, you will need to perform a one sample t-test.</p>
+<p>This specified mean value is generally represented by the Greek letter <span class="math inline">\(\mu\)</span> (pronounced “mu”).</p>
+<p>R will automatically perform a one sample t-test if you give the function <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> only one sample of data as an argument.</p>
+<p>The value the t-test compares the sample to will depend on if you provide an argument for mu or not.</p>
+<ul>
+<li>You can specify a value (x) by setting it using <code>mu = x</code>
+</li>
+<li>If you do not provide a mu value, R will assume that <code>mu = 0</code>.</li>
+</ul>
+<p>Remember that our value for <span class="math inline">\(\mu\)</span> in this case is 4.2 kg. (<strong>NOTE:</strong> Our data is in grams! You will need to convert them to the same units, and it’s easiest to convert the <span class="math inline">\(\mu\)</span> value).</p>
+<p>Modify the template code below for the penguin data and run it.</p>
+<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># one sample t-test</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">mycol</span>, mu <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span></code></pre></div>
+<p>The output should look something like this (but not exactly, because I ran it on a different dataset):</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/onesamplettest.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>The output confirms that we have run the correct t-test at the top. Then it provides:</p>
+<ul>
+<li>the name of our sample data</li>
+<li>the test statistic (t)</li>
+<li>the degrees of freedom (df)</li>
+<li>the p-value</li>
+<li>the alternative hypothesis</li>
+<li>the mean value of our sample</li>
+<li>the 95% CI of the sample mean</li>
+</ul>
+<p>The notation <code>e-16</code> means <span class="math inline">\(\times 10^{-16}\)</span>, so that’s a very small p-value!</p>
+<div class="rmdtip">
+<p>To help you keep track of your output, you can paste it into your R script (and comment the lines with <code>#</code>).</p>
+<p>That way you won’t have to keep scrolling up and down in your console to find the results again.</p>
+</div>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong></p>
+<p>Based on your one sample t-test results:</p>
+<ul>
+<li>Is P &lt; 0.05?</li>
+<li>Should you reject or accept the null hypothesis?</li>
+</ul>
+</div>
+<p>Write down a formal sentence describing the outcome of the test in your script, with all of the appropriate information.</p>
+<p>Write the sentence as a comment in your script, using the <code>#</code> symbol. You can hit Enter to write on multiple lines, but you will need to add a new <code>#</code> for each line.</p>
+<p>Each sentence should include:</p>
+<ul>
+<li>the overall result of the research question (i.e. are the means the same or different to the regional value)</li>
+<li>the estimated mean and SE</li>
+<li>the test statistic, t</li>
+<li>the degrees of freedom, df</li>
+<li>the p-value</li>
+</ul>
+<p>The last three quantities are usually provided in parentheses at the end of the sentence, like this: (t = 1.45, df = 15, p = 0.34).</p>
+<p>For example: “The dry density of grassland soil from Lancaster University campus (mean = 0.87 ± 0.056) was not significantly different to the regional mean of 0.9 g/cm^3 (t = 1.45, df = 15, p = 0.34).”</p>
+<p>Although the sample mean is provided in the t-test output, you will need to calculate the SE yourself.</p>
+<div class="rmdtip">
+<p><strong><em>Tips for SE!</em></strong></p>
+<p>Remember that the formula for standard error (<span class="math inline">\(\mathrm{SE}\)</span>) as a function of the standard deviation (<span class="math inline">\(\sigma\)</span>) and sample size (<span class="math inline">\(n\)</span>) is:</p>
+<p><span class="math display">\[ \mathrm{SE} = \frac{\sigma}{\sqrt{n}}\]</span></p>
+<p>The function for standard deviation is <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code>.</p>
+<p>The best way to calculate sample size of column or vector is using the <code><a href="https://rdrr.io/r/base/length.html">length()</a></code> function.</p>
+<p>You can add the standard error to the top of your <code>examine_norm()</code> function to save having to type it out repeatedly - you will have to reload the function for the changes to take effect. (We will need to calculate SE for the data used in each question.)</p>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="intro_wk4.html"><span class="header-section-number">18</span> Introduction</a></div>
+<div class="next"><a href="wk4_Q2.html"><span class="header-section-number">20</span> Question 2 - two sample t-test</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#wk4_Q1"><span class="header-section-number">19</span> Question 1 - one sample t-test</a></li>
+<li><a class="nav-link" href="#prepare-the-data"><span class="header-section-number">19.1</span> Prepare the data</a></li>
+<li><a class="nav-link" href="#check-assumptions"><span class="header-section-number">19.2</span> Check assumptions</a></li>
+<li><a class="nav-link" href="#hypotheses"><span class="header-section-number">19.3</span> Hypotheses</a></li>
+<li><a class="nav-link" href="#one-sample-t-test"><span class="header-section-number">19.4</span> One-sample t-test</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/04-week4.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/04-week4.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-30.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
