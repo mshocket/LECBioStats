@@ -4,7 +4,7 @@
 
 In today's practical,  you will learn how to formally and rigorously evaluate the Normality of a dataset.
 
-## Prepare a new script
+## Prepare a new script and load packages
 
 Starting today, the first thing you'll do at the beginning of each R practical is:
 
@@ -131,7 +131,7 @@ R will perform the mathematical operation on every single element in the input (
 
 The formula to convert a circumference ($c$) to a diameter ($d$) is:
 
-$$ c = \frac{d}{\pi} $$
+$$ d = \frac{c}{\pi} $$
 
 In R, you can refer to the irrational number $\pi$ with the variable name `pi`. 
 
