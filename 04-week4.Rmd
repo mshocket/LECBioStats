@@ -62,7 +62,7 @@ The type of t-test that the `t.test()` function performs will depend on:
 - The data you give it as the main argument/s
 - Other arguments that modify the settings
 
-# Question 1 - one sample t-test {#wk4_Q1}
+# Q1: One sample t-test {#wk4_Q1}
 
 ```{r, include = FALSE}
 peng_data <- read.csv("./data/palmer_penguin_data.csv")
@@ -109,7 +109,7 @@ Looking at The Flow Chart™:
 
 <div style="text-align: center;">
 
-![&nbsp;](images/flowchart.png){width=100%}
+![&nbsp;](images/Flowchart.png){width=100%}
 
 </div>
 
@@ -273,7 +273,7 @@ Each sentence should include:
 - the degrees of freedom, df
 - the p-value
 
-The last three quantities are usually provided in parentheses at the end of the sentence, like this: (t = 1.45, df = 15, p = 0.34).
+The last three quantities are usually provided in brackets at the end of the sentence, like this: (t = 1.45, df = 15, p = 0.34).
 
 For example: "The dry density of grassland soil from Lancaster University campus (mean = 0.87 ± 0.056) was not significantly different to the regional mean of 0.9 g/cm^3 (t = 1.45, df = 15, p = 0.34)."
 
@@ -293,7 +293,7 @@ The best way to calculate sample size of column or vector is using the `length()
 You can add the standard error to the top of your `examine_norm()` function to save having to type it out repeatedly - you will have to reload the function for the changes to take effect. (We will need to calculate SE for the data used in each question.)
 :::
 
-# Question 2 - two sample t-test {#wk4_Q2}
+# Q2: Two sample t-test {#wk4_Q2}
 
 ::: {.rmdquestion}
 ***Research Question:*** 
@@ -325,7 +325,7 @@ Looking at The Flow Chart™:
 
 <div style="text-align: center;">
 
-![&nbsp;](images/flowchart.png){width=100%}
+![&nbsp;](images/Flowchart.png){width=100%}
 
 </div>
 
@@ -434,13 +434,13 @@ You sentence should include:
 - the degrees of freedom
 - the p-value
 
-As before, the last three quantities are usually provided in parentheses at the end of the sentence.
+As before, the last three quantities are usually provided in brackets at the end of the sentence.
 
 Refer to [the previous chapter](#wk4_Q1) to remind yourself how to calculate the SE, and to see an example sentence, if needed.
 
 
 
-# Question 3 - paired t-test {#wk4_Q3}
+# Q3: paired t-test {#wk4_Q3}
 
 Now we are going to use a new data set to compare the conductivity of stream water at two sites, one upstream of a pollution source, and one downstream of the source. If the pollution source has an impact on the water quality in the river, then there should be a significant difference between the two sites.
 
@@ -475,7 +475,7 @@ Looking at The Flow Chart™:
 
 <div style="text-align: center;">
 
-![&nbsp;](images/flowchart.png){width=100%}
+![&nbsp;](images/Flowchart.png){width=100%}
 
 </div>
 
@@ -553,7 +553,7 @@ You sentence should include:
 - the degrees of freedom
 - the p-value
 
-The last three quantities are usually provided in parentheses at the end of the sentence. 
+The last three quantities are usually provided in brackets at the end of the sentence. 
 
 
 # Making graphs and tidying up {#tidyup_wk4}
