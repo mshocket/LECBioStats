@@ -257,7 +257,7 @@ Looking at The Flow Chart™:
 
 <div style="text-align: center;">
 
-![&nbsp;](images/flowchart.png){width=100%}
+![&nbsp;](images/Flowchart.png){width=100%}
 
 </div>
 
@@ -375,7 +375,7 @@ Looking at The Flow Chart™:
 
 <div style="text-align: center;">
 
-![&nbsp;](images/flowchart.png){width=100%}
+![&nbsp;](images/Flowchart.png){width=100%}
 
 </div>
 
