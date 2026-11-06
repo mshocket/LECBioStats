@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 20 Question 2 - two sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<title>Chapter 20 Q2: Two sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
 <meta name="author" content="Marta Shocket">
 <meta name="description" content="Research Question: Is there is a significant difference between the body mass of male and female Adélie penguins from the Palmer Island Archipelago? Because we are comparing two samples (males and...">
 <meta name="generator" content="bookdown 0.48 with bs4_book()">
-<meta property="og:title" content="Chapter 20 Question 2 - two sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:title" content="Chapter 20 Q2: Two sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Research Question: Is there is a significant difference between the body mass of male and female Adélie penguins from the Palmer Island Archipelago? Because we are comparing two samples (males and...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 20 Question 2 - two sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:title" content="Chapter 20 Q2: Two sample t-test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
 <meta name="twitter:description" content="Research Question: Is there is a significant difference between the body mass of male and female Adélie penguins from the Palmer Island Archipelago? Because we are comparing two samples (males and...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -66,10 +66,17 @@
 <li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
 <li class="book-part">Week 4</li>
 <li><a class="" href="intro_wk4.html"><span class="header-section-number">18</span> Introduction</a></li>
-<li><a class="" href="wk4_Q1.html"><span class="header-section-number">19</span> Question 1 - one sample t-test</a></li>
-<li><a class="active" href="wk4_Q2.html"><span class="header-section-number">20</span> Question 2 - two sample t-test</a></li>
-<li><a class="" href="wk4_Q3.html"><span class="header-section-number">21</span> Question 3 - paired t-test</a></li>
+<li><a class="" href="wk4_Q1.html"><span class="header-section-number">19</span> Q1: One sample t-test</a></li>
+<li><a class="active" href="wk4_Q2.html"><span class="header-section-number">20</span> Q2: Two sample t-test</a></li>
+<li><a class="" href="wk4_Q3.html"><span class="header-section-number">21</span> Q3: paired t-test</a></li>
 <li><a class="" href="tidyup_wk4.html"><span class="header-section-number">22</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="intro_wk5.html"><span class="header-section-number">23</span> Introduction</a></li>
+<li><a class="" href="wk5_Q1.html"><span class="header-section-number">24</span> Q1: Wilcoxon signed rank test</a></li>
+<li><a class="" href="wk5_Q2.html"><span class="header-section-number">25</span> Q2: Wilcoxon rank sum Test</a></li>
+<li><a class="" href="wk5_Q3.html"><span class="header-section-number">26</span> Q3: Chi-square test</a></li>
+<li><a class="" href="q3-chi-square-test-by-hand.html"><span class="header-section-number">27</span> Q3: Chi-square test by hand</a></li>
+<li><a class="" href="tidyup_wk5.html"><span class="header-section-number">28</span> Making graphs and tidying up</a></li>
 </ul>
 
         <div class="book-extra">
@@ -79,7 +86,7 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="wk4_Q2" class="section level1" number="20">
 <h1>
-<span class="header-section-number">20</span> Question 2 - two sample t-test<a class="anchor" aria-label="anchor" href="#wk4_Q2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">20</span> Q2: Two sample t-test<a class="anchor" aria-label="anchor" href="#wk4_Q2"><i class="fas fa-link"></i></a>
 </h1>
 <div class="rmdquestion">
 <p><strong><em>Research Question:</em></strong></p>
@@ -104,7 +111,7 @@
 </div>
 <div style="text-align: center;">
 <div class="float">
-<img src="images/flowchart.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+<img src="images/Flowchart.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
 </div>
 </div>
 <div id="prepare-the-data-1" class="section level2" number="20.1">
@@ -199,17 +206,17 @@
 <li>the degrees of freedom</li>
 <li>the p-value</li>
 </ul>
-<p>As before, the last three quantities are usually provided in parentheses at the end of the sentence.</p>
+<p>As before, the last three quantities are usually provided in brackets at the end of the sentence.</p>
 <p>Refer to <a href="wk4_Q1.html#wk4_Q1">the previous chapter</a> to remind yourself how to calculate the SE, and to see an example sentence, if needed.</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="wk4_Q1.html"><span class="header-section-number">19</span> Question 1 - one sample t-test</a></div>
-<div class="next"><a href="wk4_Q3.html"><span class="header-section-number">21</span> Question 3 - paired t-test</a></div>
+<div class="prev"><a href="wk4_Q1.html"><span class="header-section-number">19</span> Q1: One sample t-test</a></div>
+<div class="next"><a href="wk4_Q3.html"><span class="header-section-number">21</span> Q3: paired t-test</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#wk4_Q2"><span class="header-section-number">20</span> Question 2 - two sample t-test</a></li>
+<li><a class="nav-link" href="#wk4_Q2"><span class="header-section-number">20</span> Q2: Two sample t-test</a></li>
 <li><a class="nav-link" href="#prepare-the-data-1"><span class="header-section-number">20.1</span> Prepare the data</a></li>
 <li><a class="nav-link" href="#check-assumptions-1"><span class="header-section-number">20.2</span> Check assumptions</a></li>
 <li><a class="nav-link" href="#hypotheses-1"><span class="header-section-number">20.3</span> Hypotheses</a></li>
@@ -231,7 +238,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-10-30.</p>
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-11-06.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

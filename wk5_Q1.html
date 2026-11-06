@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 24 Q1: Wilcoxon signed rank test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="Research Question: Is the reproductive success of breeding pairs of birds higher in their second year compared to their first year? For Question 1, we are going to compare the reproductive success...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 24 Q1: Wilcoxon signed rank test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Research Question: Is the reproductive success of breeding pairs of birds higher in their second year compared to their first year? For Question 1, we are going to compare the reproductive success...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 24 Q1: Wilcoxon signed rank test | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="Research Question: Is the reproductive success of breeding pairs of birds higher in their second year compared to their first year? For Question 1, we are going to compare the reproductive success...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="intro_wk4.html"><span class="header-section-number">18</span> Introduction</a></li>
+<li><a class="" href="wk4_Q1.html"><span class="header-section-number">19</span> Q1: One sample t-test</a></li>
+<li><a class="" href="wk4_Q2.html"><span class="header-section-number">20</span> Q2: Two sample t-test</a></li>
+<li><a class="" href="wk4_Q3.html"><span class="header-section-number">21</span> Q3: paired t-test</a></li>
+<li><a class="" href="tidyup_wk4.html"><span class="header-section-number">22</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="intro_wk5.html"><span class="header-section-number">23</span> Introduction</a></li>
+<li><a class="active" href="wk5_Q1.html"><span class="header-section-number">24</span> Q1: Wilcoxon signed rank test</a></li>
+<li><a class="" href="wk5_Q2.html"><span class="header-section-number">25</span> Q2: Wilcoxon rank sum Test</a></li>
+<li><a class="" href="wk5_Q3.html"><span class="header-section-number">26</span> Q3: Chi-square test</a></li>
+<li><a class="" href="q3-chi-square-test-by-hand.html"><span class="header-section-number">27</span> Q3: Chi-square test by hand</a></li>
+<li><a class="" href="tidyup_wk5.html"><span class="header-section-number">28</span> Making graphs and tidying up</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="wk5_Q1" class="section level1" number="24">
+<h1>
+<span class="header-section-number">24</span> Q1: Wilcoxon signed rank test<a class="anchor" aria-label="anchor" href="#wk5_Q1"><i class="fas fa-link"></i></a>
+</h1>
+<div class="rmdquestion">
+<p><strong><em>Research Question:</em></strong></p>
+<p>Is the reproductive success of breeding pairs of birds higher in their second year compared to their first year?</p>
+</div>
+<p>For Question 1, we are going to compare the reproductive success of breeding pairs of birds in their first year of attempting to fledge a nest (2016) compared to their second year (2017). The birds in each breeding pair were identified by bands on their legs. The recorded data are the number of successfully fledged chicks for each pair in a given year.</p>
+<p>Use the following questions to move through The Flow Chart™ and find the most appropriate statistical test to use.</p>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<p>Looking at the research question and the data:</p>
+<ul>
+<li>What do you think the <strong>outcome</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, discrete, continuous)?</li>
+<li>What do you think the <strong>predictor</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, continuous)?</li>
+</ul>
+<p>Looking at The Flow Chart™:</p>
+<ul>
+<li>How far could you navigate through The Flow Chart™ based on your answers above?</li>
+<li>Can you get all the way to a test? Why or why not?</li>
+</ul>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/Flowchart.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<div id="check-assumptions-3" class="section level2" number="24.1">
+<h2>
+<span class="header-section-number">24.1</span> Check assumptions<a class="anchor" aria-label="anchor" href="#check-assumptions-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>The <strong>Wilcoxon signed rank test</strong> is the non-parametric test for paired data.</p>
+<p>This test doesn’t make any assumptions about the distribution of the data. You need at least 6 data pairs to run this test and they need to be at least ordinal data. This means it will work for numerical data that is discrete values (= whole numbers = integers), whilst paired t-tests require continuous data. This makes it a good option for count data, which are very common in ecology.</p>
+<p>This test will also work for continuous data that does not meet the required assumptions for a parametric test (in this case, Normality of the differences in the paired data).</p>
+</div>
+<div id="prepare-the-data-2" class="section level2" number="24.2">
+<h2>
+<span class="header-section-number">24.2</span> Prepare the data<a class="anchor" aria-label="anchor" href="#prepare-the-data-2"><i class="fas fa-link"></i></a>
+</h2>
+<p>Before we can visualise the data, we need to subset it using the subset() function to make two new data frames, one for each year of attempted breeding.</p>
+<p>The code below shows how you subsetted the penguin data last week.</p>
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">peng_data_adelie_male</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">peng_data_adelie</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"male"</span><span class="op">)</span></span></code></pre></div>
+<div class="rmdtip">
+<p><strong><em>Tip!</em></strong> Remember you must use <code>==</code> to logically compare column values to select the appropriate rows.</p>
+</div>
+<p>Now visualise the data for each year with histograms using the <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> function.</p>
+<div class="rmdtip">
+<p><strong><em>Tips!</em></strong></p>
+<p>Remember you can plot two figures side-by-side using: <code>par(mfrow = c(1,2))</code> - one row by 2 columns.</p>
+<p>You may want to reset the original settings to one row and one column afterwards.</p>
+</div>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<ul>
+<li>What do the two distributions look like?</li>
+<li>Do they look Normal?</li>
+<li>How many zero values are there?</li>
+</ul>
+</div>
+<p>Ecological count data are often <strong>zero inflated</strong>, meaning they have more zero values that would be expected from a normal distribution.</p>
+<p>You can do a formal test for Normality if you are curious, but it is not necessary. These are discrete count data, so you should use a non-parametric test regardless.</p>
+</div>
+<div id="hypotheses-3" class="section level2" number="24.3">
+<h2>
+<span class="header-section-number">24.3</span> Hypotheses<a class="anchor" aria-label="anchor" href="#hypotheses-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Next, we write down our null and alternative hypotheses.</p>
+<p><span class="math inline">\(\mathrm{H}_0\)</span>: The median number of fledged chicks is <strong>not</strong> significantly different between the bird pairs’ first and second year of attempted breeding.</p>
+<p><span class="math inline">\(\mathrm{H}_\mathrm{A}\)</span>: The median number of fledged chicks is significantly different between the bird pairs’ first and second year of attempted breeding.</p>
+<div class="rmdtip">
+<p><strong><em>Tip!</em></strong></p>
+<p>Reminder, that it is important that you are able to identify the null and alternative hypotheses when setting up a statistical test.</p>
+<p>However, when you are writing up your results in a report, you do not need to explicitly state both of the hypotheses. (As you read more scientific papers, you’ll notice they almost never do that.)</p>
+<p>Instead, simply state what your research question or your actual hypothesis if you have one - whether your hypothesis is the null or the alternative from the statistical test perspective doesn’t matter.</p>
+</div>
+</div>
+<div id="wilcoxon-signed-rank-test" class="section level2" number="24.4">
+<h2>
+<span class="header-section-number">24.4</span> Wilcoxon signed rank test<a class="anchor" aria-label="anchor" href="#wilcoxon-signed-rank-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>R uses the function <code><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test()</a></code> for both Wilcoxon tests:</p>
+<ul>
+<li>Wilcoxon signed rank tests for paired data (which we want here)</li>
+<li>Wilcoxon rank-sum test for non-paired data (which we will use in the next question)</li>
+</ul>
+<p>For both tests, you need to provide both sets of data as the first two arguments. To get the signed ranks test, you also need to provide:</p>
+<ul>
+<li>the argument paired = TRUE</li>
+<li>the argument exact = FALSE (which tells it to do something called a “continuity correction”)</li>
+</ul>
+<p>Use the code below, replacing the names of the data frame and variables as appropriate for the specific data.</p>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Wilcoxon signed rank test for paired data</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test</a></span><span class="op">(</span><span class="va">df_1</span><span class="op">$</span><span class="va">var</span>, <span class="va">df_2</span><span class="op">$</span><span class="va">var</span>,</span>
+<span>            paired <span class="op">=</span> <span class="cn">TRUE</span>, exact <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<div class="rmdwarning">
+<p><strong><em>WARNING!</em></strong> You need to make sure that your matched pairs of data are in the <strong>SAME ORDER</strong> in both data sets, so that the pairs of data are correctly matched together.</p>
+</div>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong> Based on your Wilcoxon signed rank test results:</p>
+<ul>
+<li>Is P &lt; 0.05?</li>
+<li>Should you reject or accept the null hypothesis?</li>
+<li>What do you conclude?</li>
+</ul>
+</div>
+<p>Write down a formal sentence describing the outcome of the test in your script, with all of the appropriate information.</p>
+<p>Write the sentence as a comment in your script, using the <code>#</code> symbol. You can hit Enter to write on multiple lines, but you will need to add a new <code>#</code> for each line.</p>
+<p>Each sentence should include:</p>
+<ul>
+<li>the overall result of the research question (i.e. are the two groups different?)</li>
+<li>the <em>median</em> number of fledglings in year 1 and year 2</li>
+<li>the test statistic, V (sometimes also called T+)</li>
+<li>the p-value</li>
+</ul>
+<p>The last two quantities are usually provided in brackets at the end of the sentence, like this: (V = 1.45, p = 0.34).</p>
+<p>You will need to calculate the median using the <code><a href="https://rdrr.io/r/stats/median.html">median()</a></code> function.</p>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="intro_wk5.html"><span class="header-section-number">23</span> Introduction</a></div>
+<div class="next"><a href="wk5_Q2.html"><span class="header-section-number">25</span> Q2: Wilcoxon rank sum Test</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#wk5_Q1"><span class="header-section-number">24</span> Q1: Wilcoxon signed rank test</a></li>
+<li><a class="nav-link" href="#check-assumptions-3"><span class="header-section-number">24.1</span> Check assumptions</a></li>
+<li><a class="nav-link" href="#prepare-the-data-2"><span class="header-section-number">24.2</span> Prepare the data</a></li>
+<li><a class="nav-link" href="#hypotheses-3"><span class="header-section-number">24.3</span> Hypotheses</a></li>
+<li><a class="nav-link" href="#wilcoxon-signed-rank-test"><span class="header-section-number">24.4</span> Wilcoxon signed rank test</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/05-week5.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/05-week5.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-11-06.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

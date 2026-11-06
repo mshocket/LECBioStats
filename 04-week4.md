@@ -62,7 +62,7 @@ The type of t-test that the `t.test()` function performs will depend on:
 - The data you give it as the main argument/s
 - Other arguments that modify the settings
 
-# Question 1 - one sample t-test {#wk4_Q1}
+# Q1: One sample t-test {#wk4_Q1}
 
 
 
@@ -107,7 +107,7 @@ Looking at The Flow Chart™:
 
 <div style="text-align: center;">
 
-![&nbsp;](images/flowchart.png){width=100%}
+![&nbsp;](images/Flowchart.png){width=100%}
 
 </div>
 
@@ -273,7 +273,7 @@ Each sentence should include:
 - the degrees of freedom, df
 - the p-value
 
-The last three quantities are usually provided in parentheses at the end of the sentence, like this: (t = 1.45, df = 15, p = 0.34).
+The last three quantities are usually provided in brackets at the end of the sentence, like this: (t = 1.45, df = 15, p = 0.34).
 
 For example: "The dry density of grassland soil from Lancaster University campus (mean = 0.87 ± 0.056) was not significantly different to the regional mean of 0.9 g/cm^3 (t = 1.45, df = 15, p = 0.34)."
 
@@ -293,7 +293,7 @@ The best way to calculate sample size of column or vector is using the `length()
 You can add the standard error to the top of your `examine_norm()` function to save having to type it out repeatedly - you will have to reload the function for the changes to take effect. (We will need to calculate SE for the data used in each question.)
 :::
 
-# Question 2 - two sample t-test {#wk4_Q2}
+# Q2: Two sample t-test {#wk4_Q2}
 
 ::: {.rmdquestion}
 ***Research Question:*** 
@@ -325,7 +325,7 @@ Looking at The Flow Chart™:
 
 <div style="text-align: center;">
 
-![&nbsp;](images/flowchart.png){width=100%}
+![&nbsp;](images/Flowchart.png){width=100%}
 
 </div>
 
@@ -434,13 +434,13 @@ You sentence should include:
 - the degrees of freedom
 - the p-value
 
-As before, the last three quantities are usually provided in parentheses at the end of the sentence.
+As before, the last three quantities are usually provided in brackets at the end of the sentence.
 
 Refer to [the previous chapter](#wk4_Q1) to remind yourself how to calculate the SE, and to see an example sentence, if needed.
 
 
 
-# Question 3 - paired t-test {#wk4_Q3}
+# Q3: paired t-test {#wk4_Q3}
 
 Now we are going to use a new data set to compare the conductivity of stream water at two sites, one upstream of a pollution source, and one downstream of the source. If the pollution source has an impact on the water quality in the river, then there should be a significant difference between the two sites.
 
@@ -475,7 +475,7 @@ Looking at The Flow Chart™:
 
 <div style="text-align: center;">
 
-![&nbsp;](images/flowchart.png){width=100%}
+![&nbsp;](images/Flowchart.png){width=100%}
 
 </div>
 
@@ -553,7 +553,7 @@ You sentence should include:
 - the degrees of freedom
 - the p-value
 
-The last three quantities are usually provided in parentheses at the end of the sentence. 
+The last three quantities are usually provided in brackets at the end of the sentence. 
 
 
 # Making graphs and tidying up {#tidyup_wk4}
@@ -590,15 +590,15 @@ Table: (\#tab:unnamed-chunk-3)A hypothetical field study on mammal observations 
 
 |site   | foxes| badgers| mice|
 |:------|-----:|-------:|----:|
-|Site 1 |     6|       1|   29|
-|Site 2 |     4|       2|   22|
-|Site 3 |     2|       1|   37|
-|Site 4 |     1|       1|   48|
-|Site 5 |     4|       0|   39|
-|Site 6 |     0|       2|   39|
-|Site 7 |     6|       2|   15|
-|Site 8 |     2|       0|   54|
-|Site 9 |     9|       3|    1|
+|Site 1 |     8|       0|   36|
+|Site 2 |     8|       3|    7|
+|Site 3 |     2|       0|   46|
+|Site 4 |     6|       1|   31|
+|Site 5 |     8|       2|   11|
+|Site 6 |     8|       3|    7|
+|Site 7 |     2|       1|   41|
+|Site 8 |     6|       1|   29|
+|Site 9 |     9|       2|   11|
 
 
 
@@ -614,33 +614,33 @@ Table: (\#tab:unnamed-chunk-4)A hypothetical field study on mammal observations 
 
 |site   |animal  | count|
 |:------|:-------|-----:|
-|Site 1 |foxes   |     6|
-|Site 1 |badgers |     1|
-|Site 1 |mice    |    29|
-|Site 2 |foxes   |     4|
-|Site 2 |badgers |     2|
-|Site 2 |mice    |    22|
+|Site 1 |foxes   |     8|
+|Site 1 |badgers |     0|
+|Site 1 |mice    |    36|
+|Site 2 |foxes   |     8|
+|Site 2 |badgers |     3|
+|Site 2 |mice    |     7|
 |Site 3 |foxes   |     2|
-|Site 3 |badgers |     1|
-|Site 3 |mice    |    37|
-|Site 4 |foxes   |     1|
+|Site 3 |badgers |     0|
+|Site 3 |mice    |    46|
+|Site 4 |foxes   |     6|
 |Site 4 |badgers |     1|
-|Site 4 |mice    |    48|
-|Site 5 |foxes   |     4|
-|Site 5 |badgers |     0|
-|Site 5 |mice    |    39|
-|Site 6 |foxes   |     0|
-|Site 6 |badgers |     2|
-|Site 6 |mice    |    39|
-|Site 7 |foxes   |     6|
-|Site 7 |badgers |     2|
-|Site 7 |mice    |    15|
-|Site 8 |foxes   |     2|
-|Site 8 |badgers |     0|
-|Site 8 |mice    |    54|
+|Site 4 |mice    |    31|
+|Site 5 |foxes   |     8|
+|Site 5 |badgers |     2|
+|Site 5 |mice    |    11|
+|Site 6 |foxes   |     8|
+|Site 6 |badgers |     3|
+|Site 6 |mice    |     7|
+|Site 7 |foxes   |     2|
+|Site 7 |badgers |     1|
+|Site 7 |mice    |    41|
+|Site 8 |foxes   |     6|
+|Site 8 |badgers |     1|
+|Site 8 |mice    |    29|
 |Site 9 |foxes   |     9|
-|Site 9 |badgers |     3|
-|Site 9 |mice    |     1|
+|Site 9 |badgers |     2|
+|Site 9 |mice    |    11|
 
 
 
