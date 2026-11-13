@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 33 Q4: One-way ANOVA | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="Research Question: Is there a significant difference in the algal growth when different nutrients (N, P, NP, or none) are added to water from the north basin of Lake Windermere? Algal bio-assays...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 33 Q4: One-way ANOVA | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Research Question: Is there a significant difference in the algal growth when different nutrients (N, P, NP, or none) are added to water from the north basin of Lake Windermere? Algal bio-assays...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 33 Q4: One-way ANOVA | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="Research Question: Is there a significant difference in the algal growth when different nutrients (N, P, NP, or none) are added to water from the north basin of Lake Windermere? Algal bio-assays...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="intro_wk4.html"><span class="header-section-number">18</span> Introduction</a></li>
+<li><a class="" href="wk4_Q1.html"><span class="header-section-number">19</span> Q1: One sample t-test</a></li>
+<li><a class="" href="wk4_Q2.html"><span class="header-section-number">20</span> Q2: Two sample t-test</a></li>
+<li><a class="" href="wk4_Q3.html"><span class="header-section-number">21</span> Q3: paired t-test</a></li>
+<li><a class="" href="tidyup_wk4.html"><span class="header-section-number">22</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="intro_wk5.html"><span class="header-section-number">23</span> Introduction</a></li>
+<li><a class="" href="wk5_Q1.html"><span class="header-section-number">24</span> Q1: Wilcoxon signed rank test</a></li>
+<li><a class="" href="wk5_Q2.html"><span class="header-section-number">25</span> Q2: Wilcoxon rank sum Test</a></li>
+<li><a class="" href="wk5_Q3.html"><span class="header-section-number">26</span> Q3: Chi-square test</a></li>
+<li><a class="" href="q3-chi-square-test-by-hand.html"><span class="header-section-number">27</span> Q3: Chi-square test by hand</a></li>
+<li><a class="" href="tidyup_wk5.html"><span class="header-section-number">28</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 6</li>
+<li><a class="" href="intro_wk6.html"><span class="header-section-number">29</span> Introduction</a></li>
+<li><a class="" href="wk6_Q1.html"><span class="header-section-number">30</span> Q1: Pearson Correlation</a></li>
+<li><a class="" href="wk6_Q2.html"><span class="header-section-number">31</span> Q2: Linear regression</a></li>
+<li><a class="" href="wk6_Q3.html"><span class="header-section-number">32</span> Q3: Spearman correlation</a></li>
+<li><a class="active" href="q4-one-way-anova.html"><span class="header-section-number">33</span> Q4: One-way ANOVA</a></li>
+<li><a class="" href="q5-kruskal-wallis-test.html"><span class="header-section-number">34</span> Q5: Kruskal-Wallis test</a></li>
+<li><a class="" href="tidyup_wk6.html"><span class="header-section-number">35</span> Making graphs and tidying up</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="q4-one-way-anova" class="section level1" number="33">
+<h1>
+<span class="header-section-number">33</span> Q4: One-way ANOVA<a class="anchor" aria-label="anchor" href="#q4-one-way-anova"><i class="fas fa-link"></i></a>
+</h1>
+<div class="rmdquestion">
+<p><strong><em>Research Question:</em></strong></p>
+<p>Is there a significant difference in the algal growth when different nutrients (N, P, NP, or none) are added to water from the north basin of Lake Windermere?</p>
+</div>
+<p>Algal bio-assays are a common way to measure nutrient limitation in aquatic water bodies. In these experiments:</p>
+<ul>
+<li>Water containing algae is sampled from the body of water</li>
+<li>The water is divided into different samples.</li>
+<li>One sample is reserved as a control and is not modified. The other samples are supplemented with various nutrients, usually nitrogen (+N), phosphorus (+P), and a combination of both (+NP).</li>
+<li>All the samples are exposed to light for several days or weeks so the algae can grow.</li>
+<li>Algal growth is measured as the fluorescence of chlorophyll-a in the water sample.</li>
+</ul>
+<p>If either nitrogen or phosphorus is limiting algal growth, the algae should grow faster than the control when that specific nutrient is added. If both nutrients are co-limiting, then only the combined treatment (+NP) will have faster growth than the control.</p>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<p>Looking at the research question and the data:</p>
+<ul>
+<li>What do you think the <strong>outcome</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, discrete, continuous)?</li>
+<li>What do you think the <strong>predictor</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, continuous)?</li>
+</ul>
+<p>Looking at The Flow Chart™:</p>
+<ul>
+<li>How far could you navigate through The Flow Chart™ based on your answers above?</li>
+<li>Can you get all the way to a test? Why or why not?</li>
+</ul>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/Flowchart.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<div id="prepare-the-data-3" class="section level2" number="33.1">
+<h2>
+<span class="header-section-number">33.1</span> Prepare the data<a class="anchor" aria-label="anchor" href="#prepare-the-data-3"><i class="fas fa-link"></i></a>
+</h2>
+<p>Algae are single celled organisms that grow exponentially. When each cell divides it produces two cells, so the number of cells doubles each generation. For this reason, data of algal growth are usually log-transformed, which makes exponential differences into linear differences.</p>
+<p>Log10 transform the chlorophyll-a variable, using the usual method (i.e. create a new column with the results of a mathematical operation on the original chlorophyll-a column). (Remember we did this in week 3.)</p>
+<p>You can assume that these log-transformed data are Normally distributed.</p>
+<p>Additionally, we need to subset our data in two ways:</p>
+<ul>
+<li>We only need to compare means from the final day of the experiment (day 21).</li>
+<li>We only need the data from water collected from the Windermere North basin, not from the other three lake basins in the larger experiment.</li>
+</ul>
+<p>Remember that you can subset data by multiple columns using the <code>&amp;</code> symbol.</p>
+</div>
+<div id="hypotheses-9" class="section level2" number="33.2">
+<h2>
+<span class="header-section-number">33.2</span> Hypotheses<a class="anchor" aria-label="anchor" href="#hypotheses-9"><i class="fas fa-link"></i></a>
+</h2>
+<p>Next, we write down our null and alternative hypotheses.</p>
+<p><span class="math inline">\(\mathrm{H}_0\)</span>: There are <em>no</em> significant differences between the log(Chla) concentrations in any of the nutrient addition treatments (i.e. there are NO limiting nutrients).</p>
+<p><span class="math inline">\(\mathrm{H}_\mathrm{A}\)</span>: There is a significant difference between the log(Chla) concentrations in some of the nutrient addition treatments (i.e. there is at least one limiting nutrient).</p>
+</div>
+<div id="one-way-anova" class="section level2" number="33.3">
+<h2>
+<span class="header-section-number">33.3</span> One-way ANOVA<a class="anchor" aria-label="anchor" href="#one-way-anova"><i class="fas fa-link"></i></a>
+</h2>
+<p>The function for an ANOVA test in R is <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>. (Remember that ANOVA stands for “analysis of variance.”)</p>
+<p>Just like Q2 with the linear regression model:</p>
+<ul>
+<li>We need to specify the ANOVA model using R’s model formula notation, where <code>Y ~ X</code> means “Y is predicted by X”.</li>
+<li>We need to use the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function to look at our results.</li>
+</ul>
+<p>Modify the following code in your script, replacing the arguments with the appropriate variable names from your data. Run it.</p>
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">aov_WN21</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">outcome_var</span> <span class="op">~</span> <span class="va">predictor_var</span>, data <span class="op">=</span> <span class="va">mydf</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">aov_WN21</span><span class="op">)</span></span></code></pre></div>
+<p>The output should look something like the image below (but with different numbers because your model is using different data).</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/anova.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong></p>
+<p>Based on your ANOVA analysis results:</p>
+<ul>
+<li>Is P &lt; 0.05?</li>
+<li>Should you reject or accept the null hypothesis?</li>
+</ul>
+</div>
+<p>We will wait to write a formal sentence about our results until we do the post-hoc test.</p>
+</div>
+<div id="tukey-hsd-test" class="section level2" number="33.4">
+<h2>
+<span class="header-section-number">33.4</span> Tukey HSD test<a class="anchor" aria-label="anchor" href="#tukey-hsd-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>The ANOVA tells us that there is a significant difference, but not which samples are significantly different. For that we need a post-hoc test. The most common post-hoc test for Normally distributed data is Tukey’s Honestly Significant Different test, usually abbreviated Tukey’s HSD test.</p>
+<p>In R, the function for Tukey’s HSD test is <code><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD()</a></code>. It only needs one argument: the statistical model (in this case, our stored ANOVA test).</p>
+<p>The Tukey’s HSD test will directly display the results - we don’t need to use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>.</p>
+<p>Run Tukey’s HSD test on your ANOVA test object.</p>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong></p>
+<p>Based on your Tukey’s HSD test results:</p>
+<ul>
+<li>Which nutrient addition treatments are significantly different?</li>
+<li>Which nutrient is limiting algal growth in the Windermere North lake basin?</li>
+</ul>
+</div>
+<p>Write down a formal sentence (or two) describing the outcome of the ANOVA and Tukey HSD tests. This should include:</p>
+<ul>
+<li>the result of the specific research question (i.e. in terms of the statistical tests: both the main hypotheses and which treatments are different)</li>
+<li>the names of the tests</li>
+<li>the F test statistic for the ANOVA test</li>
+<li>the P-values for both tests</li>
+<li>the implications for the bigger research question (i.e. in terms of nutrient limitation)</li>
+</ul>
+<p>The test statistic and P-values are usually provided in parentheses at the end of a sentence.</p>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="wk6_Q3.html"><span class="header-section-number">32</span> Q3: Spearman correlation</a></div>
+<div class="next"><a href="q5-kruskal-wallis-test.html"><span class="header-section-number">34</span> Q5: Kruskal-Wallis test</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#q4-one-way-anova"><span class="header-section-number">33</span> Q4: One-way ANOVA</a></li>
+<li><a class="nav-link" href="#prepare-the-data-3"><span class="header-section-number">33.1</span> Prepare the data</a></li>
+<li><a class="nav-link" href="#hypotheses-9"><span class="header-section-number">33.2</span> Hypotheses</a></li>
+<li><a class="nav-link" href="#one-way-anova"><span class="header-section-number">33.3</span> One-way ANOVA</a></li>
+<li><a class="nav-link" href="#tukey-hsd-test"><span class="header-section-number">33.4</span> Tukey HSD test</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/06-week6.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/06-week6.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-11-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

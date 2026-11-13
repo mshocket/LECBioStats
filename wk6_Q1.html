@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 30 Q1: Pearson Correlation | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="Research Question: Is there a relationship between body morphology and body mass in female Adélie penguins? Imagine that scientists are considering setting up a series of underwater cameras on the...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 30 Q1: Pearson Correlation | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Research Question: Is there a relationship between body morphology and body mass in female Adélie penguins? Imagine that scientists are considering setting up a series of underwater cameras on the...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 30 Q1: Pearson Correlation | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="Research Question: Is there a relationship between body morphology and body mass in female Adélie penguins? Imagine that scientists are considering setting up a series of underwater cameras on the...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="intro_wk4.html"><span class="header-section-number">18</span> Introduction</a></li>
+<li><a class="" href="wk4_Q1.html"><span class="header-section-number">19</span> Q1: One sample t-test</a></li>
+<li><a class="" href="wk4_Q2.html"><span class="header-section-number">20</span> Q2: Two sample t-test</a></li>
+<li><a class="" href="wk4_Q3.html"><span class="header-section-number">21</span> Q3: paired t-test</a></li>
+<li><a class="" href="tidyup_wk4.html"><span class="header-section-number">22</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="intro_wk5.html"><span class="header-section-number">23</span> Introduction</a></li>
+<li><a class="" href="wk5_Q1.html"><span class="header-section-number">24</span> Q1: Wilcoxon signed rank test</a></li>
+<li><a class="" href="wk5_Q2.html"><span class="header-section-number">25</span> Q2: Wilcoxon rank sum Test</a></li>
+<li><a class="" href="wk5_Q3.html"><span class="header-section-number">26</span> Q3: Chi-square test</a></li>
+<li><a class="" href="q3-chi-square-test-by-hand.html"><span class="header-section-number">27</span> Q3: Chi-square test by hand</a></li>
+<li><a class="" href="tidyup_wk5.html"><span class="header-section-number">28</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 6</li>
+<li><a class="" href="intro_wk6.html"><span class="header-section-number">29</span> Introduction</a></li>
+<li><a class="active" href="wk6_Q1.html"><span class="header-section-number">30</span> Q1: Pearson Correlation</a></li>
+<li><a class="" href="wk6_Q2.html"><span class="header-section-number">31</span> Q2: Linear regression</a></li>
+<li><a class="" href="wk6_Q3.html"><span class="header-section-number">32</span> Q3: Spearman correlation</a></li>
+<li><a class="" href="q4-one-way-anova.html"><span class="header-section-number">33</span> Q4: One-way ANOVA</a></li>
+<li><a class="" href="q5-kruskal-wallis-test.html"><span class="header-section-number">34</span> Q5: Kruskal-Wallis test</a></li>
+<li><a class="" href="tidyup_wk6.html"><span class="header-section-number">35</span> Making graphs and tidying up</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="wk6_Q1" class="section level1" number="30">
+<h1>
+<span class="header-section-number">30</span> Q1: Pearson Correlation<a class="anchor" aria-label="anchor" href="#wk6_Q1"><i class="fas fa-link"></i></a>
+</h1>
+<div class="rmdquestion">
+<p><strong><em>Research Question:</em></strong></p>
+<p>Is there a relationship between body morphology and body mass in female Adélie penguins?</p>
+</div>
+<p>Imagine that scientists are considering setting up a series of underwater cameras on the Palmer Archipelago in Antarctica. They want to use the existing data to see if they can use the resulting images to estimate penguin body mass, which is much cheaper and easier than catching the penguins and weighing them.</p>
+<p>We will use the the existing dataset to test the feasibility of this plan.</p>
+<p>There are three morphological metrics in the dataset:</p>
+<ul>
+<li>Bill length</li>
+<li>Bill depth</li>
+<li>Flipper length</li>
+</ul>
+<p>We will focus on just female Adélie penguins because we know that there is substantial variation based on species and sex.</p>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<p>Looking at the research question and the data:</p>
+<ul>
+<li>What do you think the <strong>outcome</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, discrete, continuous)?</li>
+<li>What do you think the <strong>predictor</strong> variable is?</li>
+<li>What kind of variable is it (e.g. categorical, continuous)?</li>
+</ul>
+<p>Looking at The Flow Chart™:</p>
+<ul>
+<li>How far could you navigate through The Flow Chart™ based on your answers above?</li>
+<li>Can you get all the way to a test? Why or why not?</li>
+</ul>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/Flowchart.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<div id="prepare-the-data-and-check-assumptions" class="section level2" number="30.1">
+<h2>
+<span class="header-section-number">30.1</span> Prepare the data and Check assumptions<a class="anchor" aria-label="anchor" href="#prepare-the-data-and-check-assumptions"><i class="fas fa-link"></i></a>
+</h2>
+<p>First, we will need to subset the specific data we want (female Adélie) from the larger dataset.</p>
+<div class="rmdtip">
+<p><strong><em>Tips!</em></strong></p>
+<p>Remember you must use <code>==</code> to logically compare column values to select the appropriate rows.</p>
+<p>You can use the <code>&amp;</code> symbol to subset for values in two different columns at the same time.</p>
+</div>
+<div class="sourceCode" id="cb85"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mydf_sub</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">mydf</span>, <span class="va">col1</span> <span class="op">==</span> <span class="st">"value_A"</span> <span class="op">&amp;</span> <span class="va">col2</span> <span class="op">==</span> <span class="st">"value_B"</span><span class="op">)</span></span></code></pre></div>
+<p>Then, we need to check whether or not the underlying assumptions hold before we can start doing correlation analysis.</p>
+<p>There are two types of correlation analysis, parametric and non-parametric. The more powerful, parametric version assumes that the data are Normally-distributed, although it is relatively robust if the data aren’t perfectly Normal.</p>
+<p>Use your function <code>examine_norm()</code> from weeks 3 and 4 to determine whether or not the data four all four variables of interest (the three morphological measurements and body mass) are Normally-distributed.</p>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<ul>
+<li>Are any of the variables Normally-distributed?</li>
+<li>How big are the samples? Can we proceed with a correlation test?</li>
+<li>Do we want body mass on the x-axis or y-axis? Why?</li>
+</ul>
+</div>
+<p>You can make a simple x-y scatter plot in R using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. They are not as pretty as figures made with <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code> but are easier for simple figures to examine your data (just like <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code> and <code><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot()</a></code>).</p>
+<p>You need to provide the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function with two lists of numbers (one for your outcome variable and one for your predictor variable) using the model formula - e.g. <code>y ~ x</code>. There are two ways to do this:</p>
+<ul>
+<li>Refer to each column directly with <span class="math inline">\(, i.e. the way we have been doing it previously, as `df\)</span>y ~ df$x`</li>
+<li>If both columns are from the same data frame, it can be easier to provide the data frame with the <code>data =</code> argument, and then just use the column names in the model formula</li>
+</ul>
+<p>For example, the code below will make two identical plots with <code>pred_var</code> on the x-axis and <code>outcome_var</code> y-axis.</p>
+<div class="sourceCode" id="cb86"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Two ways to provide the data to make the same scatter plot</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">outcome_var</span> <span class="op">~</span> <span class="va">mydf</span><span class="op">$</span><span class="va">pred_var</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">outcome_var</span> <span class="op">~</span> <span class="va">pred_var</span>, data <span class="op">=</span> <span class="va">mydf</span><span class="op">)</span></span></code></pre></div>
+<div class="rmdquestion">
+<p><strong><em>Questions:</em></strong></p>
+<p>Looking at the scatter plots.</p>
+<ul>
+<li>Do any of them suggest that there might be a linear relationship between the variables?</li>
+<li>Do any of them suggest there might be a non-linear relationship between the variables?</li>
+</ul>
+</div>
+<div class="rmdwarning">
+<p><strong><em>Warning!</em></strong> Remember: it is essential to create a scatter plot first, before you start doing correlation or regression tests!</p>
+</div>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong> Why is it essential to create a scatter plot first?</p>
+</div>
+</div>
+<div id="hypotheses-6" class="section level2" number="30.2">
+<h2>
+<span class="header-section-number">30.2</span> Hypotheses<a class="anchor" aria-label="anchor" href="#hypotheses-6"><i class="fas fa-link"></i></a>
+</h2>
+<p>Next, we write down our null and alternative hypotheses.</p>
+<p><span class="math inline">\(\mathrm{H}_0\)</span>: There is <em>no</em> linear correlation between body mass and (X, Y, Z).</p>
+<p><span class="math inline">\(\mathrm{H}_\mathrm{A}\)</span>: There is a linear correlation between body mass and (X, Y, Z).</p>
+<p>where X, Y, and Z are bill length, bill depth, and flipper length.</p>
+</div>
+<div id="pearson-correlation-test" class="section level2" number="30.3">
+<h2>
+<span class="header-section-number">30.3</span> Pearson correlation test<a class="anchor" aria-label="anchor" href="#pearson-correlation-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>In R, the function <code><a href="https://rdrr.io/r/stats/cor.html">cor()</a></code> will calculate a correlation coefficient between two variables.</p>
+<p>However, we want to perform a full correlation test (that also provides 95% CIs and P-values), so we will use the function <code><a href="https://rdrr.io/r/stats/cor.test.html">cor.test()</a></code> instead.</p>
+<p>For both of these functions:</p>
+<ul>
+<li>Provide the variables as the first two arguments, formatted as lists of numbers (i.e. the columns in your data frame)</li>
+<li>The default calculation is the <em>parametric Pearson correlation</em>, which assumes your data are Normally-distributed. (Parametric and Pearson both start with P, which can help you to remember.)</li>
+<li>You can add an optional third argument, <code>method = "spearman"</code>, to calculate the non-parametric Spearman rank correlation for non-Normally distributed data.</li>
+</ul>
+<div class="rmdwarning">
+<p><strong><em>Warning!</em></strong> In the psych package there is a function called <code><a href="https://rdrr.io/pkg/psych/man/corr.test.html">corr.test()</a></code> - with two rs instead of one r - DO NOT ACCIDENTALLY USE THIS TEST INSTEAD!</p>
+</div>
+<p>Calculate the Pearson correlation between body mass and each of the three morphological variables.</p>
+<p>The output will look like the image below.</p>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/corrtest.png" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>The most important things to look at are:</p>
+<ul>
+<li>The P-value</li>
+<li>The correlation coefficient (<em>r</em>) is which listed here as “cor”, and its 95% confidence intervals.</li>
+</ul>
+<p>If the 95% CIs do not include zero, the P-value will be significant.</p>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong> Based on your correlation test results:</p>
+<ul>
+<li>Which parameter has the stronget relationship with body mass (i.e. has the biggest <em>r</em> value?)</li>
+</ul>
+</div>
+<p>Write down a formal sentence or two describing the outcome of the correlation tests. This should include:</p>
+<ul>
+<li>the overall result of the research question(s)</li>
+<li>the name of the test(s)</li>
+<li>the test statistic, t</li>
+<li>the degrees of freedom, df</li>
+<li>the correlation coefficient, r</li>
+<li>the P-value</li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="intro_wk6.html"><span class="header-section-number">29</span> Introduction</a></div>
+<div class="next"><a href="wk6_Q2.html"><span class="header-section-number">31</span> Q2: Linear regression</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#wk6_Q1"><span class="header-section-number">30</span> Q1: Pearson Correlation</a></li>
+<li><a class="nav-link" href="#prepare-the-data-and-check-assumptions"><span class="header-section-number">30.1</span> Prepare the data and Check assumptions</a></li>
+<li><a class="nav-link" href="#hypotheses-6"><span class="header-section-number">30.2</span> Hypotheses</a></li>
+<li><a class="nav-link" href="#pearson-correlation-test"><span class="header-section-number">30.3</span> Pearson correlation test</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/06-week6.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/06-week6.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-11-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

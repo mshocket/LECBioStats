@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 31 Q2: Linear regression | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="Research Question: Is there a relationship between bill depth and body mass in female Adélie penguins? We’ve identified which variable we want to move forward with. However, before we go any...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 31 Q2: Linear regression | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Research Question: Is there a relationship between bill depth and body mass in female Adélie penguins? We’ve identified which variable we want to move forward with. However, before we go any...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 31 Q2: Linear regression | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="Research Question: Is there a relationship between bill depth and body mass in female Adélie penguins? We’ve identified which variable we want to move forward with. However, before we go any...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="intro_wk4.html"><span class="header-section-number">18</span> Introduction</a></li>
+<li><a class="" href="wk4_Q1.html"><span class="header-section-number">19</span> Q1: One sample t-test</a></li>
+<li><a class="" href="wk4_Q2.html"><span class="header-section-number">20</span> Q2: Two sample t-test</a></li>
+<li><a class="" href="wk4_Q3.html"><span class="header-section-number">21</span> Q3: paired t-test</a></li>
+<li><a class="" href="tidyup_wk4.html"><span class="header-section-number">22</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="intro_wk5.html"><span class="header-section-number">23</span> Introduction</a></li>
+<li><a class="" href="wk5_Q1.html"><span class="header-section-number">24</span> Q1: Wilcoxon signed rank test</a></li>
+<li><a class="" href="wk5_Q2.html"><span class="header-section-number">25</span> Q2: Wilcoxon rank sum Test</a></li>
+<li><a class="" href="wk5_Q3.html"><span class="header-section-number">26</span> Q3: Chi-square test</a></li>
+<li><a class="" href="q3-chi-square-test-by-hand.html"><span class="header-section-number">27</span> Q3: Chi-square test by hand</a></li>
+<li><a class="" href="tidyup_wk5.html"><span class="header-section-number">28</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 6</li>
+<li><a class="" href="intro_wk6.html"><span class="header-section-number">29</span> Introduction</a></li>
+<li><a class="" href="wk6_Q1.html"><span class="header-section-number">30</span> Q1: Pearson Correlation</a></li>
+<li><a class="active" href="wk6_Q2.html"><span class="header-section-number">31</span> Q2: Linear regression</a></li>
+<li><a class="" href="wk6_Q3.html"><span class="header-section-number">32</span> Q3: Spearman correlation</a></li>
+<li><a class="" href="q4-one-way-anova.html"><span class="header-section-number">33</span> Q4: One-way ANOVA</a></li>
+<li><a class="" href="q5-kruskal-wallis-test.html"><span class="header-section-number">34</span> Q5: Kruskal-Wallis test</a></li>
+<li><a class="" href="tidyup_wk6.html"><span class="header-section-number">35</span> Making graphs and tidying up</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="wk6_Q2" class="section level1" number="31">
+<h1>
+<span class="header-section-number">31</span> Q2: Linear regression<a class="anchor" aria-label="anchor" href="#wk6_Q2"><i class="fas fa-link"></i></a>
+</h1>
+<div class="rmdquestion">
+<p><strong><em>Research Question:</em></strong></p>
+<p>Is there a relationship between bill depth and body mass in female Adélie penguins?</p>
+</div>
+<p>We’ve identified which variable we want to move forward with. However, before we go any farther, we need to think about the difference between correlation and regression.</p>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong> We have just done a correlation test on this data set. Can we also do a regression? Why or why not?</p>
+</div>
+<p>We have a specific motivation for predicted body mass based on bill size, so we have a good reason to go ahead with a regression.</p>
+<p>There is also a good mechanistic reason to think that bigger penguins might weigh more.</p>
+<div id="hypotheses-7" class="section level2" number="31.1">
+<h2>
+<span class="header-section-number">31.1</span> Hypotheses<a class="anchor" aria-label="anchor" href="#hypotheses-7"><i class="fas fa-link"></i></a>
+</h2>
+<p>Next, we write down our null and alternative hypotheses.</p>
+<p><span class="math inline">\(\mathrm{H}_0\)</span>: There is <em>no</em> significant linear relationship between bill depth and body mass.</p>
+<p><span class="math inline">\(\mathrm{H}_\mathrm{A}\)</span>: There is a significant linear relationship between bill depth and body mass.</p>
+</div>
+<div id="linear-regression" class="section level2" number="31.2">
+<h2>
+<span class="header-section-number">31.2</span> Linear regression<a class="anchor" aria-label="anchor" href="#linear-regression"><i class="fas fa-link"></i></a>
+</h2>
+<p>The function that performs linear regression in R is called <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>, which stands for “linear model”.</p>
+<ul>
+<li>We will use <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> to run a linear regression with one continuous predictor variable.</li>
+<li>However, <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> is a very flexible and powerful function that you can use to fit other types of models as well. (We will use it later for the ANOVA.)</li>
+</ul>
+<p>To use <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>, you need to give it two lists of numbers (i.e. outcome and predictor variables) using a <em>model formula</em>. Just like for <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>, you can refer to the columns directly with $ or give the data frame using the data = argument.</p>
+<p>For example, the code below runs two identical linear regressions:</p>
+<div class="sourceCode" id="cb87"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Two ways to fit the same linear regression</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">outcome_var</span> <span class="op">~</span> <span class="va">predictor_var</span>, data <span class="op">=</span> <span class="va">mydf</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">mydf</span><span class="op">$</span><span class="va">outcome_var</span> <span class="op">~</span> <span class="va">mydf</span><span class="op">$</span><span class="va">predictor_var</span><span class="op">)</span></span></code></pre></div>
+<p>Run a linear regression substituting in your data frame and variable names.</p>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong> What output do you see in the Console?</p>
+</div>
+<p>The basic output that gets printed is:</p>
+<ul>
+<li>the code we ran</li>
+<li>the two coefficients that define the regression line through our data (i.e. the intercept and the slope)</li>
+</ul>
+<p>However, we want more than just that. We also want:</p>
+<ul>
+<li>a P-value to tell us if the effect of of our predictor is significant</li>
+<li>an <span class="math inline">\(R^2\)</span> value to tell us how well our predictor variable predicts the variation in the outcome variable</li>
+<li>the 95% CIs for both of the coefficients that define our best fit line.</li>
+</ul>
+<p>In order to get these extra details, we need to store our linear model output as an object, and then use two functions to give us the information:</p>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> - provides a P-value and an <span class="math inline">\(R^2\)</span> value for a model</li>
+<li>
+<code><a href="https://rdrr.io/r/stats/confint.html">confint()</a></code> - provides 95% CIs for model coefficients</li>
+</ul>
+<div class="sourceCode" id="cb88"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Linear regression + summary of output + 95% CIs</span></span>
+<span><span class="va">lm_out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">outcome_var</span> <span class="op">~</span> <span class="va">predictor_var</span>, data <span class="op">=</span> <span class="va">mydf</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">lm_out</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">lm_out</span><span class="op">)</span></span></code></pre></div>
+<p>Modify your <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> code to store it as an object, and then use <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> and <code><a href="https://rdrr.io/r/stats/confint.html">confint()</a></code> on the model object. Run the code.</p>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong> Now what output do you see in the Console?</p>
+</div>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/regression.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>This output has a lot of information!</p>
+<ul>
+<li>The code you used to make the model.</li>
+<li>Summary statistics on the model residuals - these are the differences between each observed data point and it’s predicted value from the model. (We will talk more about these in the next section.)</li>
+<li>Information on the model coefficients, i.e. the slope and intercept for the regression line. The slope is named for the predictor variable that it gets multiplied by. R provides the coefficient itself (Estimate), the standard error of the coefficient, a t-value test statistic, and a P-value that the coefficient is significantly different from zero (<code>Pr(&gt;|t|</code>), the probability of observing a t statistic this extreme by random chance). Depending on the significance of the P-value, there may or may not be asterisks indicating how significant it is.</li>
+<li>Information about the overall model: residual standard error, degrees of freedom, two versions of <span class="math inline">\(R^2\)</span>, an F test statistic for the full model, and a p-value for the full model (which will match the P-value for the slope if you have only one predictor variable).</li>
+</ul>
+<p>You can ignore much of this information. The main things that you need to pay attention to are:</p>
+<ul>
+<li>The estimates of the model coefficients (i.e. the equation for your regression line)</li>
+<li>The P-value for the slope coefficient / the whole model (they are the same for a one-predictor linear regression).</li>
+<li>The adjusted <span class="math inline">\(R^2\)</span> value - remember how this is related to r, the correlation coefficient!</li>
+</ul>
+<p>However, when you report your results as a sentence you will also want to note:</p>
+<ul>
+<li>a test statistic (either t for the predictor variable or F for the full model - either one is okay)</li>
+<li>the degrees of freedom, df</li>
+</ul>
+<div class="rmdtip">
+<p><strong><em>Information:</em></strong></p>
+<p>The adjusted <span class="math inline">\(R^2\)</span> value is modified to account for the number of predictors in your model.</p>
+<p>The more predictors you have, the more different it will be from the basic <span class="math inline">\(R^2\)</span>.</p>
+<p>We could write down theses statistics now since we’ve gotten them from the R output - but there are few other checks that we need to do first.</p>
+</div>
+</div>
+<div id="evaluating-a-linear-regression-model" class="section level2" number="31.3">
+<h2>
+<span class="header-section-number">31.3</span> Evaluating a linear regression model<a class="anchor" aria-label="anchor" href="#evaluating-a-linear-regression-model"><i class="fas fa-link"></i></a>
+</h2>
+<p>The final step for fitting a linear regression model is to analyse the residuals, which are the differences between each observed data point and its predicted value from the model.
+For the linear regression model assumptions to be valid, the residuals:</p>
+<ul>
+<li>should be Normally distributed.</li>
+<li>should not change their pattern with the value of the predictor variable (i.e. become much bigger/smaller or more likely to be positive/negative as you move along the x-axis).</li>
+</ul>
+<p>You can extract the residuals from a model with the function <code><a href="https://rdrr.io/r/stats/residuals.html">resid()</a></code>.</p>
+<p>Type the following code into your script - substituting your model name - and run it.</p>
+<div class="sourceCode" id="cb89"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Calculate residuals of the linear regression</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">lm_out</span><span class="op">)</span></span></code></pre></div>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong> What output do you see in the Console?</p>
+</div>
+<p>R has printed a list of numbers containing all the differences between the predicted value and each observed point in our data set. Conveniently, that is the exactly data format that the <code>examine_norm()</code> function uses.</p>
+<p>Use your function <code>examine_norm()</code> to examine the residuals of the model.</p>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong> Do the residuals look Normally distributed? Do they pass the formal tests?</p>
+</div>
+<p>Now we need to plot the residuals and see if they change substantially along with values of the predictor variable.</p>
+<p>As mentioned above, the residuals should not change their pattern with the value of the predictor variable. The figures below show examples of what you do NOT want to see!</p>
+<ul>
+<li>In the left panel, the residuals get bigger as x gets bigger.</li>
+<li>In the right panel, the residuals are positive in the middle and negative on the ends.</li>
+</ul>
+<div style="text-align: center;">
+<div class="float">
+<img src="images/lm_residual_diagnostics.png" style="width:100.0%" alt=" "><div class="figcaption"> </div>
+</div>
+</div>
+<p>Just like we did at the beginning, when we were making our first scatter plots, we will use the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function and give it our x values first and y values second.</p>
+<p>This time, we will also a function <code><a href="https://rdrr.io/r/graphics/abline.html">abline()</a></code> to add a horizontal line at y = 0, so it’s obvious which values are positive and which are negative. The first argument (<code>a = 0</code>) is the intercept and the second argument (b = 0) is the slope.</p>
+<p>Modify the code below to plot the residuals for your model over your predictor variable.</p>
+<div class="sourceCode" id="cb90"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Plot the model residuals and the predictor variable</span></span>
+<span><span class="co">#    add a horizontal line at y = 0</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/residuals.html">resid</a></span><span class="op">(</span><span class="va">lm_out</span><span class="op">)</span> <span class="op">~</span> <span class="va">mydf</span><span class="op">$</span><span class="va">predictor_var</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">0</span>, b <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span></code></pre></div>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong> Do the residuals look like they change substantially along with the predictor variable?</p>
+</div>
+<p>If the residuals of the model are not Normally distributed, or their pattern changes over the predictor variable, you may have a nonlinear relationship between your variables!</p>
+<p>This means your linear regression model is probably not appropriate for describing your data, and is why it so important to make a scatter plot of your data first!!!</p>
+<p>If the residuals are normal and the plot looks okay, then you are ready to report your results. You can re-run the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> and <code><a href="https://rdrr.io/r/stats/confint.html">confint()</a></code> code to re-print the important values at the bottom of your console (or you can scroll up to find them).</p>
+<div class="rmdquestion">
+<p><strong><em>Question:</em></strong></p>
+<p>Based on your regression analysis results:</p>
+<ul>
+<li>Is P &lt; 0.05?</li>
+<li>Should you reject or accept the null hypothesis?</li>
+</ul>
+</div>
+<p>Write down a formal sentence describing the outcome of the test as a comment in your script.</p>
+<p>You sentence should include:</p>
+<ul>
+<li>the overall result of the research question</li>
+<li>the name of the test</li>
+<li>the slope and intercept coefficients, with 95% CIs</li>
+<li>the adjusted <span class="math inline">\(R^2\)</span>-value</li>
+<li>a test statistic, either t or F</li>
+<li>the degrees of freedom, df</li>
+<li>the P-value</li>
+</ul>
+<p>Most of these quantities are usually provided in parentheses at the end of the sentence.</p>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="wk6_Q1.html"><span class="header-section-number">30</span> Q1: Pearson Correlation</a></div>
+<div class="next"><a href="wk6_Q3.html"><span class="header-section-number">32</span> Q3: Spearman correlation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#wk6_Q2"><span class="header-section-number">31</span> Q2: Linear regression</a></li>
+<li><a class="nav-link" href="#hypotheses-7"><span class="header-section-number">31.1</span> Hypotheses</a></li>
+<li><a class="nav-link" href="#linear-regression"><span class="header-section-number">31.2</span> Linear regression</a></li>
+<li><a class="nav-link" href="#evaluating-a-linear-regression-model"><span class="header-section-number">31.3</span> Evaluating a linear regression model</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/06-week6.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/06-week6.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-11-13.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

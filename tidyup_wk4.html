@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 22 Making graphs and tidying up | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
 <meta name="author" content="Marta Shocket">
@@ -77,6 +76,14 @@
 <li><a class="" href="wk5_Q3.html"><span class="header-section-number">26</span> Q3: Chi-square test</a></li>
 <li><a class="" href="q3-chi-square-test-by-hand.html"><span class="header-section-number">27</span> Q3: Chi-square test by hand</a></li>
 <li><a class="" href="tidyup_wk5.html"><span class="header-section-number">28</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 6</li>
+<li><a class="" href="intro_wk6.html"><span class="header-section-number">29</span> Introduction</a></li>
+<li><a class="" href="wk6_Q1.html"><span class="header-section-number">30</span> Q1: Pearson Correlation</a></li>
+<li><a class="" href="wk6_Q2.html"><span class="header-section-number">31</span> Q2: Linear regression</a></li>
+<li><a class="" href="wk6_Q3.html"><span class="header-section-number">32</span> Q3: Spearman correlation</a></li>
+<li><a class="" href="q4-one-way-anova.html"><span class="header-section-number">33</span> Q4: One-way ANOVA</a></li>
+<li><a class="" href="q5-kruskal-wallis-test.html"><span class="header-section-number">34</span> Q5: Kruskal-Wallis test</a></li>
+<li><a class="" href="tidyup_wk6.html"><span class="header-section-number">35</span> Making graphs and tidying up</a></li>
 </ul>
 
         <div class="book-extra">
@@ -123,57 +130,57 @@
 <tbody>
 <tr class="odd">
 <td align="left">Site 1</td>
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="right">41</td>
+<td align="right">5</td>
+<td align="right">2</td>
+<td align="right">23</td>
 </tr>
 <tr class="even">
 <td align="left">Site 2</td>
 <td align="right">9</td>
 <td align="right">1</td>
-<td align="right">22</td>
+<td align="right">19</td>
 </tr>
 <tr class="odd">
 <td align="left">Site 3</td>
-<td align="right">6</td>
+<td align="right">7</td>
 <td align="right">1</td>
-<td align="right">31</td>
+<td align="right">28</td>
 </tr>
 <tr class="even">
 <td align="left">Site 4</td>
 <td align="right">1</td>
-<td align="right">1</td>
-<td align="right">45</td>
+<td align="right">2</td>
+<td align="right">35</td>
 </tr>
 <tr class="odd">
 <td align="left">Site 5</td>
-<td align="right">1</td>
 <td align="right">2</td>
-<td align="right">38</td>
+<td align="right">1</td>
+<td align="right">39</td>
 </tr>
 <tr class="even">
 <td align="left">Site 6</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">45</td>
+<td align="right">4</td>
+<td align="right">2</td>
+<td align="right">22</td>
 </tr>
 <tr class="odd">
 <td align="left">Site 7</td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">25</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">45</td>
 </tr>
 <tr class="even">
 <td align="left">Site 8</td>
-<td align="right">9</td>
-<td align="right">2</td>
-<td align="right">9</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">53</td>
 </tr>
 <tr class="odd">
 <td align="left">Site 9</td>
 <td align="right">1</td>
 <td align="right">3</td>
-<td align="right">22</td>
+<td align="right">27</td>
 </tr>
 </tbody>
 </table></div>
@@ -196,17 +203,17 @@
 <tr class="odd">
 <td align="left">Site 1</td>
 <td align="left">foxes</td>
-<td align="right">4</td>
+<td align="right">5</td>
 </tr>
 <tr class="even">
 <td align="left">Site 1</td>
 <td align="left">badgers</td>
-<td align="right">0</td>
+<td align="right">2</td>
 </tr>
 <tr class="odd">
 <td align="left">Site 1</td>
 <td align="left">mice</td>
-<td align="right">41</td>
+<td align="right">23</td>
 </tr>
 <tr class="even">
 <td align="left">Site 2</td>
@@ -220,98 +227,98 @@
 </tr>
 <tr class="even">
 <td align="left">Site 2</td>
+<td align="left">mice</td>
+<td align="right">19</td>
+</tr>
+<tr class="odd">
+<td align="left">Site 3</td>
+<td align="left">foxes</td>
+<td align="right">7</td>
+</tr>
+<tr class="even">
+<td align="left">Site 3</td>
+<td align="left">badgers</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Site 3</td>
+<td align="left">mice</td>
+<td align="right">28</td>
+</tr>
+<tr class="even">
+<td align="left">Site 4</td>
+<td align="left">foxes</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Site 4</td>
+<td align="left">badgers</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Site 4</td>
+<td align="left">mice</td>
+<td align="right">35</td>
+</tr>
+<tr class="odd">
+<td align="left">Site 5</td>
+<td align="left">foxes</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Site 5</td>
+<td align="left">badgers</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Site 5</td>
+<td align="left">mice</td>
+<td align="right">39</td>
+</tr>
+<tr class="even">
+<td align="left">Site 6</td>
+<td align="left">foxes</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Site 6</td>
+<td align="left">badgers</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Site 6</td>
 <td align="left">mice</td>
 <td align="right">22</td>
 </tr>
 <tr class="odd">
-<td align="left">Site 3</td>
+<td align="left">Site 7</td>
 <td align="left">foxes</td>
-<td align="right">6</td>
+<td align="right">5</td>
 </tr>
 <tr class="even">
-<td align="left">Site 3</td>
+<td align="left">Site 7</td>
 <td align="left">badgers</td>
-<td align="right">1</td>
+<td align="right">0</td>
 </tr>
 <tr class="odd">
-<td align="left">Site 3</td>
-<td align="left">mice</td>
-<td align="right">31</td>
-</tr>
-<tr class="even">
-<td align="left">Site 4</td>
-<td align="left">foxes</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="left">Site 4</td>
-<td align="left">badgers</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="left">Site 4</td>
+<td align="left">Site 7</td>
 <td align="left">mice</td>
 <td align="right">45</td>
 </tr>
-<tr class="odd">
-<td align="left">Site 5</td>
-<td align="left">foxes</td>
-<td align="right">1</td>
-</tr>
 <tr class="even">
-<td align="left">Site 5</td>
-<td align="left">badgers</td>
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td align="left">Site 5</td>
-<td align="left">mice</td>
-<td align="right">38</td>
-</tr>
-<tr class="even">
-<td align="left">Site 6</td>
+<td align="left">Site 8</td>
 <td align="left">foxes</td>
 <td align="right">0</td>
 </tr>
 <tr class="odd">
-<td align="left">Site 6</td>
-<td align="left">badgers</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="left">Site 6</td>
-<td align="left">mice</td>
-<td align="right">45</td>
-</tr>
-<tr class="odd">
-<td align="left">Site 7</td>
-<td align="left">foxes</td>
-<td align="right">6</td>
-</tr>
-<tr class="even">
-<td align="left">Site 7</td>
-<td align="left">badgers</td>
-<td align="right">1</td>
-</tr>
-<tr class="odd">
-<td align="left">Site 7</td>
-<td align="left">mice</td>
-<td align="right">25</td>
-</tr>
-<tr class="even">
-<td align="left">Site 8</td>
-<td align="left">foxes</td>
-<td align="right">9</td>
-</tr>
-<tr class="odd">
 <td align="left">Site 8</td>
 <td align="left">badgers</td>
-<td align="right">2</td>
+<td align="right">0</td>
 </tr>
 <tr class="even">
 <td align="left">Site 8</td>
 <td align="left">mice</td>
-<td align="right">9</td>
+<td align="right">53</td>
 </tr>
 <tr class="odd">
 <td align="left">Site 9</td>
@@ -326,7 +333,7 @@
 <tr class="odd">
 <td align="left">Site 9</td>
 <td align="left">mice</td>
-<td align="right">22</td>
+<td align="right">27</td>
 </tr>
 </tbody>
 </table></div>
@@ -452,7 +459,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-11-06.</p>
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-11-13.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
