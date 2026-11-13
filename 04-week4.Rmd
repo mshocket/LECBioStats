@@ -23,7 +23,6 @@ As usual, you will want to start today’s practical with the following steps:
 
 For points 3 and 4, the easiest thing is to open your script from last week, copy and paste the relevant content, and then change the information that needs to be updated (e.g. the date and the practical number/topic in the header).
 
-
 ## Read in the datasets
 
 Read in both of today's datasets. 
