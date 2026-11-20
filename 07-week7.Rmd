@@ -161,13 +161,13 @@ If your two-way ANOVA is significant, you will need to conduct a post-hoc test t
 
 The post-hoc test for a two-way ANOVA is the same one that we used last week for the one-way ANOVA: Tukey's honestly significant difference test, which is done with the function `TukeyHSD()`.
 
-However, we will need to tell it to include all of the interactions with the `which = ` argument.
-
 ```{r}
-TukeyHSD(mod, which = "sex:species")
+TukeyHSD(mod)
 ```
+The Tukey HSD test will provide contrast results for each main effect group and all the subgroups in the interaction.
 
-In this case, all of contrasts between specific sex-species subgroups are significantly different to each other except for two:
+In this case:
 
-- female Chinstrap vs. female Adelie
-- male Chinstrap vs. male Adelie
+- Both sexes are different
+- Gentoo is different to the other two species, but Adelie and Chinstrap are not different to each other
+- All of contrasts between specific sex-species subgroups are significantly different to each other except for two (female Chinstrap vs. female Adelie and male Chinstrap vs. male Adelie - this should not be surprising based on the main effect results).
