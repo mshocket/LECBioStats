@@ -233,13 +233,22 @@
 <p>Remember, that an ANOVA only tells you if there is a significant effect between any groups, but not which groups are significantly different to each other.</p>
 <p>If your two-way ANOVA is significant, you will need to conduct a post-hoc test to determine which groups are significantly different.</p>
 <p>The post-hoc test for a two-way ANOVA is the same one that we used last week for the one-way ANOVA: Tukey’s honestly significant difference test, which is done with the function <code><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD()</a></code>.</p>
-<p>However, we will need to tell it to include all of the interactions with the <code>which =</code> argument.</p>
 <div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">mod</span>, which <span class="op">=</span> <span class="st">"sex:species"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   Tukey multiple comparisons of means</span></span>
 <span><span class="co">#&gt;     95% family-wise confidence level</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Fit: aov(formula = body_mass_g ~ sex * species, data = peng_data)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $sex</span></span>
+<span><span class="co">#&gt;                 diff      lwr      upr p adj</span></span>
+<span><span class="co">#&gt; male-female 683.4118 616.7003 750.1233     0</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $species</span></span>
+<span><span class="co">#&gt;                        diff       lwr       upr     p adj</span></span>
+<span><span class="co">#&gt; Chinstrap-Adelie   26.92385  -80.0258  133.8735 0.8241288</span></span>
+<span><span class="co">#&gt; Gentoo-Adelie    1377.65816 1287.6926 1467.6237 0.0000000</span></span>
+<span><span class="co">#&gt; Gentoo-Chinstrap 1350.73431 1239.9964 1461.4722 0.0000000</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $`sex:species`</span></span>
 <span><span class="co">#&gt;                                      diff       lwr</span></span>
@@ -274,10 +283,12 @@
 <span><span class="co">#&gt; female:Gentoo-male:Chinstrap     932.3460 0.0000000</span></span>
 <span><span class="co">#&gt; male:Gentoo-male:Chinstrap      1735.6917 0.0000000</span></span>
 <span><span class="co">#&gt; male:Gentoo-female:Gentoo        967.7594 0.0000000</span></span></code></pre></div>
-<p>In this case, all of contrasts between specific sex-species subgroups are significantly different to each other except for two:</p>
+<p>The Tukey HSD test will provide contrast results for each main effect group and all the subgroups in the interaction.</p>
+<p>In this case:</p>
 <ul>
-<li>female Chinstrap vs. female Adelie</li>
-<li>male Chinstrap vs. male Adelie</li>
+<li>Both sexes are different</li>
+<li>Gentoo is different to the other two species, but Adelie and Chinstrap are not different to each other</li>
+<li>All of contrasts between specific sex-species subgroups are significantly different to each other except for two (female Chinstrap vs. female Adelie and male Chinstrap vs. male Adelie - this should not be surprising based on the main effect results).</li>
 </ul>
 </div>
 </div>

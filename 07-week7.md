@@ -183,15 +183,23 @@ If your two-way ANOVA is significant, you will need to conduct a post-hoc test t
 
 The post-hoc test for a two-way ANOVA is the same one that we used last week for the one-way ANOVA: Tukey's honestly significant difference test, which is done with the function `TukeyHSD()`.
 
-However, we will need to tell it to include all of the interactions with the `which = ` argument.
-
 
 ``` r
-TukeyHSD(mod, which = "sex:species")
+TukeyHSD(mod)
 #>   Tukey multiple comparisons of means
 #>     95% family-wise confidence level
 #> 
 #> Fit: aov(formula = body_mass_g ~ sex * species, data = peng_data)
+#> 
+#> $sex
+#>                 diff      lwr      upr p adj
+#> male-female 683.4118 616.7003 750.1233     0
+#> 
+#> $species
+#>                        diff       lwr       upr     p adj
+#> Chinstrap-Adelie   26.92385  -80.0258  133.8735 0.8241288
+#> Gentoo-Adelie    1377.65816 1287.6926 1467.6237 0.0000000
+#> Gentoo-Chinstrap 1350.73431 1239.9964 1461.4722 0.0000000
 #> 
 #> $`sex:species`
 #>                                      diff       lwr
@@ -227,8 +235,10 @@ TukeyHSD(mod, which = "sex:species")
 #> male:Gentoo-male:Chinstrap      1735.6917 0.0000000
 #> male:Gentoo-female:Gentoo        967.7594 0.0000000
 ```
+The Tukey HSD test will provide contrast results for each main effect group and all the subgroups in the interaction.
 
-In this case, all of contrasts between specific sex-species subgroups are significantly different to each other except for two:
+In this case:
 
-- female Chinstrap vs. female Adelie
-- male Chinstrap vs. male Adelie
+- Both sexes are different
+- Gentoo is different to the other two species, but Adelie and Chinstrap are not different to each other
+- All of contrasts between specific sex-species subgroups are significantly different to each other except for two (female Chinstrap vs. female Adelie and male Chinstrap vs. male Adelie - this should not be surprising based on the main effect results).
