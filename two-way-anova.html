@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 37 Two-way ANOVA | Statistics Practicals for LECX5141 - Biological Research Design and Delivery</title>
+<meta name="author" content="Marta Shocket">
+<meta name="description" content="A two-way ANOVA is used to compare means of a continuous outcome variable which is (potentially) being affected by two different categorical predictor variables at the same time. For example, we...">
+<meta name="generator" content="bookdown 0.48 with bs4_book()">
+<meta property="og:title" content="Chapter 37 Two-way ANOVA | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta property="og:type" content="book">
+<meta property="og:description" content="A two-way ANOVA is used to compare means of a continuous outcome variable which is (potentially) being affected by two different categorical predictor variables at the same time. For example, we...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 37 Two-way ANOVA | Statistics Practicals for LECX5141 - Biological Research Design and Delivery">
+<meta name="twitter:description" content="A two-way ANOVA is used to compare means of a continuous outcome variable which is (potentially) being affected by two different categorical predictor variables at the same time. For example, we...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.12.0/transition.js"></script><script src="libs/bs3compat-0.12.0/tabs.js"></script><script src="libs/bs3compat-0.12.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Statistics Practicals for LECX5141 - Biological Research Design and Delivery</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">About</a></li>
+<li class="book-part">Week 1</li>
+<li><a class="" href="introduction.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="working-with-data.html"><span class="header-section-number">2</span> Working with data</a></li>
+<li><a class="" href="basic-summary-statistics.html"><span class="header-section-number">3</span> Basic summary statistics</a></li>
+<li><a class="" href="plotting-with-ggplot.html"><span class="header-section-number">4</span> Plotting with ggplot</a></li>
+<li><a class="" href="tidyup.html"><span class="header-section-number">5</span> Tidying up</a></li>
+<li class="book-part">Week 2</li>
+<li><a class="" href="introduction-1.html"><span class="header-section-number">6</span> Introduction</a></li>
+<li><a class="" href="visualising-distributions.html"><span class="header-section-number">7</span> Visualising distributions</a></li>
+<li><a class="" href="dealing-with-nas.html"><span class="header-section-number">8</span> Dealing with NAs</a></li>
+<li><a class="" href="summary-statistics.html"><span class="header-section-number">9</span> Summary statistics</a></li>
+<li><a class="" href="bar-plot-with-error-bars.html"><span class="header-section-number">10</span> Bar plot with error bars</a></li>
+<li class="book-part">Week 3</li>
+<li><a class="" href="intro_wk3.html"><span class="header-section-number">11</span> Introduction</a></li>
+<li><a class="" href="diagnostic-plots-to-assess-normality.html"><span class="header-section-number">12</span> Diagnostic plots to assess Normality</a></li>
+<li><a class="" href="formal-tests-to-assess-normality.html"><span class="header-section-number">13</span> Formal tests to assess Normality</a></li>
+<li><a class="" href="writing-functions.html"><span class="header-section-number">14</span> Writing functions</a></li>
+<li><a class="" href="transforming-data.html"><span class="header-section-number">15</span> Transforming data</a></li>
+<li><a class="" href="filtering-data.html"><span class="header-section-number">16</span> Filtering data</a></li>
+<li><a class="" href="tidyup_wk3.html"><span class="header-section-number">17</span> Tidying up</a></li>
+<li class="book-part">Week 4</li>
+<li><a class="" href="intro_wk4.html"><span class="header-section-number">18</span> Introduction</a></li>
+<li><a class="" href="wk4_Q1.html"><span class="header-section-number">19</span> Q1: One sample t-test</a></li>
+<li><a class="" href="wk4_Q2.html"><span class="header-section-number">20</span> Q2: Two sample t-test</a></li>
+<li><a class="" href="wk4_Q3.html"><span class="header-section-number">21</span> Q3: paired t-test</a></li>
+<li><a class="" href="tidyup_wk4.html"><span class="header-section-number">22</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 5</li>
+<li><a class="" href="intro_wk5.html"><span class="header-section-number">23</span> Introduction</a></li>
+<li><a class="" href="wk5_Q1.html"><span class="header-section-number">24</span> Q1: Wilcoxon signed rank test</a></li>
+<li><a class="" href="wk5_Q2.html"><span class="header-section-number">25</span> Q2: Wilcoxon rank sum Test</a></li>
+<li><a class="" href="wk5_Q3.html"><span class="header-section-number">26</span> Q3: Chi-square test</a></li>
+<li><a class="" href="q3-chi-square-test-by-hand.html"><span class="header-section-number">27</span> Q3: Chi-square test by hand</a></li>
+<li><a class="" href="tidyup_wk5.html"><span class="header-section-number">28</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 6</li>
+<li><a class="" href="intro_wk6.html"><span class="header-section-number">29</span> Introduction</a></li>
+<li><a class="" href="wk6_Q1.html"><span class="header-section-number">30</span> Q1: Pearson Correlation</a></li>
+<li><a class="" href="wk6_Q2.html"><span class="header-section-number">31</span> Q2: Linear regression</a></li>
+<li><a class="" href="wk6_Q3.html"><span class="header-section-number">32</span> Q3: Spearman correlation</a></li>
+<li><a class="" href="q4-one-way-anova.html"><span class="header-section-number">33</span> Q4: One-way ANOVA</a></li>
+<li><a class="" href="q5-kruskal-wallis-test.html"><span class="header-section-number">34</span> Q5: Kruskal-Wallis test</a></li>
+<li><a class="" href="tidyup_wk6.html"><span class="header-section-number">35</span> Making graphs and tidying up</a></li>
+<li class="book-part">Week 7</li>
+<li><a class="" href="intro_wk7.html"><span class="header-section-number">36</span> Introduction</a></li>
+<li><a class="active" href="two-way-anova.html"><span class="header-section-number">37</span> Two-way ANOVA</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="two-way-anova" class="section level1" number="37">
+<h1>
+<span class="header-section-number">37</span> Two-way ANOVA<a class="anchor" aria-label="anchor" href="#two-way-anova"><i class="fas fa-link"></i></a>
+</h1>
+<p>A <strong>two-way ANOVA</strong> is used to compare means of a continuous outcome variable which is (potentially) being affected by two different categorical predictor variables at the same time.</p>
+<p>For example, we could evaluate the effect of <em>sex</em> and <em>species</em> on penguin body mass.</p>
+<p>One of the key outputs of a two-way ANOVA is what’s called an <em>interactive effect</em>, which evaluates if each of the categorical factors influences the impact of the other on your outcome variable.</p>
+<div class="rmdtip">
+<p><strong><em>IMPORTANT!</em></strong></p>
+<p>You can only estimate an <em>interactive effect</em> with a two-way ANOVA.</p>
+<p>Conducting two separate one-way ANOVAs will only tell you if there is a significant <em>main effect</em> of each variable individually, but not if there is a significant interaction.</p>
+</div>
+<div id="prepare-and-read-in-your-data" class="section level2" number="37.1">
+<h2>
+<span class="header-section-number">37.1</span> Prepare and read in your data<a class="anchor" aria-label="anchor" href="#prepare-and-read-in-your-data"><i class="fas fa-link"></i></a>
+</h2>
+<p>In order to conduct a two-way ANOVA in R, you will need to format your Excel file such that:</p>
+<ol style="list-style-type: decimal">
+<li>All of your observations for a given level of measurement (e.g. plant-level vs. leaf-level) are contained within a <em>single sheet</em> that can be exported as a csv file.</li>
+<li>Each predictor (or independent) variable has its <em>own column</em>.</li>
+<li>Each variable that you may need to filter/subset by has its <em>own column</em>.</li>
+<li>There are <em>no extra rows or spaces</em> - only your column names in row 1 and your data observations in rows 2 through n. </li>
+</ol>
+<p>Depending on how you originally recorded your data in Excel, this may require you to combine observations made in different sheets, and additional columns (e.g. for week).</p>
+<p>Once you have formatted your data properly, you can export the sheet(s) as a csv file and upload it (them) to the R server.</p>
+<p>Then you can read in your data using the usual method.</p>
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">peng_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/palmer_penguin_data.csv"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div id="model-notation-in-r-1" class="section level2" number="37.2">
+<h2>
+<span class="header-section-number">37.2</span> Model notation in R<a class="anchor" aria-label="anchor" href="#model-notation-in-r-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Last week you learned about model notation in R and use it to write the model for a linear regression and a one-way ANOVA. You will also need to use it for the two-way ANOVA.</p>
+<p>As a reminder:</p>
+<blockquote>
+<p>In R, the formulas for statistical models are generally written using the <code>~</code> symbol (called a “tilde”).</p>
+</blockquote>
+<blockquote>
+<p>A simple model with soil carbon as the outcome variable and tree density as the predictor variable might look like this: <code>body_mass ~ species</code></p>
+</blockquote>
+<blockquote>
+<p>If you were reading the model formula aloud, you would say: “penguin body mass <em>is predicted by</em> species”</p>
+</blockquote>
+</div>
+<div id="check-the-model-assumptions" class="section level2" number="37.3">
+<h2>
+<span class="header-section-number">37.3</span> Check the model assumptions<a class="anchor" aria-label="anchor" href="#check-the-model-assumptions"><i class="fas fa-link"></i></a>
+</h2>
+<p>Like all statistical tests, a two-way ANOVA assumes that your data are <strong>independent</strong>. (You can ask Doug and/or Ian if they are comfortable with you relaxing that assumption for plants that share a pot.)</p>
+<p>Like other parametric tests, a two-way ANOVA assumes that your data - <em>for each sample/sub-group</em> - are <strong>Normally-distributed</strong>. This is more important for smaller datasets (&lt;30 points), but can be ignored for larger datasets.</p>
+<p>You should use your <code>examine_norm()</code> function that you wrote in week 3, and reused again in weeks 4 and 6 to ensure that your data are Normally distributed.</p>
+<p>Although our sample sizes here (from 34 to 73) are large enough that we don’t need to check Normality, we’ll do it anyway for completeness.</p>
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Remove NAs</span></span>
+<span><span class="va">peng_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="va">peng_data</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Subset data into subgroups to check Normality</span></span>
+<span><span class="va">peng_data_male_adelie</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">peng_data</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"male"</span> <span class="op">&amp;</span> <span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span></span>
+<span><span class="va">peng_data_female_adelie</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">peng_data</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"female"</span> <span class="op">&amp;</span> <span class="va">species</span> <span class="op">==</span> <span class="st">"Adelie"</span><span class="op">)</span></span>
+<span><span class="va">peng_data_male_gentoo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">peng_data</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"male"</span> <span class="op">&amp;</span> <span class="va">species</span> <span class="op">==</span> <span class="st">"Gentoo"</span><span class="op">)</span></span>
+<span><span class="va">peng_data_female_gentoo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">peng_data</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"female"</span> <span class="op">&amp;</span> <span class="va">species</span> <span class="op">==</span> <span class="st">"Gentoo"</span><span class="op">)</span></span>
+<span><span class="va">peng_data_male_chinstrap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">peng_data</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"male"</span> <span class="op">&amp;</span> <span class="va">species</span> <span class="op">==</span> <span class="st">"Chinstrap"</span><span class="op">)</span></span>
+<span><span class="va">peng_data_female_chinstrap</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">peng_data</span>, <span class="va">sex</span> <span class="op">==</span> <span class="st">"female"</span> <span class="op">&amp;</span> <span class="va">species</span> <span class="op">==</span> <span class="st">"Chinstrap"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Check Normality</span></span>
+<span><span class="fu">examine_norm</span><span class="op">(</span><span class="va">peng_data_male_adelie</span><span class="op">$</span><span class="va">body_mass_g</span><span class="op">)</span></span></code></pre></div>
+<div class="inline-figure"><img src="07-week7_files/figure-html/unnamed-chunk-4-1.png" alt="" width="672"></div>
+<pre><code>#&gt; 
+#&gt;  Shapiro-Wilk normality test
+#&gt; 
+#&gt; data:  mydata
+#&gt; W = 0.98269, p-value = 0.416
+#&gt; Warning in ks.test.default(mydata, "pnorm", mean = mean_md,
+#&gt; sd = sd_md): ties should not be present for the one-sample
+#&gt; Kolmogorov-Smirnov test
+#&gt; 
+#&gt;  Asymptotic one-sample Kolmogorov-Smirnov test
+#&gt; 
+#&gt; data:  mydata
+#&gt; D = 0.084147, p-value = 0.6795
+#&gt; alternative hypothesis: two-sided</code></pre>
+<p>I’m only printing the results for one of the samples (male Adelie penguins) here, but unless your sample sizes are large, you should check all of them.</p>
+</div>
+<div id="run-the-test" class="section level2" number="37.4">
+<h2>
+<span class="header-section-number">37.4</span> Run the test<a class="anchor" aria-label="anchor" href="#run-the-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>To run a two-way ANOVA with an interactive effect in R, the model notation should have a <code>*</code> between your two predictor variables (in this case, sex and species), as shown below.</p>
+<p>Just like last week with the one-way ANOVA, you will need to save your model output as an object, and use the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function to examine it.</p>
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">sex</span> <span class="op">*</span> <span class="va">species</span>, data <span class="op">=</span> <span class="va">peng_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod</span><span class="op">)</span></span>
+<span><span class="co">#&gt;              Df    Sum Sq  Mean Sq F value   Pr(&gt;F)    </span></span>
+<span><span class="co">#&gt; sex           1  38878897 38878897 406.145  &lt; 2e-16 ***</span></span>
+<span><span class="co">#&gt; species       2 143401584 71700792 749.016  &lt; 2e-16 ***</span></span>
+<span><span class="co">#&gt; sex:species   2   1676557   838278   8.757 0.000197 ***</span></span>
+<span><span class="co">#&gt; Residuals   327  31302628    95727                     </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
+<p>The output will have four rows of results:</p>
+<ul>
+<li>one for each of the main effects (e.g. <code>sex</code> and <code>species</code>)</li>
+<li>one for the interaction (<code>sex:species</code>)</li>
+<li>one for the residuals (“error” or variation that is not explained in the model)</li>
+</ul>
+<p>The four columns should look familiar to you from the one-way ANOVA. They are:</p>
+<ul>
+<li>Df (degrees of freedom)</li>
+<li>sum Sq (sum of squared error)</li>
+<li>Mean Sq (mean squared error)</li>
+<li>F value (the test statistic)</li>
+<li>Pr(&gt;F) (the p-value)</li>
+</ul>
+<div class="rmdwarning">
+<p><strong>Warning!</strong></p>
+<p>If the interaction is not significant, then you should rerun the model, without the interaction term.</p>
+<p>This is done by changing the <code>*</code> to a <code>+</code>, as shown below.</p>
+</div>
+<p>Although our interaction for sex and species in the penguin data is highly significant, the code below shows how you would run a two-way ANOVA without an interactive effect.</p>
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">mod2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">body_mass_g</span> <span class="op">~</span> <span class="va">sex</span> <span class="op">+</span> <span class="va">species</span>, data <span class="op">=</span> <span class="va">peng_data</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">mod2</span><span class="op">)</span></span>
+<span><span class="co">#&gt;              Df    Sum Sq  Mean Sq F value Pr(&gt;F)    </span></span>
+<span><span class="co">#&gt; sex           1  38878897 38878897   387.9 &lt;2e-16 ***</span></span>
+<span><span class="co">#&gt; species       2 143401584 71700792   715.3 &lt;2e-16 ***</span></span>
+<span><span class="co">#&gt; Residuals   329  32979185   100241                   </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  </span></span>
+<span><span class="co">#&gt; 0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
+</div>
+<div id="post-host-test" class="section level2" number="37.5">
+<h2>
+<span class="header-section-number">37.5</span> Post-host test<a class="anchor" aria-label="anchor" href="#post-host-test"><i class="fas fa-link"></i></a>
+</h2>
+<p>Remember, that an ANOVA only tells you if there is a significant effect between any groups, but not which groups are significantly different to each other.</p>
+<p>If your two-way ANOVA is significant, you will need to conduct a post-hoc test to determine which groups are significantly different.</p>
+<p>The post-hoc test for a two-way ANOVA is the same one that we used last week for the one-way ANOVA: Tukey’s honestly significant difference test, which is done with the function <code><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD()</a></code>.</p>
+<p>However, we will need to tell it to include all of the interactions with the <code>which =</code> argument.</p>
+<div class="sourceCode" id="cb103"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">mod</span>, which <span class="op">=</span> <span class="st">"sex:species"</span><span class="op">)</span></span>
+<span><span class="co">#&gt;   Tukey multiple comparisons of means</span></span>
+<span><span class="co">#&gt;     95% family-wise confidence level</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Fit: aov(formula = body_mass_g ~ sex * species, data = peng_data)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $`sex:species`</span></span>
+<span><span class="co">#&gt;                                      diff       lwr</span></span>
+<span><span class="co">#&gt; male:Adelie-female:Adelie        674.6575  527.8486</span></span>
+<span><span class="co">#&gt; female:Chinstrap-female:Adelie   158.3703  -25.7874</span></span>
+<span><span class="co">#&gt; male:Chinstrap-female:Adelie     570.1350  385.9773</span></span>
+<span><span class="co">#&gt; female:Gentoo-female:Adelie     1310.9058 1154.8934</span></span>
+<span><span class="co">#&gt; male:Gentoo-female:Adelie       2116.0004 1962.1408</span></span>
+<span><span class="co">#&gt; female:Chinstrap-male:Adelie    -516.2873 -700.4449</span></span>
+<span><span class="co">#&gt; male:Chinstrap-male:Adelie      -104.5226 -288.6802</span></span>
+<span><span class="co">#&gt; female:Gentoo-male:Adelie        636.2482  480.2359</span></span>
+<span><span class="co">#&gt; male:Gentoo-male:Adelie         1441.3429 1287.4832</span></span>
+<span><span class="co">#&gt; male:Chinstrap-female:Chinstrap  411.7647  196.6479</span></span>
+<span><span class="co">#&gt; female:Gentoo-female:Chinstrap  1152.5355  960.9603</span></span>
+<span><span class="co">#&gt; male:Gentoo-female:Chinstrap    1957.6302 1767.8040</span></span>
+<span><span class="co">#&gt; female:Gentoo-male:Chinstrap     740.7708  549.1956</span></span>
+<span><span class="co">#&gt; male:Gentoo-male:Chinstrap      1545.8655 1356.0392</span></span>
+<span><span class="co">#&gt; male:Gentoo-female:Gentoo        805.0947  642.4300</span></span>
+<span><span class="co">#&gt;                                       upr     p adj</span></span>
+<span><span class="co">#&gt; male:Adelie-female:Adelie        821.4664 0.0000000</span></span>
+<span><span class="co">#&gt; female:Chinstrap-female:Adelie   342.5279 0.1376213</span></span>
+<span><span class="co">#&gt; male:Chinstrap-female:Adelie     754.2926 0.0000000</span></span>
+<span><span class="co">#&gt; female:Gentoo-female:Adelie     1466.9181 0.0000000</span></span>
+<span><span class="co">#&gt; male:Gentoo-female:Adelie       2269.8601 0.0000000</span></span>
+<span><span class="co">#&gt; female:Chinstrap-male:Adelie    -332.1296 0.0000000</span></span>
+<span><span class="co">#&gt; male:Chinstrap-male:Adelie        79.6351 0.5812048</span></span>
+<span><span class="co">#&gt; female:Gentoo-male:Adelie        792.2606 0.0000000</span></span>
+<span><span class="co">#&gt; male:Gentoo-male:Adelie         1595.2026 0.0000000</span></span>
+<span><span class="co">#&gt; male:Chinstrap-female:Chinstrap  626.8815 0.0000012</span></span>
+<span><span class="co">#&gt; female:Gentoo-female:Chinstrap  1344.1107 0.0000000</span></span>
+<span><span class="co">#&gt; male:Gentoo-female:Chinstrap    2147.4564 0.0000000</span></span>
+<span><span class="co">#&gt; female:Gentoo-male:Chinstrap     932.3460 0.0000000</span></span>
+<span><span class="co">#&gt; male:Gentoo-male:Chinstrap      1735.6917 0.0000000</span></span>
+<span><span class="co">#&gt; male:Gentoo-female:Gentoo        967.7594 0.0000000</span></span></code></pre></div>
+<p>In this case, all of contrasts between specific sex-species subgroups are significantly different to each other except for two:</p>
+<ul>
+<li>female Chinstrap vs. female Adelie</li>
+<li>male Chinstrap vs. male Adelie</li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="intro_wk7.html"><span class="header-section-number">36</span> Introduction</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#two-way-anova"><span class="header-section-number">37</span> Two-way ANOVA</a></li>
+<li><a class="nav-link" href="#prepare-and-read-in-your-data"><span class="header-section-number">37.1</span> Prepare and read in your data</a></li>
+<li><a class="nav-link" href="#model-notation-in-r-1"><span class="header-section-number">37.2</span> Model notation in R</a></li>
+<li><a class="nav-link" href="#check-the-model-assumptions"><span class="header-section-number">37.3</span> Check the model assumptions</a></li>
+<li><a class="nav-link" href="#run-the-test"><span class="header-section-number">37.4</span> Run the test</a></li>
+<li><a class="nav-link" href="#post-host-test"><span class="header-section-number">37.5</span> Post-host test</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/07-week7.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/07-week7.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Statistics Practicals for LECX5141 - Biological Research Design and Delivery</strong>" was written by Marta Shocket. It was last built on 2026-11-20.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

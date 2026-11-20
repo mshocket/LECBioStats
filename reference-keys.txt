@@ -178,3 +178,10 @@ tidying-up-3
 updating-your-r-cheatsheet-2
 ggplot-plotting-functions
 statistical-test-related-functions
+intro_wk7
+two-way-anova
+prepare-and-read-in-your-data
+model-notation-in-r-1
+check-the-model-assumptions
+run-the-test
+post-host-test
